@@ -6,8 +6,10 @@
 
 ## Team
 
+
 - **Product Owner**: Mark Grifith
 - **Scrum Master**: Carmen Salas
+
 - **Development Team Members**: Carmen Salas, Peter Rose
 
 ## Table of Contents
