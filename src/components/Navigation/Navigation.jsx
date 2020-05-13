@@ -5,23 +5,23 @@ import Logo from '../Logo';
 
 function Navigation() {
   return (
-    <section className="navigationComponent">
+    <section className="NavigationComponent">
       <nav>
         <Logo />
         <ol>
-          <li>
+          <li className="navTab" className="navTab">
             <a href="/">Home</a>{' '}
           </li>
-          <li>
+          <li className="navTab">
             <a href="/">Forum</a>{' '}
           </li>
-          <li>
+          <li className="navTab">
             <a href="/">Account</a>{' '}
           </li>
-          <li>
+          <li className="navTab">
             <a href="/">Sign In</a>{' '}
           </li>
-          <li>
+          <li className="navTab">
             <a href="/">Sign Up</a>{' '}
           </li>
         </ol>
