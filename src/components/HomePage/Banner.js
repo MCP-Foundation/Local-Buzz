@@ -8,7 +8,9 @@ function Banner() {
           Small Stories is a small business forum for small business owners and
           employees to share advice and stories to empower eachother.
         </h2>
-        <button className="bannerButton">Forum</button>
+        <button className="bannerButton" type="button">
+          Forum
+        </button>
       </header>
     </section>
   );
