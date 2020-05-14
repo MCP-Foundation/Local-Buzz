@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../HomePage/HomePage.css';
 import Navigation from '../Navigation/Navigation';
 import Banner from '../HomePage/Banner';
 import About from '../HomePage/About';
