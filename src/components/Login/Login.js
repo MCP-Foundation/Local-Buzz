@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../authentication/authentication.css';
-import Navigation from '../../Navigation/Navigation';
+import '../Login/Login.css';
+import Navigation from '../Navigation/Navigation';
 import LoginForm from './LoginForm';
 
 class Login extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../authentication/authentication.css';
-import Navigation from '../../Navigation/Navigation';
+import '../Register/Register.css';
+import Navigation from '../Navigation/Navigation';
 import RegisterForm from './RegisterForm';
 
 class Register extends Component {
