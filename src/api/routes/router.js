@@ -1,5 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const userController = require('../models/Users')
+
 // const auth = require('../controllers/auth.js');
 
 const router = express.Router();
@@ -10,10 +12,8 @@ router.use(cookieParser());
 // Remember to compartmentalize file structure.
 
 // /**  GET'S **/
-router.get('/', (req, res) => {
-  res.send('Yeooo')
-});
-// router.get('/users', /* userController.getAllUsers */);
+router.get('/', );
+router.get('/users', (req, res) => userController.getAll);
 // router.get('/posts' /* postController.getAllPosts */);
 // router.get('logout', /* userController.logout + React Route change ? */);
 

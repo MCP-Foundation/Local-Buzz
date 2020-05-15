@@ -17,6 +17,7 @@ const register = (req, res) => {
     res.status(500).send(err);
   }
 };
+
 // need to reload feature if the user wasn't found
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -88,11 +89,6 @@ module.exports = {
   login,
   logout,
   register,
-  loginForm,
-  registerForm,
   authenticate,
-  homePage,
-  createForm,
-  updateForm,
-  landingPage,
+  getAll
 };

@@ -1,4 +1,4 @@
-import { query } from '../db';
+const db = require('../db')
 
 class User {
   static create(name, username, email, password, address) {
@@ -35,6 +35,10 @@ class User {
     const queryText = 'SELECT * FROM users WHERE email = $1;';
     return query(queryText, [email]).then((data) => data.rows[0]);
   }
+  static getAll() {
+    const queryText = 'SELECT * FROM users;';
+    return query(queryText)
+  }
 }
 
-export default User;
+module.exports = User;

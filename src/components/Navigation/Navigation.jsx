@@ -1,8 +1,14 @@
 import React from 'react';
 import '../Navigation/Navigation.css';
+import axios from 'axios';
+
 
 import Logo from '../Logo';
 
+
+function onClick() {
+  axios.get('/users')
+}
 function Navigation() {
   return (
     <section className="NavigationComponent">
