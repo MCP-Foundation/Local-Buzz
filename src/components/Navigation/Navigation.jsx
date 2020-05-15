@@ -13,7 +13,7 @@ function Navigation() {
         <Navbar.Brand href="/">
           <Logo />
         </Navbar.Brand>
-        <Nav className="mr-auto">
+        <Nav className="mr-auto" navbar>
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/posts">Posts</Nav.Link>
           <Nav.Link href="/account">Account</Nav.Link>
