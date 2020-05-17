@@ -1,10 +1,10 @@
-const db = require('../db');
+const db = require('../db')
 
 class User {
   static create(name, username, email, password, address) {
     const queryText = `INSERT INTO users (name, username, email, password, address)
     VALUES ($1, $2, $3, $4, $5);`;
-    return db.query(queryText, [
+    return query(queryText, [
       name, 
       username, 
       email, 
@@ -15,8 +15,8 @@ class User {
 
   static update(user_id, name, username, email, password, address) {
     const queryText = `UPDATE users SET name = $2, username = $3, email = $4, password = $5, address = $6
-      WHERE id = $1;`;
-    return db.query(queryText, [
+      WHERE user_id = $1;`;
+    return query(queryText, [
       user_id,
       name, 
       username, 
@@ -27,13 +27,17 @@ class User {
   }
 
   static deleteUser(user_id) {
-    const queryText = 'DELETE FROM users WHERE id = $1';
-    return db.query(queryText, [user_id]);
+    const queryText = 'DELETE FROM users WHERE user_id = $1';
+    return query(queryText, [user_id]);
   }
 
   static getByEmail(email) {
     const queryText = 'SELECT * FROM users WHERE email = $1;';
-    return db.query(queryText, [email]).then((data) => data.rows[0]);
+    return query(queryText, [email]).then((data) => data.rows[0]);
+  }
+  static getAll() {
+    const queryText = 'SELECT * FROM users;';
+    return query(queryText)
   }
 }
 
