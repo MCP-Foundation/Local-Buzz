@@ -6,19 +6,16 @@ const User = require('../models/Users');
 const register = (req, res) => {
   try {
     const {
-      firstName, lastName, email, password,
+      name, username, email, password, address
     } = req.body;
     const saltRounds = 8;
     bcrypt.hash(password, saltRounds)
-      .then((hashedPassword) => User.create(firstName, lastName, email, hashedPassword))
-      .then(() => res.redirect('/login'));
+      .then((hashedPassword) => User.create(name, username, email, hashedPassword, address))
   } catch (err) {
-    console.log(err);
     res.status(500).send(err);
   }
 };
 
-// need to reload feature if the user wasn't found
 const login = async (req, res) => {
   const { email, password } = req.body;
 

@@ -4,8 +4,6 @@ import axios from 'axios';
 
 import Logo from '../Logo';
 
-
-
 function Navigation() {
   return (
     <section className="NavigationComponent">
@@ -13,7 +11,7 @@ function Navigation() {
         <Logo />
         <ol>
           <li className="navTab" className="navTab">
-            <a onClick={onClick} href="/">Home</a>{' '}
+            <a href="/">Home</a>{' '}
           </li>
           <li className="navTab">
             <a href="/">Forum</a>{' '}
