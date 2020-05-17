@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-const User = require('../models/Users');
+const User = require('../models/Users.js');
 
 const register = (req, res) => {
   try {
@@ -87,5 +87,4 @@ module.exports = {
   logout,
   register,
   authenticate,
-  getAll
 };
