@@ -3,13 +3,19 @@ import React from 'react';
 function PostForm() {
   return (
     <section className="PostFormComponent">
-      <form id="loginForm" action="/login" method="post">
+      <form id="postForm" action="/" method="">
         <fieldset>
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" name="email" />
+          <label htmlFor="title">Name</label>
+          <input id="title" type="title" name="title" />
 
-          <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" />
+          <label htmlFor="username">UserName</label>
+          <input id="username" type="username" name="username" />
+
+          <label htmlFor="username">UserName</label>
+          <input id="username" type="username" name="username" />
+
+          <label htmlFor="username">UserName</label>
+          <input id="username" type="username" name="username" />
 
           <input type="submit" value="Log In" />
         </fieldset>
