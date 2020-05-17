@@ -1,9 +1,9 @@
 import React from 'react';
 
-function RegisterForm() {
+function RegisterForm({ registerUser }) {
   return (
     <section className="RegisterFormComponent">
-      <form id="registerForm" action="/register" method="post">
+      <form id="registerForm" onSubmit={registerUser} action="/" method="post">
         <fieldset>
           <label htmlFor="name">Name</label>
           <input id="name" type="text" name="name" />

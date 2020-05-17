@@ -1,9 +1,9 @@
 import React from 'react';
 
-function LoginForm() {
+function LoginForm({ loginUser }) {
   return (
     <section className="LoginFormComponent">
-      <form id="loginForm" action="/login" method="post">
+      <form onSubmit={loginUser} id="loginForm">
         <fieldset>
           <label htmlFor="email">Email</label>
           <input id="email" type="email" name="email" />
