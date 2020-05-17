@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const User = require('../models/Users')
+const User = require('../models/Users').default
 
 const createUser = (req, res) => {
 	const { name, username, email, password, address } = req.body

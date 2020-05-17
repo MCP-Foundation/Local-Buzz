@@ -2,13 +2,10 @@ import React from 'react';
 import '../Navigation/Navigation.css';
 import axios from 'axios';
 
-
 import Logo from '../Logo';
 
 
-function onClick() {
-  axios.get('/users')
-}
+
 function Navigation() {
   return (
     <section className="NavigationComponent">
@@ -16,7 +13,7 @@ function Navigation() {
         <Logo />
         <ol>
           <li className="navTab" className="navTab">
-            <a href="/">Home</a>{' '}
+            <a onClick={onClick} href="/">Home</a>{' '}
           </li>
           <li className="navTab">
             <a href="/">Forum</a>{' '}
