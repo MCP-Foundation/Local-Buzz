@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Login/Login.css';
+import './Login.css';
 import Navigation from '../Navigation/Navigation';
 import LoginForm from './LoginForm';
 

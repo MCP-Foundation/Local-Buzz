@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import '../Forum/Forum.css';
+import './Forum.css';
 import Navigation from '../Navigation/Navigation';
-import ForumHeader from '../Forum/ForumHeader';
-import SearchTags from '../Forum/SearchTags';
-import ForumPosts from '../Forum/ForumPosts';
+import ForumHeader from './ForumHeader';
+import SearchTags from './SearchTags';
+import ForumPosts from './ForumPosts';
 
 class Forum extends Component {
   render() {

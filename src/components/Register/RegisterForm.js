@@ -5,19 +5,19 @@ function RegisterForm() {
     <section className="RegisterFormComponent">
       <form id="registerForm" action="/register" method="post">
         <fieldset>
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input id="name" type="text" name="name" />
 
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input id="username" type="text" name="username" />
 
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input id="email" type="email" name="email" />
 
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input id="password" type="password" name="password" />
 
-          <label for="address">Borough</label>
+          <label htmlFor="address">Borough</label>
           <select id="address" name="address">
             <option value="BX">Bronx</option>
             <option value="BK">Brooklyn</option>
@@ -26,6 +26,7 @@ function RegisterForm() {
             <option value="SI">Staten Island</option>
           </select>
 
+          <label htmlFor="state">State</label>
           <select id="state" name="state">
             <option value="NY">NY</option>
           </select>

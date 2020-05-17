@@ -3,7 +3,7 @@ import React from 'react';
 function SearchTags() {
   return (
     <section className="SearchTagsComponent">
-      <input></input>
+      <input />
       <button type="submit">Search</button>
     </section>
   );

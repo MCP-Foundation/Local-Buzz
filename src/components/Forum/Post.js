@@ -25,10 +25,16 @@ function Post() {
       </div>
       <div className="postInteraction">
         <div>
-          <p className="likes">{}likes</p>
+          <p className="likes">
+            {}
+            likes
+          </p>
         </div>
         <div>
-          <p className="comments">{}comments</p>
+          <p className="comments">
+            {}
+            comments
+          </p>
         </div>
       </div>
     </section>
