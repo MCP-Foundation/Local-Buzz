@@ -89,3 +89,15 @@ const verifyUser = async(req, res) => {
 		return res.send(err)
 	}
 }
+
+const logout = (req, res) => {
+	res.clearCookie('userToken')
+	res.redirect('/')
+}
+
+module.exports = {
+	createUser,
+	authenticate,
+	verifyUser,
+	logout
+}

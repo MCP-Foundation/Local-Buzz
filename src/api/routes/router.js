@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const auth = require('../controllers/auth.js');
+const userController = require('./controllers/auth')
+const postController = require('./controllers/posts')
 
 const router = express.Router();
 
