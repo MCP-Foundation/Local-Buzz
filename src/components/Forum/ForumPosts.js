@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from '../Forum/Post';
+import Post from './Post';
 
 function ForumPosts() {
   return (

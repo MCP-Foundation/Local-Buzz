@@ -1,9 +1,9 @@
 import React from 'react';
 
-function LoginForm({ loginUser }) {
+function PostForm() {
   return (
-    <section className="LoginFormComponent">
-      <form onSubmit={loginUser} id="loginForm">
+    <section className="PostFormComponent">
+      <form id="loginForm" action="/login" method="post">
         <fieldset>
           <label htmlFor="email">Email</label>
           <input id="email" type="email" name="email" />
@@ -18,4 +18,4 @@ function LoginForm({ loginUser }) {
   );
 }
 
-export default LoginForm;
+export default PostForm;
