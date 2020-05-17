@@ -58,6 +58,7 @@ class Posts {
     const queryText = 'SELECT * FROM posts;';
     return db.query(queryText);
   }
+
 }
 
 const test = new Posts();
