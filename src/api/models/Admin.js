@@ -2,7 +2,7 @@ const db = require('../db');
 
 class Admins {
   static create(admin_name, email, password, address) {
-    const queryText = `INSERT INTO admins (admin_name, email, password, address
+    const queryText = `INSERT INTO admins (admin_name, email, password, address)
     VALUES ($1, $2, $3, $4);`;
     return db.query(queryText, [
       admin_name,
