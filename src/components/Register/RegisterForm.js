@@ -6,7 +6,7 @@ function RegisterForm({ registerUser }) {
       <form
         id="registerForm"
         onSubmit={registerUser}
-        action="/register"
+        action="/api/register"
         method="post"
       >
         <fieldset>
