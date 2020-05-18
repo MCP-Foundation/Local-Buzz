@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const router = require('./routes/router.js');
-const port = 8080;
+const port = 5000;
 const userController = require('./controllers/users');
 const postController = require('./controllers/posts');
 
