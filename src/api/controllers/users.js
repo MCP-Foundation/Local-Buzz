@@ -4,17 +4,17 @@ const path = require('path');
 const User = require('../models/Users.js');
 
 const register = (req, res) => {
-  try {
-    const {
-      name, username, email, password, address
-    } = req.body;
-    const saltRounds = 8;
+    const { name, username, email, password, address } = req.body;
+
+    console.log(name)
+    const saltRounds = 7;
     bcrypt.hash(password, saltRounds)
-      .then((hashedPassword) => User.create(name, username, email, hashedPassword, address))
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};
+      .then((hashedPassword) => {
+        User.create(name, username, email, hashedPassword, address)
+      })
+      .then(response => res.send('User Created'))
+      .catch(err => res.send(err));
+}
 
 const login = async (req, res) => {
   const { email, password } = req.body;

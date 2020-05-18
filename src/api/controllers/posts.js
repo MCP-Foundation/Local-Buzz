@@ -14,12 +14,13 @@ const createPost = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error: Could not create a Post. Please try again.' })
   }
 }
+
 const getUsersPosts = async (req, res) => {
   try {
     const userId = req.user_id
     const result = await Post.getUsersPosts(userId)
     if (result.length === 0) {
-      return res.json('There are no Posts yet.')
+      return res.send('There are no Posts yet.')
     }
     result.push(req.user.username)
     return res.send(result)
@@ -27,28 +28,32 @@ const getUsersPosts = async (req, res) => {
     return res.status(500).json({ error: 'Internal Server Error: Could not get all posts from the user.' })
   }
 }
+
 const updatePosts = async (req, res) => {
   const postID = req.params.id
   const userId = req.user_id
   const { title, post_body, tag, location, category } = req.body
   try {
     await Post.update(userId, postID, title, post_body, tag, location, category)
-    return res.json('Create Operation: Complete')
+    return res.send('Create Operation: Complete')
   } catch (err) {
     return res.status(500).json({ error: 'Internal Server Error: Post could not be updated.' })
   }
 }
+
 const deletePosts = (req, res) => {
   const postId = req.params.id
   const userId = req.user_id
   Post.deletePosts(userId, postId)
-    .then(() => res.json('Delete Operation: Complete'))
+    .then(() => res.send('Delete Operation: Complete'))
     .catch(() => res.status(500).json({ error: 'Internal Server Error: Post could not be deleted.' }))
 }
+
 const getAllPosts = async (req, res) => {
   const posts = await Post.getAllPosts()
   res.send(posts)
 }
+
 module.exports = {
   createPost,
   updatePosts,
