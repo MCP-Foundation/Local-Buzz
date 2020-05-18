@@ -1,6 +1,6 @@
 const db = require('../db');
 
-class Posts {
+class Post {
   static create(
     user_id,
     title,
@@ -56,9 +56,10 @@ class Posts {
 
   static getAll() {
     const queryText = 'SELECT * FROM posts;';
-    return db.query(queryText);
+    return db.query(queryText)
+      .then((data) => data.rows);
   }
 
 }
 
-module.exports = Posts;
+module.exports = Post;
