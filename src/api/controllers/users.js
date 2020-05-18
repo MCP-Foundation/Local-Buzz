@@ -88,7 +88,7 @@ const authenticate = async (req, res, next) => {
 
 const logout = (req, res) => {
   res.clearCookie('userToken');
-  // React direct with react router
+  res.redirect('/')
 };
 
 module.exports = {
