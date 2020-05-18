@@ -18,7 +18,11 @@ router.use(cookieParser());
 // /**  GET'S **/
 // router.get('/', (req, res) => console.log('hey this works'));
 // router.get('/users', (req, res) => userController.getAll);
+<<<<<<< HEAD
+router.get('/posts' ,postController.getAllPosts);
+=======
 router.get('/posts', postController.getAllPosts);
+>>>>>>> d073b2c6b75b21efacc6242f36b200f1a33d1eea
 // router.get('logout',  userController.logout + React Route change ? );
 
 // /** POST'S **/
@@ -33,6 +37,10 @@ router.put('/posts/:postId', postController.updatePosts);
 
 // /** DELETE'S **/
 // router.delete('/users/:userId', /* userController.delete */);
+<<<<<<< HEAD
+router.delete('/posts/:postId', postController.deletePosts );
+=======
 router.delete('/posts/:postId', postController.deletePosts);
+>>>>>>> d073b2c6b75b21efacc6242f36b200f1a33d1eea
 
 module.exports = router;
