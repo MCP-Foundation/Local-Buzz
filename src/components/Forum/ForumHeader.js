@@ -1,5 +1,5 @@
 import React from 'react';
-import PostForm from './PostForm';
+import PostForm from '../Forum/PostForm';
 
 function Forum() {
   return (
@@ -8,7 +8,7 @@ function Forum() {
         <h3 className="forumHeeader">
           Checkout different tags and topics people are talking about
         </h3>
-        <PostForm />
+        <button onClick="">Make a Post</button>
       </header>
     </section>
   );
