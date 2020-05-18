@@ -12,6 +12,7 @@ const createPost =  async (req,res) =>{
 		res.status(500).json({ error: 'Internal Server Error: Could not create a Post. Please try again.' })
 	}
 }
+
 const getUsersPosts = async (req, res) => {
 	try {
 		const userId = req.user_id
@@ -25,6 +26,7 @@ const getUsersPosts = async (req, res) => {
 		return res.status(500).json({ error: 'Internal Server Error: Could not get all posts from the user.' })
 	}
 }
+
 const updatePosts = async (req, res) => {
 	const postID = req.params.id
 	const userId = req.user_id
@@ -36,6 +38,7 @@ const updatePosts = async (req, res) => {
 		return res.status(500).json({ error: 'Internal Server Error: Post could not be updated.' })
 	}
 }
+
 const deletePosts = (req, res) => {
 	const postId = req.params.id
 	const userId = req.user_id

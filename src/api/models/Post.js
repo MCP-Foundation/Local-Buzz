@@ -45,21 +45,21 @@ class Post {
   }
 
   static delete(post_id) {
-    const queryText = 'DELETE FROM posts WHERE post_id = $1;';
+    const queryText = 'DELETE FROM posts WHERE post_id = $1 RETURNING *;';
     return db.query(queryText, [post_id]);
   }
 
   static getById(post_id) {
-    const queryText = 'SELECT * FROM posts WHERE post_id = $1;';
+    const queryText = 'SELECT * FROM posts WHERE post_id = $1 RETURNING *;';
     return db.query(queryText, [post_id]);
   }
+
 
   static getAll() {
     const queryText = 'SELECT * FROM posts;';
     return db.query(queryText)
       .then((data) => data.rows);
   }
-
 }
 
 module.exports = Post;
