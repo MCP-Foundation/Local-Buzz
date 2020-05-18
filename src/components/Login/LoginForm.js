@@ -3,7 +3,7 @@ import React from 'react';
 function LoginForm({ loginUser }) {
   return (
     <section className="LoginFormComponent">
-      <form onSubmit={loginUser} id="loginForm">
+      <form onSubmit={loginUser} id="loginForm" action="/login" method="post">
         <fieldset>
           <label htmlFor="email">Email</label>
           <input id="email" type="email" name="email" />
