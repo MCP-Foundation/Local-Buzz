@@ -3,7 +3,7 @@ import React from 'react';
 function PostForm() {
   return (
     <section className="PostFormComponent">
-      <form id="postForm" action="/posts" method="POST">
+      <form id="postForm" action="/posts" method="post">
         <fieldset>
           <label htmlFor="title">Title</label>
           <input id="title" type="title" name="title" />
@@ -26,7 +26,7 @@ function PostForm() {
             <option value="SI">Staten Island</option>
           </select>
 
-          <input type="submit" value="Log In" />
+          <input type="submit" value="Create Post" />
         </fieldset>
       </form>
     </section>
