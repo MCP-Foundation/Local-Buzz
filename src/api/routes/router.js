@@ -24,7 +24,7 @@ router.get('/posts', postController.getAllPosts);
 // /** POST'S **/
 router.post('/register', userController.register);
 router.post('/login', userController.login);
-router.post('/posts', postController.createPost);
+router.post('/posts', userController.authenticate,postController.createPost);
 // router.post('/posts/:postId');
 
 // /** PUT'S **/

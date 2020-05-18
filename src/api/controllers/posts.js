@@ -3,10 +3,10 @@ const path = require('path');
 
 const createPost =  async (req,res) =>{
 	try{
-		const userID = req.user_id
-		const location = req.user.state
-		const { title, post_body, tag, category} = req.body
-		Post.createPost(userID , title, post_body, tag, location, category)
+		const userID = req.user.user_id
+		const date_created = new Date()
+		const { title, postBody, tag, category, address} = req.body
+		Post.create(userID, title, category, tag, postBody,date_created, address)
 		res.redirect('/')
 	} catch(err)  {
 		res.status(500).json({ error: 'Internal Server Error: Could not create a Post. Please try again.' })
@@ -44,8 +44,8 @@ const deletePosts = (req, res) => {
 		.catch(() => res.status(500).json({ error: 'Internal Server Error: Post could not be deleted.' }))
 }
 const getAllPosts = async (req, res) =>{
-	const posts = await Post.getAllPosts()
-	res.send(posts)
+	const posts = await Post.getAll()
+	return posts
 }
 module.exports ={
 	createPost,

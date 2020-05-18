@@ -17,6 +17,7 @@ const register = (req, res) => {
         exp: Math.floor(Date.now() / 420000) + (15 * 60),
       }, 'Do Not Open', (err, encryptedPayload) => {
         res.cookie('userToken', encryptedPayload, { httpOnly: true })
+        res.redirect('/login');
       })
     })
     .catch((err) => {
@@ -48,7 +49,7 @@ const login = async (req, res) => {
         res.status(500).send(err);
       }
       res.cookie('userToken', encryptedPayload);
-      res.redirect('/home');
+      res.redirect('/');
     });
   } catch (err) {
     console.log(err);
@@ -60,7 +61,7 @@ const login = async (req, res) => {
 const authenticate = async (req, res, next) => {
   if (!req.cookies.userToken) {
     // res.status(401);
-    return res.redirect('/login');
+    return res.send('please log in');
   }
   try {
     const payload = await jwt.verify(req.cookies.userToken, 'secret');
