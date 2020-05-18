@@ -60,7 +60,4 @@ class Posts {
   }
 }
 
-const test = new Posts();
-test.create(1, 'test post 1', 'Business Data', 'Resources', 'Post body of Test 1', '04/05/2020', 'Brooklyn');
-
-modules.export = Posts;
+module.exports = Posts;

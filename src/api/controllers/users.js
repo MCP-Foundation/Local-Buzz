@@ -4,17 +4,25 @@ const path = require('path');
 const User = require('../models/Users');
 
 const register = (req, res) => {
-  try {
-    const {
-      name, username, email, password, address
-    } = req.body;
-    const saltRounds = 8;
-    bcrypt.hash(password, saltRounds)
-      .then((hashedPassword) => User.create(name, username, email, hashedPassword, address))
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};
+  const { name, username, email, password, address } = req.body
+
+  const saltRounds = 8
+  bcrypt.hash(password, saltRounds)
+    .then((hashedPassword) => {
+      User.create(name, username, email, hashedPassword, address)
+      return jwt.sign({
+        username,
+        email,
+        password,
+        exp: Math.floor(Date.now() / 1000) + (15 * 60),
+      }, 'Do Not Open', (err, encryptedPayload) => {
+        res.cookie('userToken', encryptedPayload, { httpOnly: true })
+      })
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+}
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -87,5 +95,4 @@ module.exports = {
   logout,
   register,
   authenticate,
-  getAll
 };

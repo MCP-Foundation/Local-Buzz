@@ -7,7 +7,7 @@ username TEXT,
 email TEXT UNIQUE,
 password TEXT,
 address TEXT
-)
+);
 
 CREATE TABLE posts (
 id SERIAL PRIMARY KEY,
@@ -26,4 +26,4 @@ admin_name TEXT,
 email TEXT, 
 password TEXT,
 address TEXT
-)
+);

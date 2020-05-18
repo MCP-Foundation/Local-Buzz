@@ -3,7 +3,7 @@ import React from 'react';
 function RegisterForm({ registerUser }) {
   return (
     <section className="RegisterFormComponent">
-      <form id="registerForm" onSubmit={registerUser} action="/" method="post">
+      <form id="registerForm" onSubmit={registerUser} action="/register" method="post">
         <fieldset>
           <label htmlFor="name">Name</label>
           <input id="name" type="text" name="name" />
