@@ -2,9 +2,9 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   // connectionString: process.env.DATABASE_URL,
-  user: 'Peter',
-  host: '/tmp',
-  database: 'smallstories',
+  user: 'carmensalas',
+  host: 'localhost',
+  database: 'smallStories',
   port: 5432,
 });
 

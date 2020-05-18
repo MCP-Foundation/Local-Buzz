@@ -3,19 +3,28 @@ import React from 'react';
 function PostForm() {
   return (
     <section className="PostFormComponent">
-      <form id="postForm" action="/" method="">
+      <form id="postForm" action="/posts" method="POST">
         <fieldset>
-          <label htmlFor="title">Name</label>
+          <label htmlFor="title">Title</label>
           <input id="title" type="title" name="title" />
 
-          <label htmlFor="username">UserName</label>
-          <input id="username" type="username" name="username" />
+          <label htmlFor="category">Category</label>
+          <input id="category" type="category" name="category" />
 
-          <label htmlFor="username">UserName</label>
-          <input id="username" type="username" name="username" />
+          <label htmlFor="tag">Tag</label>
+          <input id="tag" type="tag" name="tag" />
 
-          <label htmlFor="username">UserName</label>
-          <input id="username" type="username" name="username" />
+          <label htmlFor="postBody">Post</label>
+          <input id="postBody" type="postBody" name="postBody" />
+
+          <label htmlFor="address">Borough</label>
+          <select id="address" name="address">
+            <option value="BX">Bronx</option>
+            <option value="BK">Brooklyn</option>
+            <option value="MN">Manhattan</option>
+            <option value="QN">Queens</option>
+            <option value="SI">Staten Island</option>
+          </select>
 
           <input type="submit" value="Log In" />
         </fieldset>
