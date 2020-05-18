@@ -20,6 +20,7 @@ router.use(cookieParser());
 router.get('/api/posts', postController.getAllPosts);
 // router.get('/api/logout',  userController.logout + React Route change ? );
 
+
 // /** POST'S **/
 router.post('/api/register', userController.register);
 router.post('/api/login', userController.login);
