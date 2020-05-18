@@ -4,14 +4,14 @@ function Post() {
   return (
     <section className="PostComponent">
       <div className="UserAvatarDiv">
-        <img src="#" />
+        <img src="#" alt="profile" />
       </div>
       <div className="postUserInfo">
         <div>
           <h1 className="name">{}</h1>
         </div>
         <div>
-          <h1 className="Username">{}</h1>
+          <h1 className="username">{}</h1>
         </div>
         <div>
           <p className="timePosted">{}</p>

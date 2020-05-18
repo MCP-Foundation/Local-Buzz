@@ -8,7 +8,7 @@ class Login extends Component {
     const email = e.target.elements.email.value;
     console.log(email);
     const password = e.target.elements.password.value;
-    console.log(e.target.elements.password);
+    console.log(password);
   };
 
   render() {

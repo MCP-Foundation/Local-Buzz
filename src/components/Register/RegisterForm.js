@@ -3,7 +3,12 @@ import React from 'react';
 function RegisterForm({ registerUser }) {
   return (
     <section className="RegisterFormComponent">
-      <form id="registerForm" onSubmit={registerUser} action="/register" method="post">
+      <form
+        id="registerForm"
+        onSubmit={registerUser}
+        action="http://localhost:5000/register"
+        method="post"
+      >
         <fieldset>
           <label htmlFor="name">Name</label>
           <input id="name" type="text" name="name" />
@@ -24,11 +29,6 @@ function RegisterForm({ registerUser }) {
             <option value="MN">Manhattan</option>
             <option value="QN">Queens</option>
             <option value="SI">Staten Island</option>
-          </select>
-
-          <label htmlFor="state">State</label>
-          <select id="state" name="state">
-            <option value="NY">NY</option>
           </select>
 
           <input type="submit" value="Sign Up" />
