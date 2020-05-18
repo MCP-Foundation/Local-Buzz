@@ -15,7 +15,7 @@ const createPost =  async (req,res) =>{
 const getUsersPosts = async (req, res) => {
 	try {
 		const userId = req.user_id
-		const result = await Post.getUsersPosts(userId)
+		const result = await Post.getById(userId)
 		if (result.length === 0) {
 			return res.json('There are no Posts yet.')
 		}
@@ -44,8 +44,8 @@ const deletePosts = (req, res) => {
 		.catch(() => res.status(500).json({ error: 'Internal Server Error: Post could not be deleted.' }))
 }
 const getAllPosts = async (req, res) =>{
-	const posts = await Post.getAll()
-	return posts
+	const data = await Post.getAll()
+	return data.rows
 }
 module.exports ={
 	createPost,

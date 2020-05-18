@@ -16,23 +16,22 @@ router.use(cookieParser());
 // Remember to compartmentalize file structure.
 
 // /**  GET'S **/
-// router.get('/', (req, res) => console.log('hey this works'));
-// router.get('/users', (req, res) => userController.getAll);
-router.get('/posts', postController.getAllPosts);
-// router.get('logout',  userController.logout + React Route change ? );
+// router.get('/api/users', (req, res) => userController.getAll);
+router.get('/api/posts', postController.getAllPosts);
+// router.get('/api/logout',  userController.logout + React Route change ? );
 
 // /** POST'S **/
-router.post('/register', userController.register);
-router.post('/login', userController.login);
-router.post('/posts', userController.authenticate,postController.createPost);
-// router.post('/posts/:postId');
+router.post('/api/register', userController.register);
+router.post('/api/login', userController.login);
+router.post('/api/posts', userController.authenticate, postController.createPost);
+// router.post('/api/posts/:postId');
 
 // /** PUT'S **/
-// router.put('/users/:userId', /* userController.update */);
-router.put('/posts/:postId', postController.updatePosts);
+// router.put('/api/users/:userId', /* userController.update */);
+router.put('/api/posts/:postId', postController.updatePosts);
 
 // /** DELETE'S **/
-// router.delete('/users/:userId', /* userController.delete */);
-router.delete('/posts/:postId', postController.deletePosts);
+// router.delete('/api/users/:userId', /* userController.delete */);
+router.delete('/api/posts/:postId', postController.deletePosts);
 
 module.exports = router;

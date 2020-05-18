@@ -54,7 +54,7 @@ class Posts {
     return db.query(queryText, [post_id]);
   }
 
-  static getAll(post_id) {
+  static getAll() {
     const queryText = 'SELECT * FROM posts;';
     return db.query(queryText);
   }
