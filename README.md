@@ -26,6 +26,7 @@
 
 > `npm i` - To install dependencies
 > `npm start` - To run the app
+> `npm index.js` - To run the server
 
 ## Requirements
 
@@ -37,7 +38,7 @@
 
 ### Installing Dependencies
 
-From within the root directory:
+From within the client directory:
 
 ```sh
 <COMMANDS_HERE>
