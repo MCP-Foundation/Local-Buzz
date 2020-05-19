@@ -19,7 +19,7 @@ class ForumPosts extends Component {
     //   });
     // };
     const getPosts =  () => {
-      fetch('http://localhost:5000/api/posts').then((data) => console.log(data))
+      fetch('/api/forum').then((data) => console.log(data))
     };
     getPosts();
     return (

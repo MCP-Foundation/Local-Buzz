@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/posts">
+          <Route path="/forum">
             <Forum />
           </Route>
           <Route path="/login">

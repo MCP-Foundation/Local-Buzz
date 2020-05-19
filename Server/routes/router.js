@@ -17,7 +17,7 @@ router.use(cookieParser());
 
 // /**  GET'S **/
 // router.get('/api/users', (req, res) => userController.getAll);
-router.get('/api/posts', postController.getAllPosts);
+router.get('/api/forum', postController.getAllPosts);
 // router.get('/api/logout',  userController.logout + React Route change ? );
 
 
