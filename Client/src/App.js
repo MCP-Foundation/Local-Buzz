@@ -19,13 +19,13 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/forum">
+          <Route exact path="/forum">
             <Forum />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/register">
+          <Route exact path="/register">
             <Register />
           </Route>
         </Switch>
