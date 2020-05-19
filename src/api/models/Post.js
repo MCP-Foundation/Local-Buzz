@@ -58,7 +58,7 @@ class Post {
   static getAll() {
     const queryText = 'SELECT * FROM posts;';
     return db.query(queryText)
-      .then((data) => data.rows);
+            .then((data) => data.rows);
   }
 }
 
