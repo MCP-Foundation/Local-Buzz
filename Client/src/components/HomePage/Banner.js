@@ -7,7 +7,7 @@ function Banner() {
         <h2 className="hero">
           Connect with businesses on how they they have handled the current climate!
         </h2>
-        <button className="bannerButton" type="button" href="/posts">
+        <button className="bannerButton" type="button" href="/forum">
           Forum
         </button>
       </header>
