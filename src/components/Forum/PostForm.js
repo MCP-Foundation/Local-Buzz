@@ -1,4 +1,5 @@
 import React from 'react';
+import './Forum.css';
 
 function PostForm() {
   return (

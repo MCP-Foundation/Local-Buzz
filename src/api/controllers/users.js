@@ -41,7 +41,7 @@ const login = async (req, res) => {
     }
 
     const payload = {
-      email, password, userId: user.id, expiresIn: '2hr',
+      email, password, userId: user.id, expiresIn: '1hr',
     };
     return jwt.sign(payload, 'secret', (err, encryptedPayload) => {
       if (err) {
@@ -88,7 +88,7 @@ const authenticate = async (req, res, next) => {
 
 const logout = (req, res) => {
   res.clearCookie('userToken');
-  // React direct with react router
+  res.redirect('/')
 };
 
 module.exports = {

@@ -1,28 +1,42 @@
 import React from 'react';
 
-function Post() {
+function Post({ data }) {
+  console.log(data);
   return (
     <section className="PostComponent">
       <div className="UserAvatarDiv">
         <img src="#" alt="profile" />
       </div>
+
       <div className="postUserInfo">
         <div>
           <h1 className="name">{}</h1>
         </div>
+
         <div>
-          <h1 className="username">{}</h1>
+          <p />
         </div>
         <div>
-          <p className="timePosted">{}</p>
+          <p />
         </div>
       </div>
+
+      <div className="mainPostBody">
+        <div className="postTitle">
+          <p className="postTitle" />
+        </div>
+        <div className="postBody">
+          <p className="postBody" />
+        </div>
+      </div>
+
       <div className="postCatagory">
-        <p className="catagory">{}</p>
+        <p className="catagory" />
       </div>
-      <div className="MainPost">
-        <p className="postTitle">{}</p>
+      <div>
+        <p className="tag">#</p>
       </div>
+
       <div className="postInteraction">
         <div>
           <p className="likes">

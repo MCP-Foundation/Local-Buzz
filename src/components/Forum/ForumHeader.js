@@ -1,17 +1,16 @@
 import React from 'react';
-import PostForm from '../Forum/PostForm';
 
-function Forum() {
+function ForumHeader({ postFormRedirect }) {
   return (
     <section className="ForumHeaderComponent">
       <header>
-        <h3 className="forumHeeader">
+        <h3 className="forumHeader">
           Checkout different tags and topics people are talking about
         </h3>
-        <button onClick="">Make a Post</button>
+        <button onClick={postFormRedirect}>Make a Post</button>
       </header>
     </section>
   );
 }
 
-export default Forum;
+export default ForumHeader;
