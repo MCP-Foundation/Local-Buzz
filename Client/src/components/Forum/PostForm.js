@@ -4,7 +4,7 @@ import './Forum.css';
 function PostForm() {
   return (
     <section className="PostFormComponent">
-      <form id="postForm" action="/posts" method="post">
+      <form id="postForm" action="/api/posts" method="post">
         <fieldset>
           <label htmlFor="title">Title</label>
           <input id="title" type="title" name="title" />
