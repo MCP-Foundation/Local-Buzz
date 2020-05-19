@@ -1,4 +1,4 @@
-const Post = require('../models/Post');
+const Post = require('../models/Posts');
 const path = require('path');
 
 const createPost =  async (req,res) =>{
@@ -43,7 +43,7 @@ const deletePosts = (req, res) => {
 		.then(() => res.redirect('/'))
 		.catch(() => res.status(500).json({ error: 'Internal Server Error: Post could not be deleted.' }))
 }
-const getAllPosts = async (req,res) =>{
+const getAllPosts = async (req, res) =>{
 	const data = await Post.getAll()
 	res.send(data)
 }

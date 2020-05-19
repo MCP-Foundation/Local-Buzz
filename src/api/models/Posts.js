@@ -1,6 +1,6 @@
 const db = require('../db');
 
-class Post {
+class Posts {
   static create(
     user_id,
     title,
@@ -62,4 +62,4 @@ class Post {
   }
 }
 
-module.exports = Post;
+module.exports = Posts;
