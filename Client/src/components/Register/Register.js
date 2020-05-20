@@ -15,7 +15,6 @@ class Register extends Component {
     return (
       <section className="RegisterComponent">
         <Navigation />
-        <h1>Sign up to create an account</h1>
         <RegisterForm registerUser={this.registerUser} />
       </section>
     );

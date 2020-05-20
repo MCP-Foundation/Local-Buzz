@@ -15,7 +15,6 @@ class Login extends Component {
     return (
       <section className="LoginComponent">
         <Navigation />
-        <h1>Log into your account</h1>
         <LoginForm loginUser={this.loginUser} />
       </section>
     );

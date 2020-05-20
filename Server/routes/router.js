@@ -16,27 +16,19 @@ router.use(cookieParser());
 
 // /**  GET'S **/
 // router.get('/api/users', (req, res) => userController.getAll);
-<<<<<<< HEAD:src/api/routes/router.js
 router.get('/api/posts', postController.getAllPosts);
 // router.get('/api/logout',  userController.logout + React Route change ? );
-=======
-router.get('/api/forum', postController.getAllPosts);
->>>>>>> 2dfd849f3b1bb4541ccbb82755fd48fc238b3f78:Server/routes/router.js
 
 // /** POST'S **/
 router.post('/api/register', userController.register);
 router.post('/api/login', userController.login);
-<<<<<<< HEAD:src/api/routes/router.js
 router.post(
   '/api/posts',
   userController.authenticate,
   postController.createPost
 );
 // router.post('/api/posts/:postId');
-=======
 router.post('/api/logout', userController.logout);
-router.post('/api/posts', userController.authenticate, postController.createPost);
->>>>>>> 2dfd849f3b1bb4541ccbb82755fd48fc238b3f78:Server/routes/router.js
 
 // /** PUT'S **/
 // router.put('/api/users/:userId', /* userController.update */);
