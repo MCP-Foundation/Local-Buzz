@@ -1,11 +1,3 @@
 .BannerComponent {
-  background-color: red;
-  min-height: 25vh;
-  margin-top: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 100px;
 }
-
-/* 
-2 straight 1 box */
