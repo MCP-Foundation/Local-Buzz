@@ -9,6 +9,7 @@ import Forum from './components/Forum/Forum';
 import Navigation from './components/Navigation/Navigation';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
+import PostForm from './components/Forum/PostForm';
 
 function App() {
   return (
@@ -19,14 +20,18 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path="/forum">
+          <Route path="/forum">
             <Forum />
           </Route>
-          <Route exact path="/login">
+          <Route path="/login">
             <Login />
           </Route>
-          <Route exact path="/register">
+          <Route path="/register">
             <Register />
+          </Route>
+
+          <Route path="/post">
+            <PostForm />
           </Route>
         </Switch>
       </section>
