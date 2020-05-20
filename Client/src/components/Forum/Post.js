@@ -1,40 +1,38 @@
 import React from 'react';
 
-function Post({ data }) {
-  console.log(data);
+function Post({ title, category, tag, postBody, date }) {
   return (
     <section className="PostComponent">
       <div className="UserAvatarDiv">
-        <img src="#" alt="profile" />
+        <img
+          src="https://www.booksie.com/files/profiles/22/mr-anonymous_230x230.png"
+          alt="profile"
+        />
       </div>
 
       <div className="postUserInfo">
         <div>
-          <h1 className="name">{}</h1>
-        </div>
-
-        <div>
-          <p />
+          <h1 className="username">{}</h1>
         </div>
         <div>
-          <p />
+          <p>{date}</p>
         </div>
       </div>
 
       <div className="mainPostBody">
         <div className="postTitle">
-          <p className="postTitle" />
+          <p className="postTitle">{title}</p>
         </div>
         <div className="postBody">
-          <p className="postBody" />
+          <p className="postBody">{postBody}</p>
         </div>
       </div>
 
       <div className="postCatagory">
-        <p className="catagory" />
+        <p className="category">{category}</p>
       </div>
       <div>
-        <p className="tag">#</p>
+        <p className="tag">#{tag}</p>
       </div>
 
       <div className="postInteraction">
