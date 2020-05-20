@@ -68,8 +68,8 @@ const deletePosts = (req, res) => {
 
 const getAllPosts = async (req, res) => {
   const data = await Post.getAll();
-  console.log(data.rows);
-  return data.rows;
+  console.log(data);
+  res.send(data)
 };
 
 module.exports = {
