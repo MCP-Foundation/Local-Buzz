@@ -1,60 +1,85 @@
 import React from 'react';
+import './Forum.css';
 
-function Post({
-  title, category, tag, postBody, date,
-}) {
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    overflow: 'hidden',
+    padding: theme.spacing(0, 3),
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  paper: {
+    maxWidth: 400,
+    margin: `${theme.spacing(1)}px auto`,
+    padding: theme.spacing(2),
+  },
+}));
+
+function Post({ title, category, tag, postBody, date }) {
+  const classes = useStyles();
+
+  const d = new Date(date.replace(' ', 'T'));
+  const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+  const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+  const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+  const newDate = `${mo} ${da}, ${ye}`;
+
   return (
-    <section className="PostComponent">
-      <div className="UserAvatarDiv">
-        <img
-          src="https://www.booksie.com/files/profiles/22/mr-anonymous_230x230.png"
-          alt="profile"
-        />
-      </div>
+    <div className={classes.root}>
+      <Paper className={classes.paper}>
+        <Grid container wrap="nowrap" spacing={2}>
+          <Grid item>
+            <Avatar aria-label="userAvatar" className={classes.avatar}>
+              SS
+            </Avatar>
+          </Grid>
 
-      <div className="postUserInfo">
-        <div>
-          <h1 className="username">{}</h1>
-        </div>
-        <div>
-          <p>{date}</p>
-        </div>
-      </div>
+          <Grid item xs zeroMinWidth>
+            <Typography className={classes.pos} color="textSecondary">
+              {newDate}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {postBody}
+            </Typography>
+            <Typography className={classes.pos} color="textSecondary">
+              #{tag} | category: {category}
+            </Typography>
+          </Grid>
 
-      <div className="mainPostBody">
-        <div className="postTitle">
-          <p className="postTitle">{title}</p>
-        </div>
-        <div className="postBody">
-          <p className="postBody">{postBody}</p>
-        </div>
-      </div>
-
-      <div className="postCatagory">
-        <p className="category">{category}</p>
-      </div>
-      <div>
-        <p className="tag">
-          #
-          {tag}
-        </p>
-      </div>
-
-      <div className="postInteraction">
-        <div>
-          <p className="likes">
-            {}
-            likes
-          </p>
-        </div>
-        <div>
-          <p className="comments">
-            {}
-            comments
-          </p>
-        </div>
-      </div>
-    </section>
+          <Grid item xs zeroMinWidth>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
+      </Paper>
+    </div>
   );
 }
 
