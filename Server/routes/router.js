@@ -22,7 +22,7 @@ router.get('/api/forum', postController.getAllPosts);
 router.post('/api/register', userController.register);
 router.post('/api/login', userController.login);
 router.post('/api/logout', userController.logout);
-router.post('/api/posts', userController.authenticate, postController.createPost);
+router.post('/api/posts', postController.createPost);
 
 // /** PUT'S **/
 // router.put('/api/users/:userId', /* userController.update */);
