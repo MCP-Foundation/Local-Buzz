@@ -4,17 +4,19 @@ import Navigation from '../Navigation/Navigation';
 import ForumHeader from './ForumHeader';
 import SearchTags from './SearchTags';
 import ForumPosts from './ForumPosts';
-import PostForm from './PostForm';
 
 class Forum extends Component {
+  postFormRedirect = () => {
+    window.location.href = '/post';
+  };
+
   render() {
     return (
       <section className="ForumComponent">
         <Navigation />
-        <PostForm />
-        <ForumHeader />
+        <ForumHeader postFormRedirect={this.postFormRedirect} />
         <SearchTags />
-        <ForumPosts />
+        <ForumPosts getAllPostsData={this.getAllPostsData} />
       </section>
     );
   }

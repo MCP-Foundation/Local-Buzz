@@ -1,3 +1,21 @@
 .ForumComponent {
   margin-top: 100px;
+  align-items: center;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+  height: 90vh;
+}
+
+.PostFormComponent {
+  margin-top: 100px;
+}
+
+.PostFormComponent {
+  /* margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto; */
 }

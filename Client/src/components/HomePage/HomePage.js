@@ -17,11 +17,14 @@ class HomePage extends Component {
     tagDescription3:
       'A tag to help the emoployees of non-essiential businesses during the covid-19 pandemic.',
   };
+  forumPageRedirect = () => {
+    window.location.href = '/forum';
+  };
   render() {
     return (
       <section className="HomePage">
         <Navigation />
-        <Banner />
+        <Banner forumPageRedirect={this.forumPageRedirect} />
         <About />
         <Tag
           tagName={this.state.tagName1}

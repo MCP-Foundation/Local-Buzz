@@ -1,15 +1,15 @@
-const db = require('../db')
+const db = require('../db');
 
 class User {
   static create(name, username, email, password, address) {
     const queryText = `INSERT INTO users (name, username, email, password, address)
     VALUES ($1, $2, $3, $4, $5);`;
     return db.query(queryText, [
-      name, 
-      username, 
-      email, 
-      password, 
-      address
+      name,
+      username,
+      email,
+      password,
+      address,
     ]);
   }
 
@@ -18,11 +18,11 @@ class User {
       WHERE user_id = $1;`;
     return db.query(queryText, [
       user_id,
-      name, 
-      username, 
-      email, 
-      password, 
-      address
+      name,
+      username,
+      email,
+      password,
+      address,
     ]);
   }
 
@@ -35,9 +35,10 @@ class User {
     const queryText = 'SELECT * FROM users WHERE email = $1;';
     return db.query(queryText, [email]).then((data) => data.rows[0]);
   }
+
   static getAll() {
     const queryText = 'SELECT * FROM users;';
-    return db.query(queryText)
+    return db.query(queryText);
   }
 }
 

@@ -19,20 +19,21 @@ class Posts {
       tag,
       post_body,
       date_created,
-      location
+      location,
     ]);
   }
 
   static update(
-      user_id,
-      title,
-      category,
-      tag,
-      post_body,
-      date_created,
-      location
+    user_id,
+    title,
+    category,
+    tag,
+    post_body,
+    date_created,
+    location
   ) {
-    const queryText = 'UPDATE posts SET title = $2, category = $3, tag = $4, post_body = $5, date_created = $6, location = $7 WHERE user_id = $1 RETURNING *;';
+    const queryText =
+      'UPDATE posts SET title = $2, category = $3, tag = $4, post_body = $5, date_created = $6, location = $7 WHERE user_id = $1 RETURNING *;';
     return db.query(queryText, [
       user_id,
       title,
@@ -40,7 +41,7 @@ class Posts {
       tag,
       post_body,
       date_created,
-      location
+      location,
     ]);
   }
 
@@ -54,11 +55,9 @@ class Posts {
     return db.query(queryText, [post_id]);
   }
 
-
   static getAll() {
     const queryText = 'SELECT * FROM posts;';
-    return db.query(queryText)
-            .then((data) => data.rows);
+    return db.query(queryText).then((data) => data.rows);
   }
 }
 
