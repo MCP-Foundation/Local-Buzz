@@ -2,10 +2,6 @@ import React from 'react';
 import './Forum.css';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -36,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(2),
   },
+  title: {
+    fontSize: 25,
+  },
 }));
 
 function Post({ title, category, tag, postBody, date }) {
@@ -58,6 +57,9 @@ function Post({ title, category, tag, postBody, date }) {
           </Grid>
 
           <Grid item xs zeroMinWidth>
+            <Typography className={classes.title} gutterBottom>
+              {title}
+            </Typography>
             <Typography className={classes.pos} color="textSecondary">
               {newDate}
             </Typography>
@@ -67,9 +69,7 @@ function Post({ title, category, tag, postBody, date }) {
             <Typography className={classes.pos} color="textSecondary">
               #{tag} | category: {category}
             </Typography>
-          </Grid>
 
-          <Grid item xs zeroMinWidth>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>
