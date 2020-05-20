@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Post from './Post';
+
 function ForumPosts() {
   const [allPosts, setAllPosts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -14,10 +15,9 @@ function ForumPosts() {
         .then((data) => {
           setAllPosts(data);
         })
-        .catch((error) => {
-          console.log(error);
-          error = 'Sorry there was an error, please try again';
-          setError(error);
+        .catch(() => {
+          const err = 'Sorry there was an error, please try again';
+          setError(err);
         });
     }
 
@@ -29,21 +29,22 @@ function ForumPosts() {
   return (
     <>
       {isLoading ? (
-        <p> {error || '...Loading'}</p>
+        <p>
+          {' '}
+          {error || '...Loading'}
+        </p>
       ) : (
         <section className="ForumPostsComponent">
-          {allPosts &&
-            allPosts.map((post) => {
-              return (
-                <Post
-                  title={post.title}
-                  category={post.category}
-                  tag={post.tag}
-                  postBody={post.post_body}
-                  date={post.date_created}
-                />
-              );
-            })}
+          {allPosts
+            && allPosts.map((post) => (
+              <Post
+                title={post.title}
+                category={post.category}
+                tag={post.tag}
+                postBody={post.post_body}
+                date={post.date_created}
+              />
+            ))}
         </section>
       )}
     </>

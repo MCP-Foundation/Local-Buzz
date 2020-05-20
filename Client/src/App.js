@@ -20,26 +20,13 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-<<<<<<< HEAD:src/App.js
-
-          <Route path="/posts">
+          <Route path="/forum">
             <Forum />
           </Route>
-
           <Route path="/login">
             <Login />
           </Route>
-
           <Route path="/register">
-=======
-          <Route exact path="/forum">
-            <Forum />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/register">
->>>>>>> 2dfd849f3b1bb4541ccbb82755fd48fc238b3f78:Client/src/App.js
             <Register />
           </Route>
 

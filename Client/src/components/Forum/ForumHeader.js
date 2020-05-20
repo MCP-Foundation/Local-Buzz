@@ -7,7 +7,9 @@ function ForumHeader({ postFormRedirect }) {
         <h3 className="forumHeader">
           Checkout different tags and topics people are talking about
         </h3>
-        <button onClick={postFormRedirect}>Make a Post</button>
+        <button type="button" onClick={postFormRedirect}>
+          Make a Post
+        </button>
       </header>
     </section>
   );

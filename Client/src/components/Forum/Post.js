@@ -1,6 +1,8 @@
 import React from 'react';
 
-function Post({ title, category, tag, postBody, date }) {
+function Post({
+  title, category, tag, postBody, date,
+}) {
   return (
     <section className="PostComponent">
       <div className="UserAvatarDiv">
@@ -32,7 +34,10 @@ function Post({ title, category, tag, postBody, date }) {
         <p className="category">{category}</p>
       </div>
       <div>
-        <p className="tag">#{tag}</p>
+        <p className="tag">
+          #
+          {tag}
+        </p>
       </div>
 
       <div className="postInteraction">
