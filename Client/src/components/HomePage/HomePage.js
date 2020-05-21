@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
+import { Grommet } from 'grommet';
+import { Row, Col } from 'antd';
+
 import '../HomePage/HomePage.css';
 import Navigation from '../Navigation/Navigation';
 import Banner from '../HomePage/Banner';
 import About from '../HomePage/About';
 import Tag from '../HomePage/Tag';
+const theme = {
+  global: {
+    colors: {
+      brand: '#2a48e7',
+    },
+    font: {
+      family: 'Roboto',
+      size: '18px',
+      height: '20px',
+    },
+  },
+};
 
 class HomePage extends Component {
   state = {
@@ -22,23 +37,37 @@ class HomePage extends Component {
   };
   render() {
     return (
-      <section className="HomePage">
-        <Navigation />
-        <Banner forumPageRedirect={this.forumPageRedirect} />
-        <About />
-        <Tag
-          tagName={this.state.tagName1}
-          tagDescription={this.state.tagDescription1}
-        />
-        <Tag
-          tagName={this.state.tagName2}
-          tagDescription={this.state.tagDescription2}
-        />
-        <Tag
-          tagName={this.state.tagName3}
-          tagDescription={this.state.tagDescription3}
-        />
-      </section>
+      <Grommet theme={theme} full>
+        <section className="HomePage">
+          <Navigation />
+          <Row justify="center">
+            <Col span={8}></Col>
+            <Col span={8}>
+              <Banner forumPageRedirect={this.forumPageRedirect} />
+            </Col>
+            <Col span={8}></Col>
+          </Row>
+          <Row justify="center">
+            <Col span={12}>
+              <About />
+            </Col>
+            <Col span={12}>
+              <Tag
+                tagName={this.state.tagName1}
+                tagDescription={this.state.tagDescription1}
+              />
+              <Tag
+                tagName={this.state.tagName2}
+                tagDescription={this.state.tagDescription2}
+              />
+              <Tag
+                tagName={this.state.tagName3}
+                tagDescription={this.state.tagDescription3}
+              />
+            </Col>
+          </Row>
+        </section>
+      </Grommet>
     );
   }
 }
