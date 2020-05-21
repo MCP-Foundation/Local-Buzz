@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Timeline, Row, Col } from 'antd';
+import 'antd/dist/antd.css';
 
 import Post from './Post';
 
@@ -24,27 +26,34 @@ function ForumPosts() {
     getAllPostsData();
     setIsLoading(false);
   }, []);
-  console.log(allPosts);
 
   return (
     <>
       {isLoading ? (
-        <p>
-          {' '}
-          {error || '...Loading'}
-        </p>
+        <p> {error || '...Loading'}</p>
       ) : (
-        <section className="ForumPostsComponent">
-          {allPosts
-            && allPosts.map((post) => (
-              <Post
-                title={post.title}
-                category={post.category}
-                tag={post.tag}
-                postBody={post.post_body}
-                date={post.date_created}
-              />
-            ))}
+        <section className="ForumPostComponent">
+          <Row justify="center">
+            <Col span={8}></Col>
+            <Col span={8}>
+              <section className="ForumPostsComponent">
+                <Timeline mode="left">
+                  {allPosts &&
+                    allPosts.map((post) => (
+                      <Post
+                        title={post.title}
+                        category={post.category}
+                        tag={post.tag}
+                        postBody={post.post_body}
+                        date={post.date_created}
+                      />
+                    ))}
+                </Timeline>
+              </section>
+            </Col>
+
+            <Col span={8}></Col>
+          </Row>
         </section>
       )}
     </>
