@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { Timeline, Card, Avatar, Row, Col } from 'antd';
-
+import { Timeline, Card, Avatar } from 'antd';
 import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
+  SmileTwoTone,
+  HeartTwoTone,
+  CheckCircleTwoTone,
 } from '@ant-design/icons';
-import 'antd/dist/antd.css';
 
 const { Meta } = Card;
 
@@ -21,23 +19,24 @@ function Post({ title, category, tag, postBody, date }) {
   return (
     <Timeline.Item>
       <Card
-        style={{ width: 500 }}
+        style={{ width: 400 }}
         avatar={
-          <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          <Avatar src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
         }
         title={title}
         actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
+          <SmileTwoTone />,
+          <HeartTwoTone twoToneColor="#eb2f96" />,
+          <CheckCircleTwoTone twoToneColor="#52c41a" />,
         ]}
       >
         <Meta
           avatar={
             <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           }
-          description={postBody}
+          description={newDate}
         />
+        <h6>{postBody}</h6>
       </Card>
     </Timeline.Item>
   );
