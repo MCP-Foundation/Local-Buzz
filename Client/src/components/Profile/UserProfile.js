@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'antd';
 
 function ForumHeader({ postFormRedirect }) {
   return (
@@ -8,9 +7,9 @@ function ForumHeader({ postFormRedirect }) {
         <h3 className="forumHeader">
           Checkout different tags and topics people are talking about
         </h3>
-        <Button onClick={postFormRedirect} shape="round" size="large">
+        <button type="button" onClick={postFormRedirect}>
           Make a Post
-        </Button>
+        </button>
       </header>
     </section>
   );

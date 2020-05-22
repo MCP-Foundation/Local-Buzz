@@ -86,6 +86,22 @@ const authenticate = async (req, res, next) => {
   }
 };
 
+const getUserData = async (req, res) => {
+  try {
+    const userId = req.user_id;
+    const result = await User.getById(userId);
+    if (result.length === 0) {
+      return res.json('User not found!');
+    }
+    result.push(req.user.username);
+    return res.send(result);
+  } catch (err) {
+    return res.status(500).json({
+      error: 'Internal Server Error: Could not get all posts from the user.',
+    });
+  }
+}
+
 const logout = (req, res) => {
   res.clearCookie('userToken');
   res.redirect('/')
@@ -96,4 +112,5 @@ module.exports = {
   logout,
   register,
   authenticate,
+  getUserData
 };

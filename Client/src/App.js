@@ -10,6 +10,7 @@ import Navigation from './components/Navigation/Navigation';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import PostForm from './components/Forum/PostForm';
+import Profile from './components/Profile/Profile';
 
 function App() {
   return (
@@ -28,6 +29,12 @@ function App() {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/account">
+            <Profile />
+          </Route>
+          <Route path="/logout">
+            <HomePage />
           </Route>
 
           <Route path="/post">

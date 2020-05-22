@@ -15,8 +15,9 @@ router.use(cookieParser());
 // Remember to compartmentalize file structure.
 
 // /**  GET'S **/
-// router.get('/api/users', (req, res) => userController.getAll);
 router.get('/api/forum', postController.getAllPosts);
+router.get('/api/user-posts', userController.authenticate, postController.getAllByUser);
+router.get('/api/user/:userId', userController.authenticate, userController.getUserData)
 
 // /** POST'S **/
 router.post('/api/register', userController.register);

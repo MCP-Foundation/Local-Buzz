@@ -31,6 +31,10 @@ class User {
     return db.query(queryText, [user_id]);
   }
 
+  static getById(user_id) {
+    const queryText  ='SELECT * FROM user WHERE email = $1';
+    return db.query(queryText, [id].then((data) => data.rows[0]));
+  }
   static getByEmail(email) {
     const queryText = 'SELECT * FROM users WHERE email = $1;';
     return db.query(queryText, [email]).then((data) => data.rows[0]);

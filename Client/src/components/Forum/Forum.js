@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './Forum.css';
 import Navigation from '../Navigation/Navigation';
 import ForumHeader from './ForumHeader';

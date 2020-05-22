@@ -11,11 +11,10 @@
 .PostFormComponent {
   margin-top: 100px;
 }
+.ForumHeaderComponent {
+  margin-bottom: 30px;
+}
 
-.PostFormComponent {
-  /* margin-top: 20px;
-  align-items: center;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto; */
+.ForumPostComponent {
+  margin-top: 20px;
 }

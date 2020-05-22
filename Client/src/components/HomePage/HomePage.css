@@ -3,6 +3,8 @@
 }
 
 .BannerComponent {
+  margin-top: 100px;
+  margin-bottom: 30px;
   background: grey;
   min-height: 14vh;
   margin-top: 10vh;
