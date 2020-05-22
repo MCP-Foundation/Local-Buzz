@@ -9,12 +9,35 @@ import {
 
 const { Meta } = Card;
 
-function Post({ title, category, tag, postBody, date }) {
+function Post({
+  postId,
+  userId,
+  title,
+  category,
+  tag,
+  postBody,
+  date,
+  location,
+}) {
   const d = new Date(date.replace(' ', 'T'));
   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
   const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
   const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
   const newDate = `${mo} ${da}, ${ye}`;
+  const postDataContext = {
+    postId: postId,
+    userId: userId,
+    title: title,
+    category: category,
+    tag: tag,
+    postBody: postBody,
+    date: newDate,
+    location: location,
+  };
+
+  const viewPostRedirect = () => {
+    window.location.href = '/viewPost';
+  };
 
   return (
     <Timeline.Item>
@@ -23,6 +46,7 @@ function Post({ title, category, tag, postBody, date }) {
         avatar={
           <Avatar src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
         }
+        onClick={viewPostRedirect}
         title={title}
         actions={[
           <SmileTwoTone />,

@@ -33,8 +33,10 @@ function App() {
           <Route path="/account">
             <Profile />
           </Route>
-
           <Route path="/post">
+            <PostForm />
+          </Route>
+          <Route path="/viewPost">
             <PostForm />
           </Route>
         </Switch>
