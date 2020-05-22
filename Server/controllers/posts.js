@@ -15,6 +15,18 @@ const createPost = async (req, res) => {
     });
   }
 };
+const createComment = async (req,res) =>{
+  const userID= req.user.user_id;
+  const {comment} = req.body;
+  Post.createComment(userID,author,postID,comment)
+  res.redirect('/')
+
+}
+const getComments = async (req,res) =>{
+  const data = await Post.getComments();
+  console.log(data)
+  res.send(data)
+}
 
 const getUsersPosts = async (req, res) => {
   try {
@@ -77,12 +89,21 @@ const getAllPosts = async (req, res) => {
   console.log(data);
   res.send(data)
 };
+const getById = async (req,res) =>{
+  const postId = req.params.id;
+  const data = await Post.getById(postId);
+  console.log(data)
+  res.send(data)
+}
 
 module.exports = {
   createPost,
-  updatePosts,
+  createComment,
   getAllPosts,
+  getComments,
   getUsersPosts,
-  deletePosts,
+  getById,
   getAllByUser,
+  updatePosts,
+  deletePosts
 };

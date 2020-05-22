@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import '../Navigation/Navigation.css';
 
 import Logo from '../Logo';
-
+console.log(document.cookie)
 function Navigation() {
   return (
     <section className="NavbarComponent">
@@ -18,7 +18,7 @@ function Navigation() {
           <Nav.Link href="/forum">Forum</Nav.Link>
           <Nav.Link href="/account">Account</Nav.Link>
           <Nav.Link href="/login">Sign In</Nav.Link>
-          <Nav.Link href="/register">Sign Up</Nav.Link>
+          <Nav.Link href="/register">Sign Up</Nav.Link> 
         </Nav>
       </Navbar>
     </section>

@@ -35,8 +35,9 @@ function Post({
     location: location,
   };
 
-  const viewPostRedirect = () => {
-    window.location.href = '/viewPost';
+  const viewPostRedirect = (id) => {
+    console.log(id)
+    // window.location.href = '/viewPost';
   };
 
   return (
@@ -46,7 +47,7 @@ function Post({
         avatar={
           <Avatar src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
         }
-        onClick={viewPostRedirect}
+        onClick={viewPostRedirect(postId)}
         title={title}
         actions={[
           <SmileTwoTone />,

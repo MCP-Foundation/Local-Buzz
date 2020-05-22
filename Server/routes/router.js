@@ -16,7 +16,9 @@ router.use(cookieParser());
 
 // /**  GET'S **/
 router.get('/api/forum', postController.getAllPosts);
+router.get('/api/comment', postController.getComments);
 router.get('/api/user-posts',userController.authenticate, postController.getAllByUser);
+router.get('api/viewPost/:id',postController.getById);
 
 // /** POST'S **/
 router.post('/api/register', userController.register);
@@ -26,8 +28,12 @@ router.post(
   userController.authenticate,
   postController.createPost
 );
-// router.post('/api/posts/:postId');
 router.post('/api/logout', userController.logout);
+router.post(
+  '/api/comment',
+  userController.authenticate,
+  postController.createComment
+);
 
 // /** PUT'S **/
 // router.put('/api/users/:userId', /* userController.update */);

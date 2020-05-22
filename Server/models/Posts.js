@@ -63,6 +63,12 @@ class Posts {
     const queryText = 'SELECT * FROM posts;';
     return db.query(queryText).then((data) => data.rows);
   }
+  static createComment(userID,author,postID,comment){
+    const queryText = `INSERT INTO comments (comment, author, user_id, post_id)
+    VALUES ($1, $2, $3, $4) RETURNING *;`
+    return db.query(queryText,[comment,author,userID,postID])
+
+  }
 }
 
 module.exports = Posts;
