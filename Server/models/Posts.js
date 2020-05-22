@@ -49,6 +49,10 @@ class Posts {
     const queryText = 'DELETE FROM posts WHERE post_id = $1 RETURNING *;';
     return db.query(queryText, [post_id]);
   }
+    static getAllByUser (userId) {
+    const queryText = 'SELECT * FROM posts WHERE user_id=$1;';
+    return db.query(queryText, [userId]).then(response => response.rows)
+  }
 
   static getById(post_id) {
     const queryText = 'SELECT * FROM posts WHERE post_id = $1 RETURNING *;';

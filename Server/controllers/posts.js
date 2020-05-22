@@ -65,6 +65,12 @@ const deletePosts = (req, res) => {
         .json({ error: 'Internal Server Error: Post could not be deleted.' })
     );
 };
+const getAllByUser = async (req, res) => {
+  const userId = req.user.user_id;
+  const data = await Post.getAllByUser(userId);
+  console.log(data);
+  res.send(data)
+};
 
 const getAllPosts = async (req, res) => {
   const data = await Post.getAll();
@@ -78,4 +84,5 @@ module.exports = {
   getAllPosts,
   getUsersPosts,
   deletePosts,
+  getAllByUser,
 };
