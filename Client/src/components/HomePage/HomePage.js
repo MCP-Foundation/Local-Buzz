@@ -5,6 +5,8 @@ import Banner from '../HomePage/Banner';
 import About from '../HomePage/About';
 import Tag from '../HomePage/Tag';
 
+
+
 class HomePage extends Component {
   state = {
     tagName1: 'CovidResponse',
@@ -16,28 +18,36 @@ class HomePage extends Component {
       'A tag to help aspiring business owners and entreprenuers launch their careers on the right path with the help of current business owners.',
     tagDescription3:
       'A tag to help the emoployees of non-essiential businesses during the covid-19 pandemic.',
+    loggedInStatus: "NOT_LOGGED_IN",
+    user: {}
+
   };
   forumPageRedirect = () => {
     window.location.href = '/forum';
   };
+
   render() {
     return (
       <section className="HomePage">
-        <Navigation />
+        <Navigation/>
         <Banner forumPageRedirect={this.forumPageRedirect} />
         <About />
-        <Tag
-          tagName={this.state.tagName1}
-          tagDescription={this.state.tagDescription1}
-        />
-        <Tag
-          tagName={this.state.tagName2}
-          tagDescription={this.state.tagDescription2}
-        />
-        <Tag
-          tagName={this.state.tagName3}
-          tagDescription={this.state.tagDescription3}
-        />
+        {/* "Time is a currency yielding the best returns when invested in others" */}
+        <section className="Tags">
+          <Tag
+            class
+            tagName={this.state.tagName1}
+            tagDescription={this.state.tagDescription1}
+          />
+          <Tag
+            tagName={this.state.tagName2}
+            tagDescription={this.state.tagDescription2}
+          />
+          <Tag
+            tagName={this.state.tagName3}
+            tagDescription={this.state.tagDescription3}
+          />
+        </section>
       </section>
     );
   }
