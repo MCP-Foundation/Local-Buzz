@@ -27,6 +27,8 @@ function ForumPosts() {
     setIsLoading(false);
   }, []);
 
+  console.log(allPosts);
+
   return (
     <>
       {isLoading ? (
@@ -41,11 +43,14 @@ function ForumPosts() {
                   {allPosts &&
                     allPosts.map((post) => (
                       <Post
+                        postId={post.id}
+                        userId={post.user_id}
                         title={post.title}
                         category={post.category}
                         tag={post.tag}
                         postBody={post.post_body}
                         date={post.date_created}
+                        location={post.location}
                       />
                     ))}
                 </Timeline>
