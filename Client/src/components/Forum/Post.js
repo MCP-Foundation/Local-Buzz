@@ -1,13 +1,5 @@
 import React from 'react';
-
-import { Timeline, Card, Avatar } from 'antd';
-import {
-  SmileTwoTone,
-  HeartTwoTone,
-  CheckCircleTwoTone,
-} from '@ant-design/icons';
-
-const { Meta } = Card;
+import { Favorite, Chat } from 'grommet-icons';
 
 function Post({
   postId,
@@ -25,44 +17,83 @@ function Post({
   const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
   const newDate = `${mo} ${da}, ${ye}`;
   const postDataContext = {
-    postId: postId,
-    userId: userId,
-    title: title,
-    category: category,
-    tag: tag,
-    postBody: postBody,
+    postId,
+    userId,
+    title,
+    category,
+    tag,
+    postBody,
     date: newDate,
-    location: location,
+    location,
   };
 
   const viewPostRedirect = () => {
-    window.location.href = '/viewPost';
+    console.log(postDataContext);
+
+    // window.location.href = '/viewPost';
   };
 
   return (
-    <Timeline.Item>
-      <Card
-        style={{ width: 400 }}
-        avatar={
-          <Avatar src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
-        }
-        onClick={viewPostRedirect}
-        title={title}
-        actions={[
-          <SmileTwoTone />,
-          <HeartTwoTone twoToneColor="#eb2f96" />,
-          <CheckCircleTwoTone twoToneColor="#52c41a" />,
-        ]}
-      >
-        <Meta
-          avatar={
-            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-          }
-          description={newDate}
+    <section className="PostComponent" onClick={viewPostRedirect}>
+      <div className="userAvatarDiv">
+        <img
+          className="userAvatar"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png"
         />
-        <h6>{postBody}</h6>
-      </Card>
-    </Timeline.Item>
+      </div>
+      <div className="postBodyDiv">
+        {/* UserInfo */}
+        <div className="postUserInfo">
+          <p>
+            <span className="name">Name</span>
+          </p>
+          <p className="username">@username</p>
+        </div>
+
+        {/* Post body and title */}
+        <div className="mainPostDiv">
+          <p className="postTitle">{title}</p>
+          <p className="postBody">{postBody}</p>
+        </div>
+        {/* Category Tags  Time Created and Location */}
+        <div className="postFilter">
+          <p>
+            <span className="tag">{tag}</span>
+            {' '}
+            ·
+            {' '}
+            <span className="catagory">{category}</span>
+          </p>
+        </div>
+
+        <div className="postCreatedInfo">
+          <p>
+            <span className="time">{newDate}</span>
+            {' '}
+            ·
+            {' '}
+            <span className="location">{location}</span>
+          </p>
+        </div>
+        {/* Likes and Comments */}
+
+        <div className="postInteractionInfo">
+          <p>
+            <span className="likes">
+              {1}
+              {' '}
+              <Favorite color="#ff58bc" />
+            </span>
+
+            <span className="comments">
+              {1}
+              {' '}
+              <Chat color="#57e021" />
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
 
