@@ -20,7 +20,6 @@ const createComment = async (req,res) =>{
   const {comment} = req.body;
   Post.createComment(userID,author,postID,comment)
   res.redirect('/')
-
 }
 const getComments = async (req,res) =>{
   const data = await Post.getComments();

@@ -49,7 +49,7 @@ class Posts {
     const queryText = 'DELETE FROM posts WHERE post_id = $1 RETURNING *;';
     return db.query(queryText, [post_id]);
   }
-    static getAllByUser (userId) {
+  static getAllByUser (userId) {
     const queryText = 'SELECT * FROM posts WHERE user_id=$1;';
     return db.query(queryText, [userId]).then(response => response.rows)
   }
@@ -67,6 +67,11 @@ class Posts {
     const queryText = `INSERT INTO comments (comment, author, user_id, post_id)
     VALUES ($1, $2, $3, $4) RETURNING *;`
     return db.query(queryText,[comment,author,userID,postID])
+
+  }
+  static getComments(){
+    const queryText = `SELECT * FROM comments RETURNING *;`;
+    return db.query(queryText).then((data) => data.rows)
 
   }
 }

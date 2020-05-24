@@ -1,14 +1,11 @@
 import React from 'react';
-
 import { Timeline, Card, Avatar } from 'antd';
 import {
   SmileTwoTone,
   HeartTwoTone,
   CheckCircleTwoTone,
 } from '@ant-design/icons';
-
 const { Meta } = Card;
-
 function Post({
   postId,
   userId,
@@ -25,21 +22,19 @@ function Post({
   const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
   const newDate = `${mo} ${da}, ${ye}`;
   const postDataContext = {
-    postId: postId,
-    userId: userId,
-    title: title,
-    category: category,
-    tag: tag,
-    postBody: postBody,
-    date: newDate,
-    location: location,
+    postId,
+    userId,
+    title,
+    category,
+    tag,
+    postBody,
+    newDate,
+    location,
   };
-
-  const viewPostRedirect = (id) => {
-    console.log(id)
-    // window.location.href = '/viewPost';
+  const viewPostRedirect = () => {
+    console.log(postDataContext.postId);
+    window.location.href = `/viewPost/${postDataContext.postId}`;
   };
-
   return (
     <Timeline.Item>
       <Card
@@ -47,7 +42,7 @@ function Post({
         avatar={
           <Avatar src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
         }
-        onClick={viewPostRedirect(postId)}
+        onClick={viewPostRedirect}
         title={title}
         actions={[
           <SmileTwoTone />,
@@ -66,5 +61,4 @@ function Post({
     </Timeline.Item>
   );
 }
-
 export default Post;

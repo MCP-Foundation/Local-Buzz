@@ -11,6 +11,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import PostForm from './components/Forum/PostForm';
 import Profile from './components/Profile/Profile';
+import PostView from './components/Forum/PostView';
 
 function App() {
   return (
@@ -36,8 +37,8 @@ function App() {
           <Route path="/post">
             <PostForm />
           </Route>
-          <Route path="/viewPost">
-            <PostForm />
+          <Route path="/viewPost/">
+            <PostView/>
           </Route>
         </Switch>
       </section>
