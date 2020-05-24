@@ -44,40 +44,70 @@ function ForumHeader({ show, handleClose }) {
                   <option Key="#HelpOurEmployees" value="#HelpOurEmployees">
                     #HelpOurEmployees
                   </option>
+                  <option Key="#Finance" value=" #Finance">
+                    #Finance
+                  </option>
+                  <option Key="#Management" value="#Management">
+                    #Management
+                  </option>
+                  <option Key="#GasMeUp" value="#GasMeUp">
+                    #GasMeUp
+                  </option>
+                  <option Key="#Random" value="#Random">
+                    #Random
+                  </option>
                 </Form.Control>
               </Form.Group>
 
               <Form.Group controlId="CategoryForm">
                 <Form.Label>What industry is this related to?</Form.Label>
                 <Form.Control as="select" name="category">
+                  <option value="General">General</option>
+                  <option value="Arts">Arts</option>
+                  <option value="Construction">Construction</option>
+                  <option value="Finance">Finance</option>
                   <option value="Food">Food</option>
+                  <option value="Health">Health</option>
+                  <option value="Manufacturing">Manufacturing</option>
+                  <option value="Medical">Medical</option>
+                  <option value="Real Estate">Real Estate</option>
+                  <option value="Retail">Retail</option>
+                  <option value="Social Services">Social Services</option>
+                  <option value="Tech">Tech</option>
+                  <option value="Transportation">Transportation</option>
                 </Form.Control>
               </Form.Group>
 
               <Form.Group controlId="addressOptions">
                 <Form.Label>Address</Form.Label>
                 <Form.Control as="select" name="address">
-                  <option key="BX" value="BX">
+                  <option key="Bronx" value="Bronx">
                     Bronx
                   </option>
-                  <option key=" BK" value="BK">
+                  <option key="Brooklyn" value="Brooklyn">
                     Brooklyn
                   </option>
-                  <option key="MN" value="MN">
+                  <option key="Manhattan" value="Manhattan">
                     Manhattan
                   </option>
-                  <option key="QN" value="QN">
+                  <option key="Queens" value="Queens">
                     Queens
                   </option>
-                  <option key="SI" value="SI">
+                  <option key="Staten Island" value="Staten Island">
                     Staten Island
+                  </option>
+                  <option key="Outside of NYC" value="Outside of NYC">
+                    Outside of NYC
                   </option>
                 </Form.Control>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Post
-              </Button>
+              <Button
+                className="psotFormSubmit"
+                primary
+                type="submit"
+                label="Post"
+              />
             </Form>
           </Modal.Body>
         </Modal>
