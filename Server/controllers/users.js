@@ -85,6 +85,17 @@ const authenticate = async (req, res, next) => {
     return res.send(err);
   }
 };
+const getUser = async (req,res) =>{
+  const userID = await req.user_id
+  const data = await User.getByID(userID)
+  res.send(data)
+}
+
+const update = async (req,res) =>{
+  const userID = await req.user_id
+  const { name, username, email, password, address , bio} = req.body
+  User.update(userID, name, username, email, password, address, bio) 
+}
 
 const logout = (req, res) => {
   res.clearCookie('userToken');
@@ -96,4 +107,6 @@ module.exports = {
   logout,
   register,
   authenticate,
+  update,
+  getUser
 };

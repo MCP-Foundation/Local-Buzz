@@ -1,5 +1,5 @@
 .ForumComponent {
-  margin-top: 100px;
+  margin-top: 10%;
   align-items: center;
   text-align: center;
   margin-right: auto;
@@ -8,13 +8,101 @@
   height: 90vh;
 }
 
-.PostFormComponent {
-  margin-top: 100px;
-}
-.ForumHeaderComponent {
-  margin-bottom: 30px;
+.ForumPostComponent {
+  margin-top: 40px;
 }
 
-.ForumPostComponent {
-  margin-top: 20px;
+.ForumPostsComponent {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.postFormSubmit {
+  align-items: center;
+  text-align: center;
+}
+
+/* POST COMPONENT */
+.PostComponent {
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom: 0.3px solid #bebebe;
+  padding-top: 15px;
+}
+.postUserInfo > p {
+  margin: 0;
+  padding: 0;
+}
+.name {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.postTitle {
+  font-size: 22px;
+  color: black;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+.postBody {
+  font-size: 20px;
+  color: #595959;
+  margin-right: 20px;
+}
+.mainPostDiv {
+  text-align: start;
+  margin: 0;
+}
+.postFilter {
+  text-align: start;
+  margin: 0;
+}
+
+.postUserInfo {
+  text-align: start;
+  margin: 0;
+}
+.postInteractionInfo {
+  text-align: start;
+  margin: 0;
+}
+.postCreatedInfo {
+  text-align: start;
+  margin: 0;
+}
+span.location,
+span.time {
+  margin: 0;
+}
+
+.username {
+  font-size: 15px;
+}
+
+.tag {
+  font-size: 20px;
+  margin: 10 10 10 0;
+}
+.category {
+  font-size: 20px;
+  margin: 10px;
+}
+.time {
+  font-size: 15px;
+  margin: 10px;
+}
+.location {
+  font-size: 15px;
+  margin: 10px;
+}
+.userAvatar {
+  height: 50px;
+  margin: 10px;
+}
+.tag {
+  padding-right: 10px;
+}
+.likes {
+  margin-right: 30px;
 }
