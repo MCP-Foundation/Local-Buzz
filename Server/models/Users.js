@@ -1,8 +1,8 @@
 const db = require('../db');
 
 class User {
-  static create(name, username, email, password, address) {
-    const queryText = `INSERT INTO users (name, username, email, password, address)
+  static create(name, username, email, password, address, avatar) {
+    const queryText = `INSERT INTO users (name, username, email, password, address, avatar)
     VALUES ($1, $2, $3, $4, $5);`;
     return db.query(queryText, [
       name,
@@ -10,6 +10,7 @@ class User {
       email,
       password,
       address,
+      avatar
     ]);
   }
   static getByID(userID){
@@ -28,7 +29,7 @@ class User {
   }
 
   static update(userID, name, username, email, password, address, bio) {
-    const queryText = `UPDATE users SET name = $2, username = $3, email = $4, password = $5, address = $6 bio = $7
+    const queryText = `UPDATE users SET name = $2, username = $3, email = $4, password = $5, address = $6 bio = $7 avatar = $8
       WHERE user_id = $1;`;
     return db.query(queryText, [
       userID,
@@ -37,7 +38,8 @@ class User {
       email,
       password,
       address,
-      bio
+      bio,
+      avatar
     ]);
   }
 
