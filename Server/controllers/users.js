@@ -4,12 +4,12 @@ const path = require('path');
 const User = require('../models/Users.js');
 
 const register = (req, res) => {
-  const { name, username, email, password, address } = req.body
+  const { name, username, email, password, address, avatar} = req.body
 
   const saltRounds = 8
   bcrypt.hash(password, saltRounds)
     .then((hashedPassword) => {
-      User.create(name, username, email, hashedPassword, address)
+      User.create(name, username, email, hashedPassword, address, avatar)
       return jwt.sign({
         username,
         email,
@@ -93,8 +93,8 @@ const getUser = async (req,res) =>{
 
 const update = async (req,res) =>{
   const userID = await req.user_id
-  const { name, username, email, password, address , bio} = req.body
-  User.update(userID, name, username, email, password, address, bio) 
+  const { name, username, email, password, address , bio, avatar} = req.body
+  User.update(userID, name, username, email, password, address, bio, avatar) 
 }
 
 const logout = (req, res) => {

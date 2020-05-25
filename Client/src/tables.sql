@@ -3,6 +3,7 @@ create database smallStories;
 CREATE TABLE users (
 user_id SERIAL PRIMARY KEY,
 name VARCHAR,
+avatar TEXT,
 username VARCHAR UNIQUE NOT NULL,
 bio TEXT,
 email TEXT UNIQUE NOT NULL,
