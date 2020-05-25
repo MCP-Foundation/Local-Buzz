@@ -18,19 +18,10 @@ function Post({
   const newDate = `${mo} ${da}, ${ye}`;
   const postDataContext = {
     postId,
-    userId,
-    title,
-    category,
-    tag,
-    postBody,
-    date: newDate,
-    location,
   };
 
-  const viewPostRedirect = () => {
-    console.log(postDataContext);
-
-    // window.location.href = '/viewPost';
+  const viewPostRedirect = (postId) => {
+    window.location.href = `/viewPost/${postDataContext.postId}`;
   };
 
   return (

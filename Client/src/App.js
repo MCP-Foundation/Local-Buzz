@@ -43,7 +43,7 @@ function App() {
             <Route path="/post">
               <PostForm />
             </Route>
-            <Route path="/viewPost/">
+            <Route path="/viewPost/:id">
               <PostView/>
             </Route>
           </Switch>
