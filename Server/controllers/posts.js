@@ -32,8 +32,8 @@ const getUsersPosts = async (req, res) => {
   }
 };
 const getAllByUser = async (req, res) => {
-  const userId = req.user.user_id;
-  const data = await Post.getAllByUser(userId);
+  const userID = req.user.user_id;
+  const data = await Post.getAllByUser(userID);
   console.log(data);
   res.send(data)
 };
@@ -45,7 +45,8 @@ const getAllPosts = async (req, res) => {
 };
 const getById = async (req,res) =>{
   const postID = req.params.id;
-  const data = await Post.getById(postId);
+  console.log(postID)
+  const data = await Post.getById(postID);
   console.log(data)
   res.send(data)
 }
@@ -88,14 +89,16 @@ const deletePosts = (req, res) => {
     );
 };
 const createComment = async (req,res) =>{
-  const userID= req.user_id;
-  const {comment} = req.body;
-  Post.createComment(userID,author,postID,comment)
-  res.redirect('/')
+  const userID = req.user;
+  const postID = req.params.id;
+  const date_created = new Date();
+  const { comment , author } = req.body;
+  Post.createComment(userID,author,postID,comment,date_created)
+  res.redirect(`/viewPost/${postID}`)
 }
 const getComments = async (req,res) =>{
-  const data = await Post.getComments();
-  console.log(data)
+  const postID = req.params.id;
+  const data = await Post.getComments(postID);
   res.send(data)
 }
 const updateComment = async (req,res) =>{
@@ -109,7 +112,7 @@ const deleteComment = async (req,res) =>{
   const postID = req.params.id;
   const userID = req.user_id;
   Post.deleteComment(userID,postID)
-    .then(()=> res.redirect('/'))
+    .then(()=> res.redirect(`/viewPost/${postID}`))
     .catch(()=>{
       res
         .status((500))

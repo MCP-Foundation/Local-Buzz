@@ -24,12 +24,12 @@ class Posts {
   }
   static getAllByUser (userID) {
     const queryText = 'SELECT * FROM posts WHERE user_id = $1;';
-    return db.query(queryText, [userID]).then(response => response.rows)
+    return db.query(queryText, [userID]).then(res => res.rows)
   }
 
   static getById(postID) {
-    const queryText = 'SELECT * FROM posts WHERE post_id = $1 RETURNING *;';
-    return db.query(queryText, [postID]);
+    const queryText = 'SELECT * FROM posts WHERE post_id = $1;';
+    return db.query(queryText, [postID]).then((res) => res.rows);
   }
 
   static getAll() {
@@ -67,15 +67,15 @@ class Posts {
     const queryText = 'DELETE FROM posts WHERE post_id = $1 RETURNING *;';
     return db.query(queryText, [postID]);
   }
-  static createComment(userID,author,postID,comment){
-    const queryText = `INSERT INTO comments (comment, author, user_id, post_id)
-    VALUES ($1, $2, $3, $4) RETURNING *;`
-    return db.query(queryText,[comment,author,userID,postID])
+  static createComment(userID,author,postID,comment,date){
+    const queryText = `INSERT INTO comments (comment, author, user_id, post_id,date_created)
+    VALUES ($1, $2, $3, $4,$5) RETURNING *;`
+    return db.query(queryText,[comment,author,userID,postID,date])
 
   }
-  static getComments(){
-    const queryText = `SELECT * FROM comments RETURNING *;`;
-    return db.query(queryText).then((data) => data.rows)
+  static getComments(postID){
+    const queryText = `SELECT * FROM comments WHERE post_id = $1`;
+    return db.query(queryText,[postID]).then((data) => data.rows)
 
   }
   static updateComment(userID,commentID,comment){
