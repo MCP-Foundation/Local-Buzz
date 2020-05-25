@@ -26,9 +26,6 @@ function ForumPosts() {
     getAllPostsData();
     setIsLoading(false);
   }, []);
-
-  console.log(allPosts);
-
   return (
     <>
       {isLoading ? (
@@ -43,7 +40,7 @@ function ForumPosts() {
                   {allPosts &&
                     allPosts.map((post) => (
                       <Post
-                        postId={post.id}
+                        postId={post.post_id}
                         userId={post.user_id}
                         title={post.title}
                         category={post.category}

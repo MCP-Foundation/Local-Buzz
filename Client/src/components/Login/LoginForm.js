@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext }  from 'react';
+import UserContext from '../../contexts/userContext'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -24,6 +26,7 @@ function Copyright() {
     </Typography>
   );
 }
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -43,8 +46,26 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+
 export default function LoginForm({ loginUser }) {
+  const user = useContext( UserContext )
   const classes = useStyles();
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    fetch('/api/login', { method: 'POST', body: JSON.stringify({
+      email: e.target.elements.email.value,
+      password: e.target.elements.password.value
+    }) })
+    .then(res => {
+      if (res.status === 200) {
+        user.setIsLoggedIn(true);
+      }
+    })
+
+  }
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -56,7 +77,7 @@ export default function LoginForm({ loginUser }) {
           Sign in
         </Typography>
         <section className="LoginFormComponent">
-        <form className={classes.form} noValidate onSubmit={loginUser} id="loginForm" action="/api/login" method="post">
+        <form className={classes.form} noValidate onSubmit={handleSubmit} id="loginForm" action="/api/login" method="post">
           <TextField
             // htmlFor="email"
             variant="outlined"

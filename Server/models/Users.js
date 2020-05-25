@@ -12,23 +12,9 @@ class User {
       address,
     ]);
   }
-
-  static update(user_id, name, username, email, password, address) {
-    const queryText = `UPDATE users SET name = $2, username = $3, email = $4, password = $5, address = $6
-      WHERE user_id = $1;`;
-    return db.query(queryText, [
-      user_id,
-      name,
-      username,
-      email,
-      password,
-      address,
-    ]);
-  }
-
-  static deleteUser(user_id) {
-    const queryText = 'DELETE FROM users WHERE user_id = $1';
-    return db.query(queryText, [user_id]);
+  static getByID(userID){
+    const queryText = 'SELECT * FROM users WHERE user_id = $1';
+    return db.query(queryText,[userID]).then((data) => data.rows);
   }
 
   static getByEmail(email) {
@@ -38,7 +24,26 @@ class User {
 
   static getAll() {
     const queryText = 'SELECT * FROM users;';
-    return db.query(queryText);
+    return db.query(queryText).then((data) => data.rows);
+  }
+
+  static update(userID, name, username, email, password, address, bio) {
+    const queryText = `UPDATE users SET name = $2, username = $3, email = $4, password = $5, address = $6 bio = $7
+      WHERE user_id = $1;`;
+    return db.query(queryText, [
+      userID,
+      name,
+      username,
+      email,
+      password,
+      address,
+      bio
+    ]);
+  }
+
+  static deleteUser(userID) {
+    const queryText = 'DELETE FROM users WHERE user_id = $1';
+    return db.query(queryText, [userID]);
   }
 }
 
