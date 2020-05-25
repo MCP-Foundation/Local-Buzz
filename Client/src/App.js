@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import UserProvider from './contexts/userContext.js';
+
 import HomePage from './components/HomePage/HomePage';
 import Forum from './components/Forum/Forum';
 import Navigation from './components/Navigation/Navigation';
@@ -16,32 +18,37 @@ import PostView from './components/Forum/PostView';
 function App() {
   return (
     <Router>
-      <section className="App">
-        <Navigation />
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/forum">
-            <Forum />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/account">
-            <Profile />
-          </Route>
-          <Route path="/post">
-            <PostForm />
-          </Route>
-          <Route path="/viewPost/">
-            <PostView/>
-          </Route>
-        </Switch>
-      </section>
+      <UserProvider>
+        <section className="App">
+          <Navigation />
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/forum">
+              <Forum />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/account">
+              <Profile />
+            </Route>
+            <Route path="/logout">
+              <Forum/>
+            </Route>
+            <Route path="/post">
+              <PostForm />
+            </Route>
+            <Route path="/viewPost/">
+              <PostView/>
+            </Route>
+          </Switch>
+        </section>
+      </UserProvider>
     </Router>
   );
 }

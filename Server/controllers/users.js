@@ -49,7 +49,7 @@ const login = async (req, res) => {
         res.status(500).send(err);
       }
       res.cookie('userToken', encryptedPayload);
-      res.redirect('/');
+      res.redirect('/forum');
     });
   } catch (err) {
     console.log(err);
@@ -99,7 +99,7 @@ const update = async (req,res) =>{
 
 const logout = (req, res) => {
   res.clearCookie('userToken');
-  res.redirect('/')
+  res.redirect('/forum')
 };
 
 module.exports = {
