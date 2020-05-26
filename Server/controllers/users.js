@@ -85,7 +85,7 @@ const authenticate = async (req, res, next) => {
     return res.send(err);
   }
 };
-const getUser = async (req,res) =>{
+const getUserById = async (req,res) =>{
   const userID = await req.user_id
   const data = await User.getByID(userID)
   res.send(data)
@@ -108,5 +108,5 @@ module.exports = {
   register,
   authenticate,
   update,
-  getUser
+  getUserById
 };

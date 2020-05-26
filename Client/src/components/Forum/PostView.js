@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { Form } from 'react-bootstrap';
+import { Grommet } from 'grommet';
+const theme = {
+  global: {
+    colors: {
+      brand: '#2a48e7',
+    },
+    font: {
+      family: 'Roboto',
+      size: '18px',
+      height: '20px',
+    },
+  },
+};
 const postId = window.location.pathname.substring(10)
-
-console.log(postId)
 function PostView() {
 	const [post, setPost] = useState(null);
 	const [comments, setComments] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 	const [postLoading, setPostLoading] = useState(false);
 	const [commentLoading, setCommentLoading] = useState(false);
 	const [error, setError] = useState(null);
@@ -35,14 +48,42 @@ function PostView() {
 				} )
 		}
 	},[])
-	console.log(post)
   return (
-    <section>
-    	<h1>Hi</h1>
+  	<section>
+  	<h1>help</h1>
+  	<h1>help</h1>
+  	<h1>help</h1>
+  	<h1>help</h1>
+  	<h1>help</h1>
+  	<h1>help</h1>
+  	  	<Grommet theme={theme} full>
+  	  	<Form id="postForm" action="/api/comment" method="post">
+              <Form.Group controlId="commentForm">
+                <Form.Label>Post a Comment!</Form.Label>
+                <Form.Control
+                  name="comment"
+                  type="text"
+                  placeholder="Thoughts?"
+                />
+                </Form.Group>
+             </Form> 
+  	</Grommet>
+  		
+  	</section>
 
-     
-    </section>
-  );
+
+  // 	 <>
+  //     {isLoading ? (
+  //       <p> {error || '...Loading'}</p>
+  //     ) : (
+  //   <section>
+  //   {post && post.map((data)=>{
+    	
+  //   })}
+  //   </section>
+  // )}
+  //  </>
+  )
 }
 
 export default PostView;

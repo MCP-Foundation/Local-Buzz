@@ -1,4 +1,5 @@
 const Post = require('../models/Posts');
+const User = require('../models/Users.js');
 const path = require('path');
 
 const createPost = async (req, res) => {
@@ -18,8 +19,8 @@ const createPost = async (req, res) => {
 
 const getUsersPosts = async (req, res) => {
   try {
-    const userId = req.user_id;
-    const result = await Post.getUsersPosts(userId);
+    const userID = req.user.user_id;
+    const result = await Post.getUsersPosts(userID);
     if (result.length === 0) {
       return res.json('There are no Posts yet.');
     }
@@ -46,7 +47,7 @@ const getAllPosts = async (req, res) => {
 const getById = async (req,res) =>{
   const postID = req.params.id;
   console.log(postID)
-  const data = await Post.getById(postID);
+  const data = await Post.getByID(postID);
   console.log(data)
   res.send(data)
 }
@@ -89,10 +90,12 @@ const deletePosts = (req, res) => {
     );
 };
 const createComment = async (req,res) =>{
-  const userID = req.user;
+  const userID = req.user.user_id;
+  const author = req.user.username
   const postID = req.params.id;
+  console.log(postID)
   const date_created = new Date();
-  const { comment , author } = req.body;
+  const { comment  } = req.body;
   Post.createComment(userID,author,postID,comment,date_created)
   res.redirect(`/viewPost/${postID}`)
 }
@@ -103,14 +106,14 @@ const getComments = async (req,res) =>{
 }
 const updateComment = async (req,res) =>{
   const commentID = req.params.id;
-  const userID = req.user_id;
+  const userID = req.user.user_id;
   const {comment} = req.body;
   Post.updateComment(userID,commentID,comment)
 }
 
 const deleteComment = async (req,res) =>{
   const postID = req.params.id;
-  const userID = req.user_id;
+  const userID = req.user.user_id;
   Post.deleteComment(userID,postID)
     .then(()=> res.redirect(`/viewPost/${postID}`))
     .catch(()=>{
