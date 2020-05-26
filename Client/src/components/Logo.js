@@ -4,7 +4,7 @@ function Logo() {
   return (
     <section className="logoNavComponent">
       <div>
-        <h1>Small Stories</h1>
+        <h5>Small Stories</h5>
       </div>
     </section>
   );
