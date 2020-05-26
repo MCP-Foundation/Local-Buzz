@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grommet } from 'grommet';
 import { Button } from 'grommet';
-
 import './Forum.css';
 import Navigation from '../Navigation/Navigation';
 import ForumHeader from './ForumHeader';
@@ -19,19 +18,15 @@ const theme = {
     },
   },
 };
-
 class Forum extends Component {
   state = {
     show: false,
   };
-
   handleShow = () => this.setState({ show: true });
   handleClose = () => this.setState({ show: false });
-
   postFormRedirect = () => {
     window.location.href = '/post';
   };
-
   render() {
     return (
       <section className="ForumComponent">
@@ -44,7 +39,6 @@ class Forum extends Component {
             label="Start a conversation"
           />
           <ForumHeader show={this.state.show} handleClose={this.handleClose} />
-
           <SearchTags />
           <ForumPosts getAllPostsData={this.getAllPostsData} />
         </Grommet>
@@ -52,5 +46,4 @@ class Forum extends Component {
     );
   }
 }
-
 export default Forum;

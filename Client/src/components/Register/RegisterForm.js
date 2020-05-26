@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -159,7 +158,7 @@ export default function RegisterForm({
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

@@ -4,12 +4,12 @@ const path = require('path');
 const User = require('../models/Users.js');
 
 const register = (req, res) => {
-  const { name, username, email, password, address } = req.body
+  const { name, username, email, password, address, avatar} = req.body
 
   const saltRounds = 8
   bcrypt.hash(password, saltRounds)
     .then((hashedPassword) => {
-      User.create(name, username, email, hashedPassword, address)
+      User.create(name, username, email, hashedPassword, address, avatar)
       return jwt.sign({
         username,
         email,
@@ -49,7 +49,7 @@ const login = async (req, res) => {
         res.status(500).send(err);
       }
       res.cookie('userToken', encryptedPayload);
-      res.redirect('/');
+      res.redirect('/forum');
     });
   } catch (err) {
     console.log(err);
@@ -85,10 +85,21 @@ const authenticate = async (req, res, next) => {
     return res.send(err);
   }
 };
+const getUser = async (req,res) =>{
+  const userID = await req.user_id
+  const data = await User.getByID(userID)
+  res.send(data)
+}
+
+const update = async (req,res) =>{
+  const userID = await req.user_id
+  const { name, username, email, password, address , bio, avatar} = req.body
+  User.update(userID, name, username, email, password, address, bio, avatar) 
+}
 
 const logout = (req, res) => {
   res.clearCookie('userToken');
-  res.redirect('/')
+  res.redirect('/forum')
 };
 
 module.exports = {
@@ -96,4 +107,6 @@ module.exports = {
   logout,
   register,
   authenticate,
+  update,
+  getUser
 };

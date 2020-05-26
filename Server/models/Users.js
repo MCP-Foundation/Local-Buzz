@@ -1,8 +1,8 @@
 const db = require('../db');
 
 class User {
-  static create(name, username, email, password, address) {
-    const queryText = `INSERT INTO users (name, username, email, password, address)
+  static create(name, username, email, password, address, avatar) {
+    const queryText = `INSERT INTO users (name, username, email, password, address, avatar)
     VALUES ($1, $2, $3, $4, $5);`;
     return db.query(queryText, [
       name,
@@ -10,25 +10,12 @@ class User {
       email,
       password,
       address,
+      avatar
     ]);
   }
-
-  static update(user_id, name, username, email, password, address) {
-    const queryText = `UPDATE users SET name = $2, username = $3, email = $4, password = $5, address = $6
-      WHERE user_id = $1;`;
-    return db.query(queryText, [
-      user_id,
-      name,
-      username,
-      email,
-      password,
-      address,
-    ]);
-  }
-
-  static deleteUser(user_id) {
-    const queryText = 'DELETE FROM users WHERE user_id = $1';
-    return db.query(queryText, [user_id]);
+  static getByID(userID){
+    const queryText = 'SELECT * FROM users WHERE user_id = $1';
+    return db.query(queryText,[userID]).then((data) => data.rows);
   }
 
   static getByEmail(email) {
@@ -38,7 +25,27 @@ class User {
 
   static getAll() {
     const queryText = 'SELECT * FROM users;';
-    return db.query(queryText);
+    return db.query(queryText).then((data) => data.rows);
+  }
+
+  static update(userID, name, username, email, password, address, bio) {
+    const queryText = `UPDATE users SET name = $2, username = $3, email = $4, password = $5, address = $6 bio = $7 avatar = $8
+      WHERE user_id = $1;`;
+    return db.query(queryText, [
+      userID,
+      name,
+      username,
+      email,
+      password,
+      address,
+      bio,
+      avatar
+    ]);
+  }
+
+  static deleteUser(userID) {
+    const queryText = 'DELETE FROM users WHERE user_id = $1';
+    return db.query(queryText, [userID]);
   }
 }
 

@@ -12,7 +12,7 @@ function UserPosts() {
   useEffect(() => {
     function getAllUserPostsData() {
       setIsLoading(true);
-      fetch(`/api/forum`)
+      fetch(`/api/user-posts`)
         .then((res) => res.json())
         .then((data) => {
           setAllPosts(data);

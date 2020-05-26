@@ -2,22 +2,25 @@ create database smallStories;
 ​
 CREATE TABLE users (
 user_id SERIAL PRIMARY KEY,
-name TEXT,
-username TEXT,
-email TEXT UNIQUE,
-password TEXT,
+name VARCHAR,
+avatar TEXT,
+username VARCHAR UNIQUE NOT NULL,
+bio TEXT,
+email TEXT UNIQUE NOT NULL,
+password TEXT NOT NULL,
 address TEXT
 );
 
 CREATE TABLE posts (
-id SERIAL PRIMARY KEY,
+post_id SERIAL PRIMARY KEY,
 user_id INT REFERENCES users(user_id),
-title TEXT,
-category TEXT,
+title TEXT NOT NULL,
+category TEXT NOT NULL,
 tag TEXT,
-post_body TEXT,
+post_body TEXT NOT NULL,
 date_created TIMESTAMP,
-location TEXT
+location TEXT,
+likes INT DEFAULT 0
 );
 ​
 CREATE TABLE admins (
@@ -26,4 +29,14 @@ admin_name TEXT,
 email TEXT, 
 password TEXT,
 address TEXT
+);
+
+CREATE TABLE comments (
+comment_id SERIAL PRIMARY KEY,
+comment VARCHAR(255),
+author VARCHAR REFERENCES users(username),
+user_id INT REFERENCES users(user_id),
+post_id INT REFERENCES posts(post_id),
+date_created TIMESTAMP,
+likes INT DEFAULT 0
 );

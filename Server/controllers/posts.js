@@ -31,14 +31,33 @@ const getUsersPosts = async (req, res) => {
     });
   }
 };
+const getAllByUser = async (req, res) => {
+  const userID = req.user.user_id;
+  const data = await Post.getAllByUser(userID);
+  console.log(data);
+  res.send(data)
+};
+
+const getAllPosts = async (req, res) => {
+  const data = await Post.getAll();
+  console.log(data);
+  res.send(data)
+};
+const getById = async (req,res) =>{
+  const postID = req.params.id;
+  console.log(postID)
+  const data = await Post.getById(postID);
+  console.log(data)
+  res.send(data)
+}
 
 const updatePosts = async (req, res) => {
   const postID = req.params.id;
-  const userId = req.user_id;
+  const userID = req.user_id;
   const { title, post_body, tag, location, category } = req.body;
   try {
     await Post.updatePosts(
-      userId,
+      userID,
       postID,
       title,
       post_body,
@@ -53,11 +72,15 @@ const updatePosts = async (req, res) => {
       .json({ error: 'Internal Server Error: Post could not be updated.' });
   }
 };
+const addLike = async (req, res) => {
+  const postID = req.params.id;
+  Post.addLike(postID)
+};
 
 const deletePosts = (req, res) => {
-  const postId = req.params.id;
-  const userId = req.user_id;
-  Post.deletePosts(userId, postId)
+  const postID = req.params.id;
+  const userID = req.user_id;
+  Post.deletePosts(userID, postID)
     .then(() => res.redirect('/'))
     .catch(() =>
       res
@@ -65,17 +88,50 @@ const deletePosts = (req, res) => {
         .json({ error: 'Internal Server Error: Post could not be deleted.' })
     );
 };
-
-const getAllPosts = async (req, res) => {
-  const data = await Post.getAll();
-  console.log(data);
+const createComment = async (req,res) =>{
+  const userID = req.user;
+  const postID = req.params.id;
+  const date_created = new Date();
+  const { comment , author } = req.body;
+  Post.createComment(userID,author,postID,comment,date_created)
+  res.redirect(`/viewPost/${postID}`)
+}
+const getComments = async (req,res) =>{
+  const postID = req.params.id;
+  const data = await Post.getComments(postID);
   res.send(data)
-};
+}
+const updateComment = async (req,res) =>{
+  const commentID = req.params.id;
+  const userID = req.user_id;
+  const {comment} = req.body;
+  Post.updateComment(userID,commentID,comment)
+}
+
+const deleteComment = async (req,res) =>{
+  const postID = req.params.id;
+  const userID = req.user_id;
+  Post.deleteComment(userID,postID)
+    .then(()=> res.redirect(`/viewPost/${postID}`))
+    .catch(()=>{
+      res
+        .status((500))
+        .json({error:'Internal Server Error: Comment could not be deleted'})
+    })
+}
+
 
 module.exports = {
   createPost,
-  updatePosts,
+  createComment,
   getAllPosts,
+  addLike,
+  getComments,
   getUsersPosts,
+  getById,
+  getAllByUser,
+  updatePosts,
+  updateComment,
   deletePosts,
+  deleteComment
 };
