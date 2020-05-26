@@ -46,9 +46,7 @@ const getAllPosts = async (req, res) => {
 };
 const getById = async (req,res) =>{
   const postID = req.params.id;
-  console.log(postID)
   const data = await Post.getByID(postID);
-  console.log(data)
   res.send(data)
 }
 
@@ -92,10 +90,9 @@ const deletePosts = (req, res) => {
 const createComment = async (req,res) =>{
   const userID = req.user.user_id;
   const author = req.user.username
-  const postID = req.params.id;
-  console.log(postID)
   const date_created = new Date();
-  const { comment  } = req.body;
+  const { comment , postID } = req.body;
+  console.log(req.body)
   Post.createComment(userID,author,postID,comment,date_created)
   res.redirect(`/viewPost/${postID}`)
 }

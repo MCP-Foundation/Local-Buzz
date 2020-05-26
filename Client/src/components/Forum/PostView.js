@@ -13,7 +13,7 @@ const theme = {
     },
   },
 };
-const postId = window.location.pathname.substring(10)
+const postID = window.location.pathname.substring(10)
 function PostView() {
 	const [post, setPost] = useState(null);
 	const [comments, setComments] = useState(null);
@@ -25,7 +25,7 @@ function PostView() {
 	useEffect(() => {
 	    function getAllPostsData() {
 	      setPostLoading(true);
-	      fetch(`/api/viewPost/${postId}`)
+	      fetch(`/api/viewPost/${postID}`)
 	        .then((res) => res.json())
 	        .then((data) => {
 	          setPost(data);
@@ -41,7 +41,7 @@ function PostView() {
   }, []);
 	useEffect(()=>{
 		function getAllComments(){
-			fetch(`/api/comments/${postId}`)
+			fetch(`/api/comments/${postID}`)
 				.then((res) => res.json())
 				.then((data) =>{
 					setComments(data)
@@ -63,9 +63,11 @@ function PostView() {
                 <Form.Control
                   name="comment"
                   type="text"
+                  id={postID}
                   placeholder="Thoughts?"
                 />
                 </Form.Group>
+ 
              </Form> 
   	</Grommet>
   		
