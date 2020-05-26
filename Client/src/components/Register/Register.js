@@ -14,7 +14,6 @@ class Register extends Component {
   render() {
     return (
       <section className="RegisterComponent">
-        <Navigation />
         <RegisterForm
           show={this.state.show}
           handleClose={this.handleClose}
