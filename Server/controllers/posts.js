@@ -35,7 +35,6 @@ const getUsersPosts = async (req, res) => {
 const getAllByUser = async (req, res) => {
   const userID = req.user.user_id;
   const data = await Post.getAllByUser(userID);
-  console.log(data);
   res.send(data)
 };
 
@@ -44,10 +43,10 @@ const getAllPosts = async (req, res) => {
   console.log(data);
   res.send(data)
 };
-const getById = async (req,res) =>{
+const getByID = async (req,res) =>{
   const postID = req.params.id;
   const data = await Post.getByID(postID);
-  res.send(data)
+  res.send(await data)
 }
 
 const updatePosts = async (req, res) => {
@@ -91,13 +90,15 @@ const createComment = async (req,res) =>{
   const userID = req.user.user_id;
   const author = req.user.username
   const date_created = new Date();
-  const { comment , postID } = req.body;
-  console.log(req.body)
-  Post.createComment(userID,author,postID,comment,date_created)
+  const { comment } = req.body;
+  const body = comment[0]
+  const postID = comment[1]
+  Post.createComment(userID, author, postID, body, date_created)
   res.redirect(`/viewPost/${postID}`)
 }
 const getComments = async (req,res) =>{
   const postID = req.params.id;
+  console.log(req.params)
   const data = await Post.getComments(postID);
   res.send(data)
 }
@@ -105,13 +106,13 @@ const updateComment = async (req,res) =>{
   const commentID = req.params.id;
   const userID = req.user.user_id;
   const {comment} = req.body;
-  Post.updateComment(userID,commentID,comment)
+  Post.updateComment(userID, commentID, comment)
 }
 
 const deleteComment = async (req,res) =>{
   const postID = req.params.id;
   const userID = req.user.user_id;
-  Post.deleteComment(userID,postID)
+  Post.deleteComment(userID, postID)
     .then(()=> res.redirect(`/viewPost/${postID}`))
     .catch(()=>{
       res
@@ -128,7 +129,7 @@ module.exports = {
   addLike,
   getComments,
   getUsersPosts,
-  getById,
+  getByID,
   getAllByUser,
   updatePosts,
   updateComment,

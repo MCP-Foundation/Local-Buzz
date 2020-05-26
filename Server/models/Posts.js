@@ -27,7 +27,7 @@ class Posts {
     return db.query(queryText, [userID]).then(res => res.rows)
   }
 
-  static getById(postID) {
+  static getByID(postID) {
     const queryText = 'SELECT * FROM posts WHERE post_id = $1;';
     return db.query(queryText, [postID]).then((res) => res.rows);
   }
