@@ -4,12 +4,12 @@ const path = require('path');
 const User = require('../models/Users.js');
 
 const register = (req, res) => {
-  const { name, username, email, password, address, avatar} = req.body
+  const { name, username, email, password, address} = req.body
 
   const saltRounds = 8
   bcrypt.hash(password, saltRounds)
     .then((hashedPassword) => {
-      User.create(name, username, email, hashedPassword, address, avatar)
+      User.create(name, username, email, hashedPassword, address)
       return jwt.sign({
         username,
         email,
