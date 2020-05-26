@@ -19,7 +19,10 @@ function Post({
   const newDate = `${mo} ${da}, ${ye}`;
   const postDataContext = {
     postId,
+    postBody,
   };
+
+  const simplebody = postDataContext.postBody.substring(0, 150)
 
   const viewPostRedirect = (postId) => {
     window.location.href = `/viewPost/${postDataContext.postId}`;
@@ -45,7 +48,7 @@ function Post({
         {/* Post body and title */}
         <div className="mainPostDiv">
           <p className="postTitle">{title}</p>
-          <p className="postBody">{postBody}</p>
+          <p className="postBody">{simplebody}...</p>
         </div>
         {/* Category Tags  Time Created and Location */}
         <div className="postFilter">
