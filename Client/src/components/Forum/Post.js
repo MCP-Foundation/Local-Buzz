@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Favorite, Chat } from 'grommet-icons';
 
 function Post({
@@ -11,6 +11,8 @@ function Post({
   date,
   location,
   likes,
+  setIsLoading,
+  setError,
 }) {
   const d = new Date(date.replace(' ', 'T'));
   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
@@ -22,33 +24,53 @@ function Post({
     postBody,
   };
 
-  const simplebody = postDataContext.postBody.substring(0, 150)
+  const simplebody = postDataContext.postBody.substring(0, 150);
+
+  const [userData, setUserData] = useState([]);
 
   const viewPostRedirect = (postId) => {
     window.location.href = `/viewPost/${postDataContext.postId}`;
   };
 
+  useEffect(() => {
+    function getAllUserData() {
+      console.log(userId);
+      fetch(`/api/user/${userId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setUserData(data[0]);
+        })
+        .catch(() => {
+          const err = 'Sorry there was an error, please try again';
+          setError(err);
+        });
+    }
+
+    getAllUserData();
+    setIsLoading(false);
+  }, []);
+
   return (
     <section className="PostComponent" onClick={viewPostRedirect}>
       <div className="userAvatarDiv">
-        <img
-          className="userAvatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png"
-        />
+        <img className="userAvatar" src={userData.avatar} />
       </div>
       <div className="postBodyDiv">
         {/* UserInfo */}
         <div className="postUserInfo">
           <p>
-            <span className="name">Name</span>
+            <span className="name">{userData.name}</span>
           </p>
-          <p className="username">@username</p>
+          <p className="username">{userData.username}</p>
         </div>
 
         {/* Post body and title */}
         <div className="mainPostDiv">
           <p className="postTitle">{title}</p>
-          <p className="postBody">{simplebody}...</p>
+          <p className="postBody">
+            {simplebody}
+            ...
+          </p>
         </div>
         {/* Category Tags  Time Created and Location */}
         <div className="postFilter">
