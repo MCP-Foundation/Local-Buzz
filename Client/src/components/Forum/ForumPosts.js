@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Timeline, Row, Col } from 'antd';
-import 'antd/dist/antd.css';
-
 import Post from './Post';
 
 function ForumPosts() {
@@ -32,11 +29,7 @@ function ForumPosts() {
         <p> {error || '...Loading'}</p>
       ) : (
         <section className="ForumPostComponent">
-          <Row justify="center">
-            <Col span={8}></Col>
-            <Col span={8}>
               <section className="ForumPostsComponent">
-                <Timeline mode="left">
                   {allPosts &&
                     allPosts.map((post) => (
                       <Post
@@ -48,14 +41,10 @@ function ForumPosts() {
                         postBody={post.post_body}
                         date={post.date_created}
                         location={post.location}
+                        likes={post.likes}
                       />
                     ))}
-                </Timeline>
               </section>
-            </Col>
-
-            <Col span={8}></Col>
-          </Row>
         </section>
       )}
     </>
