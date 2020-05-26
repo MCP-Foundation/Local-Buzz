@@ -14,8 +14,15 @@ class Register extends Component {
   render() {
     return (
       <section className="RegisterComponent">
-        <Navigation />
-        <RegisterForm registerUser={this.registerUser} />
+
+        <Grommet theme={theme} full>
+          <RegisterForm
+            registerUser={this.registerUser}
+            show={this.state.show}
+            handleClose={this.handleClose}
+            handleShow={this.handleShow}
+          />
+        </Grommet>
       </section>
     );
   }

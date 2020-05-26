@@ -31,7 +31,7 @@ class Forum extends Component {
     return (
       <section className="ForumComponent">
         <Grommet theme={theme} full>
-          <Navigation />
+
           <Button
             primary
             gap="medium"

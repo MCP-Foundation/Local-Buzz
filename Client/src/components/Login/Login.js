@@ -14,7 +14,7 @@ class Login extends Component {
   render() {
     return (
       <section className="LoginComponent">
-        <Navigation />
+        {/* <Navigation /> */}
         <LoginForm loginUser={this.loginUser} />
       </section>
     );
