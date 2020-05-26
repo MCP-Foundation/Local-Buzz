@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Register.css';
 import Navigation from '../Navigation/Navigation';
 import RegisterForm from './RegisterForm';
-import { Button, Grommet } from 'grommet';
+import { Grommet } from 'grommet';
 const theme = {
   global: {
     colors: {

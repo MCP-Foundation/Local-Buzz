@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -11,7 +12,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import { Button } from 'grommet';
 import AvatarForm from './AvatarForm';
 
 function Copyright() {
@@ -65,11 +65,14 @@ export default function RegisterForm({
 
         {/* Modal for avatar customization */}
         <Button
-          primary
-          gap="small"
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
           onClick={handleShow}
-          label="Create an avatar!"
-        />
+        >
+          Create an avatar!
+        </Button>
         <AvatarForm show={show} handleClose={handleClose} />
 
         <form
@@ -145,7 +148,15 @@ export default function RegisterForm({
               </select>
             </Grid>
           </Grid>
-          <Button primary gap="medium" label="Sign Up" />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign Up
+          </Button>
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
