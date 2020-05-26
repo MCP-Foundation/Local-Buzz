@@ -10,6 +10,7 @@ function Post({
   postBody,
   date,
   location,
+  likes,
 }) {
   const d = new Date(date.replace(' ', 'T'));
   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
@@ -71,7 +72,7 @@ function Post({
         <div className="postInteractionInfo">
           <p>
             <span className="likes">
-              {1}
+              {likes}
               {' '}
               <Favorite color="#ff58bc" />
             </span>
