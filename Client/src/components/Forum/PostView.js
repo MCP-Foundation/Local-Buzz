@@ -50,12 +50,6 @@ function PostView() {
 	},[])
   return (
   	<section>
-  	<h1>help</h1>
-  	<h1>help</h1>
-  	<h1>help</h1>
-  	<h1>help</h1>
-  	<h1>help</h1>
-  	<h1>help</h1>
   	  	<Grommet theme={theme} full>
   	  	<Form id="postForm" action="/api/comment" method="post">
               <Form.Group controlId="commentForm">
