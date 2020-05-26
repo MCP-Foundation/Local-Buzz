@@ -39,7 +39,6 @@ class HomePage extends Component {
     return (
       <Grommet theme={theme} full>
         <section className="HomePage">
-          <Navigation />
           <Row justify="center">
             <Col span={8}></Col>
             <Col span={8}>

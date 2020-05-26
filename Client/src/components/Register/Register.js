@@ -34,7 +34,6 @@ class Register extends Component {
   render() {
     return (
       <section className="RegisterComponent">
-        <Navigation />
         <Grommet theme={theme} full>
           <RegisterForm
             registerUser={this.registerUser}

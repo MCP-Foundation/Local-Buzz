@@ -6,7 +6,6 @@ class Profile extends Component {
   render() {
     return (
       <section className="ForumComponent">
-        <Navigation />
         <UserPosts />
       </section>
     );
