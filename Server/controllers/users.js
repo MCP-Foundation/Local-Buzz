@@ -85,7 +85,8 @@ const authenticate = async (req, res, next) => {
   }
 };
 const getUserById = async (req, res) => {
-  const userID = await req.user_id;
+  const userID = await req.params.id;
+  console.log(userID);
   const data = await User.getByID(userID);
   res.send(data);
 };
