@@ -6,7 +6,6 @@ const register = (req, res) => {
   const { name, username, email, password, address, avatar } = req.body;
   const bio = '';
   console.log(req.body);
-  console.log(bio);
   const saltRounds = 8;
   bcrypt
     .hash(password, saltRounds)
