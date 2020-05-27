@@ -2,7 +2,7 @@
 .PostComponent {
   display: flex;
   flex-direction: row;
-  width: 700px;
+  /* width: 700px; */
   border-bottom: 0.3px solid #bebebe;
   padding-top: 15px;
 } 

@@ -66,6 +66,10 @@
 
   /* POSTS */
 
+  .UserPostComponent {
+  /* padding: 40px; */
+
+}
   .userPostsTitle {
   font-family: "DM Sans", sans-serif;
   /* color: #C6C6C6; */
@@ -74,6 +78,10 @@
   display: flex;
   align-items: center;
   }
+}
+
+.ProfilePostsComponent {
+  background-color: #f1f3f5;
 }
 
 
@@ -187,9 +195,7 @@
  
 
 
-.UserPostComponent {
-  padding: 40px;
-}
+
 
 .userPostsTitle {
   font-family: "DM Sans", sans-serif;
