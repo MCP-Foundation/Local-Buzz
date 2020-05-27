@@ -1,36 +1,12 @@
-.ForumComponent {
-  margin-top: 10%;
-  align-items: center;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 10px;
-  height: 90vh;
-}
 
-.ForumPostComponent {
-  margin-top: 40px;
-}
-
-.ForumPostsComponent {
-  display: flex;
-  flex-direction: column-reverse;
-}
-.postFormSubmit {
-  align-items: center;
-  text-align: center;
-}
-
-/* POST COMPONENT */
-/* .PostComponent {
+.PostComponent {
   display: flex;
   flex-direction: row;
   width: 700px;
-  margin-right: auto;
-  margin-left: auto;
   border-bottom: 0.3px solid #bebebe;
   padding-top: 15px;
-}
+} 
+
 .postUserInfo > p {
   margin: 0;
   padding: 0;
@@ -45,6 +21,7 @@
   margin-right: 10px;
   padding-top: 10px;
 }
+
 .postBody {
   font-size: 20px;
   color: #595959;
@@ -105,4 +82,4 @@ span.time {
 }
 .likes {
   margin-right: 30px;
-} */
+} 

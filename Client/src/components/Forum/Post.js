@@ -1,5 +1,6 @@
 import React from 'react';
 import { Favorite, Chat } from 'grommet-icons';
+import './Posts.css';
 
 function Post({
   postId,

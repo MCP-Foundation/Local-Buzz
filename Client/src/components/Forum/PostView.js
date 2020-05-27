@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form ,Button} from 'react-bootstrap';
 import { Grommet } from 'grommet';
 import './PostView.css';
+
 const theme = {
   global: {
     colors: {
@@ -14,7 +15,8 @@ const theme = {
     },
   },
 };
-const postID = window.location.pathname.substring(10)
+const postID = window.location.pathname.substring(10);
+
 function PostView() {
 	const [post, setPost] = useState([]);
 	const [comments, setComments] = useState([]);
@@ -38,7 +40,8 @@ function PostView() {
     }
     getAllPostsData();
     setPostLoading(false);
-  }, []);
+	}, []);
+	
 	useEffect(()=>{
 		function getAllComments(){
 			setCommentLoading(true)
@@ -51,7 +54,9 @@ function PostView() {
 		getAllComments();
 		setCommentLoading(false);
 	},[])
+
 	console.log(comments)
+
   return (
   	<section>
   	  	<Grommet theme={theme} full>

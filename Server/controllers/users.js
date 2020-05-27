@@ -85,6 +85,7 @@ const authenticate = async (req, res, next) => {
     return res.send(err);
   }
 };
+
 const getUserById = async (req,res) =>{
   const userID = await req.user_id
   const data = await User.getByID(userID)

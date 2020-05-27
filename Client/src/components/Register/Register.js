@@ -2,8 +2,24 @@ import React, { Component } from 'react';
 import './Register.css';
 import Navigation from '../Navigation/Navigation';
 import RegisterForm from './RegisterForm';
+import { Grommet } from 'grommet';
+
+const theme = {
+  global: {
+    colors: {
+      brand: '#2a48e7',
+    },
+    font: {
+      family: 'Roboto',
+      size: '18px',
+      height: '20px',
+    },
+  },
+};
 
 class Register extends Component {
+
+  
   registerUser = (e) => {
     const email = e.target.elements.email.value;
     console.log(email);
@@ -18,9 +34,9 @@ class Register extends Component {
         <Grommet theme={theme} full>
           <RegisterForm
             registerUser={this.registerUser}
-            show={this.state.show}
-            handleClose={this.handleClose}
-            handleShow={this.handleShow}
+            // show={this.state.show}
+            // handleClose={this.handleClose}
+            // handleShow={this.handleShow}
           />
         </Grommet>
       </section>
