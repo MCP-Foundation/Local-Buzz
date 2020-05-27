@@ -10,7 +10,6 @@ function Post({
   postBody,
   date,
   location,
-  likes,
   setIsLoading,
   setError,
 }) {
@@ -27,14 +26,34 @@ function Post({
   const simplebody = postDataContext.postBody.substring(0, 150);
 
   const [userData, setUserData] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [isLiked, setIsLiked] = useState(false);
 
   const viewPostRedirect = (postId) => {
     window.location.href = `/viewPost/${postDataContext.postId}`;
   };
 
+  const likePost = async (post_id, user_id) => {
+    const postLike = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    if (isLiked === true) {
+      const req = await fetch(`/api/unlike/${post_id}/${user_id}`, postLike);
+      setLikes(req);
+      console.log(req);
+      setIsLiked(false);
+    } else {
+      const req = await fetch(`/api/like/${post_id}/${user_id}`, postLike);
+      setLikes(req);
+      setIsLiked(true);
+    }
+  };
+
   useEffect(() => {
     function getAllUserData() {
-      console.log(userId);
       fetch(`/api/user/${userId}`)
         .then((res) => res.json())
         .then((data) => {
@@ -50,8 +69,23 @@ function Post({
     setIsLoading(false);
   }, []);
 
+  useEffect(() => {
+    const getLikes = async () => {
+      const req = await fetch(`/api/likes/${postId}`);
+      const res = await req.json();
+      console.log(res);
+      setLikes(res);
+      for (let i = 0; i < likes.length; i++) {
+        if (likes[i].user_id === userId) {
+          return setIsLiked(true);
+        }
+      }
+    };
+    getLikes();
+  }, [isLiked]);
+
   return (
-    <section className="PostComponent" onClick={viewPostRedirect}>
+    <section className="PostComponent">
       <div className="userAvatarDiv">
         <img className="userAvatar" src={userData.avatar} />
       </div>
@@ -65,7 +99,7 @@ function Post({
         </div>
 
         {/* Post body and title */}
-        <div className="mainPostDiv">
+        <div className="mainPostDiv" onClick={viewPostRedirect}>
           <p className="postTitle">{title}</p>
           <p className="postBody">
             {simplebody}
@@ -90,8 +124,8 @@ function Post({
 
         <div className="postInteractionInfo">
           <p>
-            <span className="likes">
-              {likes} <Favorite color="#ff58bc" />
+            <span className="likes" onClick={() => likePost(postId, userId)}>
+              {likes.length} <Favorite color="#ff58bc" />
             </span>
 
             <span className="comments">
