@@ -58,10 +58,6 @@ class Posts {
       location,
     ]);
   }
-  static addLike(postID){
-    const queryText = `UPDATE posts SET likes = likes +1 WHERE post_id =$1`
-    return db.query(queryText,[postID]);
-  }
 
   static delete(postID,userID) {
     const queryText = 'DELETE FROM posts WHERE post_id = $1 RETURNING *;';
