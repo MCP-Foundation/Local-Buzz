@@ -4,6 +4,10 @@ import { Timeline, Row, Col } from 'antd';
 
 import Post from '../Forum/Post';
 
+import Introduction from './Introduction';
+
+import './Profile.css';
+
 function UserPosts() {
   const [allPosts, setAllPosts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,33 +33,38 @@ function UserPosts() {
   console.log(allPosts);
 
   return (
-    <>
-      {isLoading ? (
-        <p> {error || '...Loading'}</p>
-      ) : (
-        <Row justify="center">
-          <Col span={8}></Col>
-          <Col span={8}>
-            <section className="ForumPostsComponent">
-              <Timeline mode="left">
-                {allPosts &&
-                  allPosts.map((post) => (
-                    <Post
-                      title={post.title}
-                      category={post.category}
-                      tag={post.tag}
-                      postBody={post.post_body}
-                      date={post.date_created}
-                    />
-                  ))}
-              </Timeline>
-            </section>
-          </Col>
+    <section className='UserPostComponent'>
+      <>
+        <section className='userPostsTitle'>
+          <p>Your Stories</p>
+        </section>
+        {isLoading ? (
+          <p> {error || '...Loading'}</p>
+        ) : (
+            <Row justify="center">
+              <Col span={8}></Col>
+              <Col span={8}>
+                 <section className="ProfilePostsComponent">
+                   <Timeline mode="left">
+                    {allPosts &&
+                      allPosts.map((post) => (
+                        <Post
+                          title={post.title}
+                          category={post.category}
+                          tag={post.tag}
+                          postBody={post.post_body}
+                          date={post.date_created}
+                        />
+                      ))}
+                  </Timeline>
+                </section> 
+              </Col>
 
-          <Col span={8}></Col>
-        </Row>
-      )}
-    </>
+              <Col className='flexit' span={8}></Col>
+            </Row>
+          )}
+      </>
+    </section>
   );
 }
 export default UserPosts;

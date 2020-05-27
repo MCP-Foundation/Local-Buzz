@@ -16,6 +16,7 @@ const theme = {
   },
 };
 const postID = window.location.pathname.substring(10);
+
 function PostView() {
   const [post, setPost] = useState([]);
   const [comments, setComments] = useState([]);
@@ -39,20 +40,23 @@ function PostView() {
     }
     getAllPostsData();
     setPostLoading(false);
-  }, []);
-  useEffect(() => {
-    function getAllComments() {
-      setCommentLoading(true);
-      fetch(`/api/comments/${postID}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setComments(data);
-        });
-    }
-    getAllComments();
-    setCommentLoading(false);
-  }, []);
-  console.log(comments);
+	}, []);
+	
+	useEffect(()=>{
+		function getAllComments(){
+			setCommentLoading(true)
+			fetch(`/api/comments/${postID}`)
+				.then((res) => res.json())
+				.then((data) =>{
+					setComments(data)
+				} )
+		}
+		getAllComments();
+		setCommentLoading(false);
+	},[])
+
+	console.log(comments)
+
   return (
     <section>
       <Grommet theme={theme} full>
