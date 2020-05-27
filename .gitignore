@@ -105,4 +105,4 @@ dist
 # Misc
 .DS_Store
 db.js
-package-lock.json
+./package-lock.json

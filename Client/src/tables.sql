@@ -40,3 +40,9 @@ post_id INT REFERENCES posts(post_id),
 date_created TIMESTAMP,
 likes INT DEFAULT 0
 );
+
+CREATE TABLE likes(
+likes_id SERIAL PRIMARY KEY,
+user_id INT REFERENCES users(user_id),
+post_id INT REFERENCES posts(post_id)
+);

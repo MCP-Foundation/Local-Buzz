@@ -1,15 +1,10 @@
 .ForumComponent {
-  margin-top: 10%;
+  margin-top: 5%;
   align-items: center;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 10px;
   height: 90vh;
-}
-
-.ForumPostComponent {
-  margin-top: 40px;
 }
 
 .ForumPostsComponent {
