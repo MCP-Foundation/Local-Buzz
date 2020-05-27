@@ -8,7 +8,7 @@ const createPost = async (req, res) => {
     const date_created = new Date();
     const { title, postBody, tag, category, address } = req.body;
     Post.create(userID, title, category, tag, postBody, date_created, address);
-    res.redirect('/');
+    res.redirect('/forum');
   } catch (err) {
     res.status(500).json({
       error:
@@ -63,7 +63,7 @@ const updatePosts = async (req, res) => {
       location,
       category
     );
-    return res.redirect('/');
+    return res.redirect('/forum');
   } catch (err) {
     return res
       .status(500)
