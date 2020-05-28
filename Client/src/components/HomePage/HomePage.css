@@ -1,6 +1,4 @@
 .BannerComponent {
-  margin-top: 20px;
-  margin-bottom: 30px;
   height: 570px;
   text-align: center;
   background-image: url('https://www.ccsalespro.com/wp-content/uploads/2019/05/Accion-graphics_Small-business-illustration.png');
@@ -12,7 +10,6 @@
   margin-top: 20px;
   margin-bottom: 0;
 }
-
 .HomePage {
   display: flex;
   justify-content: center;

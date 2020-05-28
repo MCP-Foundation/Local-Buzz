@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Main } from 'grommet';
 import './HomePage.css';
 
-function Banner({ forumPageRedirect }) {
+function Banner({ show }) {
   return (
     <section className="BannerComponent">
       <header>
@@ -13,11 +13,7 @@ function Banner({ forumPageRedirect }) {
             climate!
           </p>
         </Main>
-        <Button
-          label="Join the conversation"
-          size="large"
-          onClick={forumPageRedirect}
-        />
+        <Button label="Start A Conversation" size="large" onClick={show} />
       </header>
     </section>
   );
