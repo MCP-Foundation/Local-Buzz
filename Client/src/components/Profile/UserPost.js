@@ -9,9 +9,10 @@ import Introduction from './Introduction';
 import './Profile.css';
 
 function UserPosts() {
-  const [allPosts, setAllPosts] = useState(null);
+  const [allPosts, setAllPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     function getAllUserPostsData() {
@@ -30,13 +31,12 @@ function UserPosts() {
     getAllUserPostsData();
     setIsLoading(false);
   }, []);
-  console.log(allPosts);
 
   return (
     <section className="UserPostComponent">
       <>
-        <section className="userPostsTitle">
-          <p>Your Stories</p>
+        <section>
+          <p className="userPostsTitle">Converstations You've Started</p>
         </section>
         {isLoading ? (
           <p> {error || '...Loading'}</p>
@@ -49,11 +49,16 @@ function UserPosts() {
                   {allPosts &&
                     allPosts.map((post) => (
                       <Post
+                        userId={post.user_id}
                         title={post.title}
                         category={post.category}
                         tag={post.tag}
                         postBody={post.post_body}
                         date={post.date_created}
+                        location={post.location}
+                        likes={post.likes}
+                        setIsLoading={setIsLoading}
+                        setError={setError}
                       />
                     ))}
                 </Timeline>

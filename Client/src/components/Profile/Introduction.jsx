@@ -1,42 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { Location } from 'grommet-icons';
 
 function Introduction() {
+  const [loggedInUser, setLoggedInUser] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // const [isLoading, setIsLoading] = useState(false);
-
+  useEffect(() => {
+    function getLoggedInUserData() {
+      setIsLoading(true);
+      fetch('/api/userObj')
+        .then((res) => res.json())
+        .then((data) => {
+          setLoggedInUser(data);
+        })
+        .catch(() => {
+          const err = 'Sorry there was an error, please try again';
+          setError(err);
+        });
+    }
+    getLoggedInUserData();
+    setIsLoading(false);
+  }, []);
+  console.log(loggedInUser);
 
   return (
-    <div>
-      <section className='introductionComponent'>
-        <section className='introductionCard'>
-          <section className='introduction'>
-            <p className='introductionTitle'>Introduction</p>
-          </section>
-          <section className='introductionMenu'>
-            <section className='introductionPhoto'>
-              <img src='https://via.placeholder.com/120'></img>
-            </section>
-            <section className='introductionItems'>
-              <p className='introductionItem'>
-                <span class="material-icons">work</span>
-                Backend Dev at Marcy Lab
-              </p>
-              <p className='introductionItem'>
-                <span class="material-icons">location_on</span>
-                Lives in Brooklyn
-                </p>
-              <p className='introductionItem'>
-                <span class="material-icons">portrait</span>
-                works within Tech
-                </p>
-            </section>
-          </section>
-          <section className='introductionBio'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</section>
-        </section>
+    <section className="accountUserInfo">
+      <section className="accountUserAvatar">
+        <img alt="user avatar" src={loggedInUser.avatar}></img>
       </section>
-    </div>
-  )
+      <h1 className="accountName">{loggedInUser.name}</h1>
+      <h2 className="accountUsername">@{loggedInUser.username}</h2>
+
+      <section className="accountUserLocation">
+        <p className="location">
+          <Location size="large" />
+          Lives in {loggedInUser.location}
+        </p>
+      </section>
+    </section>
+  );
 }
 
-export default Introduction
+export default Introduction;
