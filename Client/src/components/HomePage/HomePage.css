@@ -1,4 +1,41 @@
 .BannerComponent {
-  margin-top: 100px;
+  margin-top: 20px;
   margin-bottom: 30px;
+  height: 570px;
+  text-align: center;
+  background-image: url('https://www.ccsalespro.com/wp-content/uploads/2019/05/Accion-graphics_Small-business-illustration.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.bannerParagraph {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.HomePage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.HomePageAbout {
+  display: flex;
+  justify-content: center;
+}
+.homepageArticle {
+  text-align: center;
+}
+
+.HomePageTags {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.TagComponent {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }

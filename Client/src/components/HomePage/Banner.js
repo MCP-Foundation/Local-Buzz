@@ -1,26 +1,23 @@
 import React from 'react';
-import { Button, Main, Heading, Paragraph } from 'grommet';
-import { Row, Col } from 'antd';
-import '../HomePage/HomePage.css';
+import { Button, Main } from 'grommet';
+import './HomePage.css';
 
 function Banner({ forumPageRedirect }) {
   return (
     <section className="BannerComponent">
       <header>
-        <Main pad="large">
-          <Heading>Small Stories</Heading>
-          <Paragraph>
+        <Main pad="large" className="bannerMain">
+          <h1>Small Stories</h1>
+          <p className="bannerParagraph">
             Connect with businesses on how they they have handled the current
             climate!
-          </Paragraph>
+          </p>
         </Main>
-        <Row>
-          <Col span={8}></Col>
-          <Col span={8}>
-            <Button label="Forum" onClick={forumPageRedirect} />
-          </Col>
-          <Col span={8}></Col>
-        </Row>
+        <Button
+          label="Join the conversation"
+          size="large"
+          onClick={forumPageRedirect}
+        />
       </header>
     </section>
   );

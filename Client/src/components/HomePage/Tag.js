@@ -1,20 +1,15 @@
 import React from 'react';
-import { Button } from 'grommet';
-import { Row, Col } from 'antd';
+import { Button, Paragraph } from 'grommet';
+
 
 function Tag({ tagName, tagDescription }) {
   return (
-    <section className="TagComponent">
-      <Row justify="start">
-        <Col>
-          <Button primary label={'#' + tagName} />
-        </Col>
-      </Row>
-      <Row justify="start">
-        <Col>
-          <h4>{tagDescription}</h4>
-        </Col>
-      </Row>
+    <section>
+      <Button primary label={`#${tagName}`} />
+
+      <section className="TagComponent">
+        <Paragraph size="large">{tagDescription}</Paragraph>
+      </section>
     </section>
   );
 }
