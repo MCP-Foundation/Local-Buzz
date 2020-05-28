@@ -32,6 +32,12 @@ class Forum extends Component {
     return (
       <section className="ForumComponent">
         <Grommet theme={theme} full>
+        <Button
+            primary
+            gap="medium"
+            onClick={this.handleShow}
+            label="Start a conversation"
+          />
           <ForumHeader show={this.state.show} handleClose={this.handleClose} />
           <ForumPosts getAllPostsData={this.getAllPostsData} />
         </Grommet>
