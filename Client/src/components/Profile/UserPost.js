@@ -34,10 +34,10 @@ function UserPosts() {
 
   return (
     <section className='UserPostComponent'>
+      <section className='userPostsTitle'>
+        <p>Your Stories</p>
+      </section>
       <>
-        <section className='userPostsTitle'>
-          <p>Your Stories</p>
-        </section>
         {isLoading ? (
           <p> {error || '...Loading'}</p>
         ) : (

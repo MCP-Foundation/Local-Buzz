@@ -9,6 +9,17 @@ function ForumHeader({ show, handleClose }) {
         Checkout different tags and topics people are talking about
       </h3>
 
+    <section className="ForumTags">
+             
+        <a class="btn color-1 style-2" href="">CovidResponse</a>
+        <a class="btn color-2 style-2" href="">StartABusiness</a>
+        <a class="btn color-3 style-2" href="">HelpOurEmployees</a>
+        <a class="btn color-4 style-2" href="">Finance</a>
+        <a class="btn color-5 style-2" href="">Management</a>
+        <a class="btn color-6 style-2" href="">GasMeUp</a>
+        <a class="btn color-7 style-2" href="">Random</a>
+    </section>
+
       <div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>Start A Conversation!</Modal.Header>
@@ -112,6 +123,9 @@ function ForumHeader({ show, handleClose }) {
           </Modal.Body>
         </Modal>
       </div>
+
+
+
     </section>
   );
 }

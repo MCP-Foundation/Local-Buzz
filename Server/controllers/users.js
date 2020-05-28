@@ -87,7 +87,7 @@ const authenticate = async (req, res, next) => {
 };
 
 const getUserById = async (req,res) =>{
-  const userID = await req.user_id
+  const userID = req.user_id;
   const data = await User.getByID(userID)
   res.send(data)
 }
@@ -103,11 +103,23 @@ const logout = (req, res) => {
   res.redirect('/forum')
 };
 
+const getUser = async (req, res) => {
+  try {
+    const userId = req.userId
+    const user = await User.getByID(userId)
+    if (!user) throw Error('User Does Not Exist')
+    res.status(200).send(JSON.stringify(user))
+  } catch (err) {
+    res.status(404).send(err)
+  }
+}
+
 module.exports = {
   login,
   logout,
   register,
   authenticate,
   update,
-  getUserById
+  getUserById,
+  getUser
 };

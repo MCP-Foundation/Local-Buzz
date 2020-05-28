@@ -9,7 +9,7 @@
 }
 
 .ForumPostComponent {
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 
 .ForumPostsComponent {
@@ -21,88 +21,66 @@
   text-align: center;
 }
 
-/* POST COMPONENT */
-/* .PostComponent {
-  display: flex;
-  flex-direction: row;
-  width: 700px;
-  margin-right: auto;
-  margin-left: auto;
-  border-bottom: 0.3px solid #bebebe;
-  padding-top: 15px;
-}
-.postUserInfo > p {
-  margin: 0;
-  padding: 0;
-}
-.name {
-  font-size: 20px;
-  margin-right: 10px;
-}
-.postTitle {
-  font-size: 22px;
-  color: black;
-  margin-right: 10px;
-  padding-top: 10px;
-}
-.postBody {
-  font-size: 20px;
-  color: #595959;
-  margin-right: 20px;
-}
-.mainPostDiv {
-  text-align: start;
-  margin: 0;
-}
-.postFilter {
-  text-align: start;
-  margin: 0;
+.ForumTags {
+  height: 33.3vh;
+  /* background-color: #f5f5f5; */
 }
 
-.postUserInfo {
-  text-align: start;
-  margin: 0;
-}
-.postInteractionInfo {
-  text-align: start;
-  margin: 0;
-}
-.postCreatedInfo {
-  text-align: start;
-  margin: 0;
-}
-span.location,
-span.time {
-  margin: 0;
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #ddd;
+    color: #ddd;
+    text-decoration: none;
+    margin: 0px 10px 10px 0;
+    transition: all .6s;
+    min-width: 100px;
+    text-align: center
 }
 
-.username {
-  font-size: 15px;
+.btn:hover {
+    background: #ddd;
+    color: #fff;
 }
 
-.tag {
-  font-size: 20px;
-  margin: 10 10 10 0;
+.btn.btn-btn{
+    border-radius: 40px;
 }
-.category {
-  font-size: 20px;
-  margin: 10px;
+
+.btn.color-1 {border-color: #16A085;color: #16A085;}
+.btn.color-1:hover {background: #16A085;color: #fff;}
+
+.btn.color-2 {border-color: #27AE60;color: #27AE60;}
+.btn.color-2:hover {background: #27AE60;color: #fff;}
+
+.btn.color-3 {border-color: #2980B9;color: #2980B9;}
+.btn.color-3:hover {background: #2980B9;color: #fff;}
+
+.btn.color-4 {border-color: #8E44AD;color: #8E44AD;}
+.btn.color-4:hover {background: #8E44AD;color: #fff;}
+
+.btn.color-5 {border-color: #2C3E50;color: #2C3E50;}
+.btn.color-5:hover {background: #2C3E50;color: #fff;}
+
+.btn.color-6 {border-color: #F39C12;color: #F39C12;}
+.btn.color-6:hover {background: #F39C12;color: #fff;}
+
+.btn.color-7 {border-color: #D35400;color: #D35400;}
+.btn.color-7:hover {background: #D35400;color: #fff;}
+
+.btn.color-8 {border-color: #C0392B;color: #C0392B;}
+.btn.color-8:hover {background: #C0392B;color: #fff;}
+
+.btn.color-9 {border-color: #BDC3C7;color: #BDC3C7;}
+.btn.color-9:hover {background: #BDC3C7;color: #fff;}
+
+.btn.color-10 {border-color: #7F8C8D;color: #7F8C8D;}
+.btn.color-10:hover {background: #7F8C8D;color: #fff;}
+
+@media screen and (min-width: 570px){ 
+  .ForumPostsComponent {
+    display: flex;
+    justify-content: space-around;
+
+  }
 }
-.time {
-  font-size: 15px;
-  margin: 10px;
-}
-.location {
-  font-size: 15px;
-  margin: 10px;
-}
-.userAvatar {
-  height: 50px;
-  margin: 10px;
-}
-.tag {
-  padding-right: 10px;
-}
-.likes {
-  margin-right: 30px;
-} */

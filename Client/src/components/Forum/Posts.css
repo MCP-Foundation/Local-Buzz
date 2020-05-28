@@ -5,6 +5,10 @@
   /* width: 700px; */
   border-bottom: 0.3px solid #bebebe;
   padding-top: 15px;
+
+  box-shadow: 0 0 0 1px rgba(119, 103, 103, 0.15), 0 2px 3px rgba(0,0,0,.2);
+  transition: box-shadow 83ms;
+  margin: 0px 0px 15px 0px;
 } 
 
 .postUserInfo > p {

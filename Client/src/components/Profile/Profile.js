@@ -6,6 +6,8 @@ import './Profile.css';
 import 'sanitize.css';
 
 class Profile extends Component {
+  
+  
   render() {
     return (
       <section className="ProfileComponent">

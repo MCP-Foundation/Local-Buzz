@@ -26,7 +26,13 @@
 
 .introductionPhoto {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  /* flex-direction: column; */
+ 
+}
+
+.introductionName {
+
 }
 
 .introductionCard {
@@ -67,7 +73,7 @@
   /* POSTS */
 
   .UserPostComponent {
-  /* padding: 40px; */
+  padding: 5%;
 
 }
   .userPostsTitle {

@@ -19,7 +19,10 @@ router.get('/api/forum', postController.getAllPosts);
 router.get('/api/viewPost/:id', postController.getByID);
 router.get('/api/comments/:id', postController.getComments);
 router.get('/api/user/:id', userController.getUserById);
+
 router.get('/api/user-posts',userController.authenticate, postController.getAllByUser);
+
+router.get('/api/userObj', userController.authenticate, userController.getUser);
 
 // /** POST'S **/
 router.post('/api/register', userController.register);
