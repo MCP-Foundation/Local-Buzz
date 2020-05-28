@@ -27,7 +27,7 @@ function Post({
 
   const simplebody = postDataContext.postBody.substring(0, 150);
 
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState([]);
   const [userData, setUserData] = useState([]);
   const [likes, setLikes] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
@@ -37,21 +37,16 @@ function Post({
     window.location.href = `/viewPost/${postDataContext.postId}/${postDataContext.userId}`;
   };
 
-  const likePost = async (postID, userID) => {
   useEffect(() => {
     document.cookie
       ? fetch('/api/userObj')
-        .then(res => {
-          if (res.status === 200) return res.json()
-          return null
-        })
-        .then(json => setUser(json)) : setUser(null)
-  }, [setUser])
-
-  const viewPostRedirect = (postId) => {
-    window.location.href = `/viewPost/${postDataContext.postId}`;
-  };
-
+          .then((res) => {
+            if (res.status === 200) return res.json();
+            return null;
+          })
+          .then((json) => setUser(json))
+      : setUser(null);
+  }, [setUser]);
 
   const likePost = async () => {
     const postLike = {
@@ -61,8 +56,10 @@ function Post({
       },
     };
     if (isLiked === true) {
-
-      const req = await fetch(`/api/unlike/${postId}/${user.user_id}`, postLike);
+      const req = await fetch(
+        `/api/unlike/${postId}/${user.user_id}`,
+        postLike
+      );
       setLikes(req);
       setIsLiked(false);
     } else {
@@ -124,10 +121,7 @@ function Post({
           <p>
             <span className="name">{userData.name}</span>
           </p>
-          <p className="username">
-            @
-            {userData.username}
-          </p>
+          <p className="username">@{userData.username}</p>
         </div>
 
         {/* Post body and title */}
@@ -141,20 +135,14 @@ function Post({
         {/* Category Tags  Time Created and Location */}
         <div className="postFilter">
           <p>
-            <span className="tag">{tag}</span>
-            {' '}
-            ·
-            {' '}
+            <span className="tag">{tag}</span> ·{' '}
             <span className="catagory">{category}</span>
           </p>
         </div>
 
         <div className="postCreatedInfo">
           <p>
-            <span className="time">{newDate}</span>
-            {' '}
-            ·
-            {' '}
+            <span className="time">{newDate}</span> ·{' '}
             <span className="location">{location}</span>
           </p>
         </div>
@@ -167,9 +155,7 @@ function Post({
             </span>
 
             <span className="comments">
-              {comments}
-              {' '}
-              <Chat color="#57e021" />
+              {comments} <Chat color="#57e021" />
             </span>
           </p>
         </div>
