@@ -20,6 +20,11 @@ postRouter.get(
   userController.authenticate,
   postController.getAllByUser
 );
+postRouter.get(
+  '/api/likedPosts',
+  userController.authenticate, 
+  postController.getUserLikedPosts
+);
 postRouter.get('/api/viewPost/:postID/:userID', postController.getByID);
 postRouter.put('/api/posts/:postId', postController.updatePosts);
 postRouter.delete('/api/posts/:postId', postController.deletePosts);
