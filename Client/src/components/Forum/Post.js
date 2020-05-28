@@ -48,28 +48,6 @@ function Post({
   const viewPostRedirect = () => {
     window.location.href = `/viewPost/${postDataContext.postId}/${postDataContext.userId}`;
   };
-
-  const likePost = async () => {
-    const postLike = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-    if (isLiked === true) {
-      const req = await fetch(
-        `/api/unlike/${postId}/${user.user_id}`,
-        postLike,
-      );
-      setLikes(req);
-      setIsLiked(false);
-    } else {
-      const req = await fetch(`/api/like/${postId}/${user.user_id}`, postLike);
-      setLikes(req);
-      setIsLiked(true);
-    }
-  };
-
   useEffect(() => {
     function getAllUserData() {
       fetch(`/api/user/${userId}`)
@@ -85,20 +63,6 @@ function Post({
 
     getAllUserData();
   }, []);
-
-  useEffect(() => {
-    const getLikes = async () => {
-      const req = await fetch(`/api/likes/${postId}`);
-      const res = await req.json();
-      setLikes(res);
-      for (let i = 0; i < likes.length; i++) {
-        if (likes[i].user_id === user.user_id) {
-          return setIsLiked(true);
-        }
-      }
-    };
-    getLikes();
-  }, [isLiked]);
 
   useEffect(() => {
     function getAllComments() {
