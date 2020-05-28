@@ -82,6 +82,16 @@ const authenticate = async (req, res, next) => {
     return res.send(err);
   }
 };
+const getUser = async (req, res) => {
+  try {
+    const userId = req.userId
+    const user = await User.getByID(userId)
+    if (!user) throw Error('User Does Not Exist')
+    res.status(200).send(JSON.stringify(user))
+  } catch (err) {
+    res.status(404).send(err)
+  }
+}
 const getUserById = async (req, res) => {
   const userID = await req.params.id;
   const data = await User.getByID(userID);
@@ -104,5 +114,6 @@ module.exports = {
   register,
   authenticate,
   update,
+  getUser,
   getUserById,
 };

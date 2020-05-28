@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+// import { ProfileContext } from '../../contexts/profileContext'
 import { Favorite, Chat } from 'grommet-icons';
+import './Posts.css';
 
 function Post({
   postId,
@@ -10,7 +12,6 @@ function Post({
   postBody,
   date,
   location,
-  setIsLoading,
   setError,
 }) {
   const d = new Date(date.replace(' ', 'T'));
@@ -26,6 +27,7 @@ function Post({
 
   const simplebody = postDataContext.postBody.substring(0, 150);
 
+  const [user, setUser] = useState([])
   const [userData, setUserData] = useState([]);
   const [likes, setLikes] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
@@ -36,6 +38,22 @@ function Post({
   };
 
   const likePost = async (postID, userID) => {
+  useEffect(() => {
+    document.cookie
+      ? fetch('/api/userObj')
+        .then(res => {
+          if (res.status === 200) return res.json()
+          return null
+        })
+        .then(json => setUser(json)) : setUser(null)
+  }, [setUser])
+
+  const viewPostRedirect = (postId) => {
+    window.location.href = `/viewPost/${postDataContext.postId}`;
+  };
+
+
+  const likePost = async () => {
     const postLike = {
       method: 'POST',
       headers: {
@@ -43,11 +61,12 @@ function Post({
       },
     };
     if (isLiked === true) {
-      const req = await fetch(`/api/unlike/${postID}/${userID}`, postLike);
+
+      const req = await fetch(`/api/unlike/${postId}/${user.user_id}`, postLike);
       setLikes(req);
       setIsLiked(false);
     } else {
-      const req = await fetch(`/api/like/${postID}/${userID}`, postLike);
+      const req = await fetch(`/api/like/${postId}/${user.user_id}`, postLike);
       setLikes(req);
       setIsLiked(true);
     }
@@ -58,7 +77,7 @@ function Post({
       fetch(`/api/user/${userId}`)
         .then((res) => res.json())
         .then((data) => {
-          setUserData(data[0]);
+          setUserData(data);
         })
         .catch(() => {
           const err = 'Sorry there was an error, please try again';
@@ -67,7 +86,6 @@ function Post({
     }
 
     getAllUserData();
-    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -144,10 +162,8 @@ function Post({
 
         <div className="postInteractionInfo">
           <p>
-            <span className="likes" onClick={() => likePost(postId, userId)}>
-              {likes.length}
-              {' '}
-              <Favorite color="#ff58bc" />
+            <span className="likes" onClick={() => likePost()}>
+              {likes.length} <Favorite color="#ff58bc" />
             </span>
 
             <span className="comments">

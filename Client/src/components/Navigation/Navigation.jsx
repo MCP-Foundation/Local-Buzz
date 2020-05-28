@@ -26,19 +26,19 @@ function Navigation() {
   return (
     <section className="NavbarComponent">
 
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar className='navigation' collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand href="/forum">
           <Logo />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
-          <Nav>
+          <Nav className='nav-items'>
             <Nav.Link href="/">About</Nav.Link>
             <Nav.Link href="/forum">Forum</Nav.Link>
-            {document.cookie ? <Nav.Link href="/account">Account</Nav.Link> : <p></p>}
-            {document.cookie ? <Nav.Link onClick={logoutUser} href="/logout">Log Out</Nav.Link> : <Nav.Link href="/login">Sign In</Nav.Link>}
-            {document.cookie ? <p></p> : <Nav.Link href="/register">Sign Up</Nav.Link>}
+            {document.cookie ? <Nav.Link className='nav-item' href="/account">Account</Nav.Link> : <p></p>}
+            {document.cookie ? <Nav.Link className='nav-item' onClick={logoutUser} href="/logout">Log Out</Nav.Link> : <Nav.Link className='nav-item' href="/login">Sign In</Nav.Link>}
+            {document.cookie ? <p></p> : <Nav.Link className='nav-item signup' href="/register">Sign Up</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

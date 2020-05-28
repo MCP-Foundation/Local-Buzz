@@ -19,6 +19,8 @@ router.use(cookieParser());
 router.get('/api/forum', postController.getAllPosts);
 router.get('/api/comments/:id', postController.getComments);
 router.get('/api/user/:id', userController.getUserById);
+router.get('/api/userObj',userController.authenticate, userController.getUser);
+
 router.get(
   '/api/user-posts',
   userController.authenticate,
