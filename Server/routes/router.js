@@ -24,7 +24,7 @@ router.get(
   userController.authenticate,
   postController.getAllByUser
 );
-router.get('/api/viewPost/:id', postController.getByID);
+router.get('/api/viewPost/:postID/:userID', postController.getByID);
 router.get('/api/likes/:id', likesController.AllLikesForPost);
 
 // /** POST'S **/
