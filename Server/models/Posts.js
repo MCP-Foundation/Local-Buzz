@@ -26,6 +26,12 @@ class Posts {
     const queryText = 'SELECT * FROM posts WHERE user_id = $1;';
     return db.query(queryText, [userID]).then(res => res.rows)
   }
+  static getUserLikedPosts(userID){
+    const queryText = 'SELECT * FROM likes WHERE user_id = $1';
+    const data = db.query(queryText,[userID]).then((res )=> res.rows[0].post_id)
+    return data.then((postID) => db.query('SELECT * FROM posts WHERE user_id = $1 AND post_id = $2',[userID,postID]))
+     .then(res => res.rows)
+  }
 
   static getByID(postID) {
     const queryText = 'SELECT * FROM posts WHERE post_id = $1;';

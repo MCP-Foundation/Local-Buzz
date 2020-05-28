@@ -34,6 +34,12 @@ const getUsersPosts = async (req, res) => {
     });
   }
 };
+const getUserLikedPosts = async (req,res) =>{
+  const userID = req.user.user_id;
+  const data =  await Post.getUserLikedPosts(userID);
+  res.send(data);
+}
+
 const getAllByUser = async (req, res) => {
   const userID = req.user.user_id;
   const data = await Post.getAllByUser(userID);
@@ -46,7 +52,6 @@ const getAllPosts = async (req, res) => {
 };
 const getByID = async (req, res) => {
   const { postID } = req.params;
-  console.log(req.params);
   const data = await Post.getByID(postID);
   res.send(await data);
 };
@@ -131,6 +136,7 @@ module.exports = {
   getUsersPosts,
   getByID,
   getAllByUser,
+  getUserLikedPosts,
   updatePosts,
   updateComment,
   deletePosts,
