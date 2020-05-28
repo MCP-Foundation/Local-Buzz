@@ -124,8 +124,8 @@ function PostView() {
         <section className="postCommentsSection">
           <div />
           <div className="mainCommentDiv">
-            {(comments.length
-              && comments.map((comment) => (
+            {(comments.length &&
+              comments.map((comment) => (
                 <Comment
                   userID={comment.user_id}
                   comment={comment.comment}
@@ -138,18 +138,6 @@ function PostView() {
         </section>
       </Grommet>
     </section>
-
-  // 	 <>
-  //     {isLoading ? (
-  //       <p> {error || '...Loading'}</p>
-  //     ) : (
-  //   <section>
-  //   {post && post.map((data)=>{
-
-  //   })}
-  //   </section>
-  // )}
-  //  </>
   );
 }
 

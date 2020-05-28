@@ -1,207 +1,87 @@
-@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+.accountUserInfo {
+  background-color: #f1f3f5;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+}
 
+.location {
+  font-size: 20px;
+}
+.accountName {
+  font-size: 45px;
+  margin: 0;
+}
+.accountUsername {
+  font-size: 25px;
+}
+.userPostsTitle {
+  font-size: 30px;
+  text-align: center;
+}
 
-@media screen and (min-width: 300px){
+/* @media screen and (min-width: 300px) {
   .ProfileComponent {
     font-size: 14px;
-    /* background-color: #fff; */
     max-height: 100vh;
     max-width: 100vh;
     padding: 1.3em;
-  }
+  } */
 
-  .introductionComponent {
-  max-width: 100vh;
-  background-color: #f1f3f5;
+/* POSTS */
+
+.UserPostComponent {
 }
 
-.introductionTitle {
-  font-family: "DM Sans", sans-serif;
-  /* color: #C6C6C6; */
-  font-weight: 600;
-  font-size: 3vh;
-  display: flex;
-  align-items: center;
-}
-
-.introductionPhoto {
-  display: flex;
-  justify-content: center;
-}
-
-.introductionCard {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  /* background-color: #373e57; */
-  background-color: #f5f5f5;
-  /* border-radius: 5px;
-  padding: 8px;
-  margin: 20px 90px; */
-} 
-
-/* .introductionItems {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-.introductionItem {
-  display: flex;
-  color: #8f98a9;
-  margin: 0px 0px 5px 15px;
-  padding: 0.2em 0px;
-  font-size: 14px;
-}
-
-.introductionBio {
-  color: #8f98a9;
-  /* margin: 20px 0px 5px 0px; */
-  font-size: 12px;
-  padding: 0 5% 3% 5%;
-  } 
-
-
-
-
-  /* POSTS */
-
-  .UserPostComponent {
-  /* padding: 40px; */
-
-}
-  .userPostsTitle {
-  font-family: "DM Sans", sans-serif;
-  /* color: #C6C6C6; */
-  font-weight: 600;
-  font-size: 2vh;
-  display: flex;
-  align-items: center;
-  }
-}
-
-.ProfilePostsComponent {
-  background-color: #f1f3f5;
-}
-
-
-@media screen and (min-width: 570px){
-  html{
+/* @media screen and (min-width: 570px) {
+  html {
     font-size: 15px;
   }
-    .introductionItems {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  } 
+  .introductionItems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-@media screen and (min-width: 620px){
-  html{
+@media screen and (min-width: 620px) {
+  html {
     font-size: 16px;
   }
 }
 
-@media screen and (min-width: 680px){
+@media screen and (min-width: 680px) {
   html {
     font-size: 17px;
   }
 
   .introductionComponent {
-  max-width: 100vh;
-  background-color: #f1f3f5;
+    max-width: 100vh;
   }
-  
-  .introductionMenu {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  }
-  
 
+  .introductionMenu {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
 }
 
-@media screen and (min-width: 720px){
-  html{
+@media screen and (min-width: 720px) {
+  html {
     font-size: 18px;
   }
-
-
 }
 
-@media screen and (min-width: 920px){
-  html{
+@media screen and (min-width: 920px) {
+  html {
     font-size: 21px;
   }
 }
 
-@media screen and (min-width: 1000px){
-  html{
+@media screen and (min-width: 1000px) {
+  html {
     font-size: 22px;
   }
-}
-
-/* 
-
-.introductionComponent {
-  min-height: 90px;
-  background-color: #f1f3f5;
-  padding: 10px 300px 10px 300px;
-}
-
-.introductionTitle {
-  font-family: "DM Sans", sans-serif;
-  color: #C6C6C6;
-  font-weight: 600;
-  font-size: 26px;
-  display: flex;
-  align-items: center;
-}
-
-.introductionCard {
-  background-color: #373e57;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  padding: 8px;
-  margin: 20px 90px;
-}
-
-.introductionMenu {
-  display: flex;
-  justify-content: space-around;
-
-  box-shadow: -8px 0 0 0 #8f98a9, 8px 0 0 0 #8f98a9;
-}
-
-.introductionItems {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5%;
-}
-
-.introductionItem {
-  display: flex;
-  color: #8f98a9;
-  margin: 0px 0px 5px 0px;
-  font-size: 14px;
-}
-
-.introductionBio {
-  color: #8f98a9;
-  margin: 20px 0px 5px 0px;
-  font-size: 12px;
-}
- 
-
-
-
-
-.userPostsTitle {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 26px;
-  display: flex;
-  align-items: center;
-  margin: 0px 0px 0px 200px;
 } */
