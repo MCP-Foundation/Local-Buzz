@@ -7,14 +7,11 @@ const AllLikesForPost = async (req, res) => {
 };
 const AddALike = async (req, res) => {
   const { user_id, post_id } = req.params;
-  console.log(user_id, post_id);
-
   const data = await Likes.addALike(user_id, post_id);
   return res.status(200).json(data);
 };
 const DeleteALike = async (req, res) => {
   const { user_id, post_id } = req.params;
-  console.log(user_id, post_id);
 
   const data = await Likes.deleteALike(user_id, post_id);
   return res.status(200).json(data);

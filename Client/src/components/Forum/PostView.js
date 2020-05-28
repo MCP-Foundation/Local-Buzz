@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Grommet } from 'grommet';
+import Comment from './Comment';
+import UserPost from './UserPost';
 import './PostView.css';
 
 const theme = {
@@ -15,64 +17,88 @@ const theme = {
     },
   },
 };
-const postID = window.location.pathname.substring(10);
+
+const params = window.location.pathname.split('/');
+const postID = params[2];
+const userID = params[3];
 
 function PostView() {
-  const [post, setPost] = useState([]);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [postLoading, setPostLoading] = useState(false);
   const [commentLoading, setCommentLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [postData, setPostData] = useState([]);
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-	    function getAllPostsData() {
-	      setPostLoading(true);
-	      fetch(`/api/viewPost/${postID}`)
-	        .then((res) => res.json())
-	        .then((data) => {
-	          setPost(data[0]);
-	        })
-	        .catch(() => {
-	          const err = 'Sorry there was an error, please try again';
-	          setError(err);
-	        });
+    function getPostData() {
+      setPostLoading(true);
+      fetch(`/api/viewPost/${postID}/${userID}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setPostData(data[0]);
+        })
+        .catch(() => {
+          const err = 'Sorry there was an error, please try again';
+          setError(err);
+        });
     }
-    getAllPostsData();
+    getPostData();
     setPostLoading(false);
-	}, []);
-	
-	useEffect(()=>{
-		function getAllComments(){
-			setCommentLoading(true)
-			fetch(`/api/comments/${postID}`)
-				.then((res) => res.json())
-				.then((data) =>{
-					setComments(data)
-				} )
-		}
-		getAllComments();
-		setCommentLoading(false);
-	},[])
+  }, []);
 
-	console.log(comments)
+  useEffect(() => {
+    function getAllComments() {
+      setCommentLoading(true);
+      fetch(`/api/comments/${postID}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setComments(data);
+        });
+    }
+    getAllComments();
+    setCommentLoading(false);
+  }, [setComments]);
+
+  useEffect(() => {
+    function getAllUserData() {
+      fetch(`/api/user/${userID}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setUserData(data);
+        })
+        .catch(() => {
+          const err = 'Sorry there was an error, please try again';
+          setError(err);
+        });
+    }
+    getAllUserData();
+    setIsLoading(false);
+  }, []);
 
   return (
     <section>
       <Grommet theme={theme} full>
-        <section>
-          <article className="post">
-            <p>{post.post_body}</p>
-            <p>{post.category}</p>
-            <p>{post.tag}</p>
-            <p>
-              Likes:
-              {post.likes}
-            </p>
-          </article>
-
-        </section>
-        <Form id="postForm" className="commentForm" action="/api/comment" method="post">
+        <UserPost
+          avatar={userData.avatar}
+          name={userData.name}
+          username={userData.username}
+          title={postData.title}
+          postBody={postData.post_body}
+          tag={postData.tag}
+          category={postData.category}
+          location={postData.location}
+          likes={postData.likes}
+          comments={postData.comments}
+          date={postData.date_created}
+        />
+        <Form
+          id="postForm"
+          className="commentForm"
+          action="/api/comment"
+          method="post"
+        >
           <Form.Group controlId="commentForm">
             <Form.Label className="commentInput">Post a Comment!</Form.Label>
             <Form.Control
@@ -95,21 +121,33 @@ function PostView() {
             </Button>
           </Form.Group>
         </Form>
+        <section className="postCommentsSection">
+          <div className="mainCommentDiv">
+            {(comments.length &&
+              comments.map((comment) => (
+                <Comment
+                  userID={comment.user_id}
+                  comment={comment.comment}
+                  date={comment.date_created}
+                  likes={comment.likes}
+                />
+              ))) || <p>There aren't any comments yet :(</p>}
+          </div>
+        </section>
       </Grommet>
     </section>
 
+    // 	 <>
+    //     {isLoading ? (
+    //       <p> {error || '...Loading'}</p>
+    //     ) : (
+    //   <section>
+    //   {post && post.map((data)=>{
 
-  // 	 <>
-  //     {isLoading ? (
-  //       <p> {error || '...Loading'}</p>
-  //     ) : (
-  //   <section>
-  //   {post && post.map((data)=>{
-
-  //   })}
-  //   </section>
-  // )}
-  //  </>
+    //   })}
+    //   </section>
+    // )}
+    //  </>
   );
 }
 

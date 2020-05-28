@@ -2,8 +2,11 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const User = require('../models/Users.js');
+
 const register = (req, res) => {
-  const { name, username, email, password, address, avatar } = req.body;
+  const {
+    name, username, email, password, address, avatar,
+  } = req.body;
   const bio = '';
   const saltRounds = 8;
   bcrypt
@@ -21,7 +24,7 @@ const register = (req, res) => {
         (err, encryptedPayload) => {
           res.cookie('userToken', encryptedPayload, { httpOnly: true });
           res.redirect('/login');
-        }
+        },
       );
     })
     .catch((err) => {
@@ -47,14 +50,12 @@ const login = async (req, res) => {
     };
     return jwt.sign(payload, 'secret', (err, encryptedPayload) => {
       if (err) {
-        console.log(err);
         res.status(500).send(err);
       }
       res.cookie('userToken', encryptedPayload);
       res.redirect('/forum');
     });
   } catch (err) {
-    console.log(err);
     return res.send(err);
   }
 };
@@ -78,7 +79,6 @@ const authenticate = async (req, res, next) => {
     }
     return res.status(403).send('Unauthorized User');
   } catch (err) {
-    console.log(err);
     return res.send(err);
   }
 };
@@ -94,13 +94,14 @@ const getUser = async (req, res) => {
 }
 const getUserById = async (req, res) => {
   const userID = await req.params.id;
-  console.log(userID);
   const data = await User.getByID(userID);
   res.send(data);
 };
 const update = async (req, res) => {
   const userID = await req.user_id;
-  const { name, username, email, password, address, bio, avatar } = req.body;
+  const {
+    name, username, email, password, address, bio, avatar,
+  } = req.body;
   User.update(userID, name, username, email, password, address, bio, avatar);
 };
 const logout = (req, res) => {
