@@ -20,6 +20,16 @@ postRouter.get(
   userController.authenticate,
   postController.getAllByUser
 );
+postRouter.post(
+  '/api/posts',
+  userController.authenticate,
+  postController.createPost
+);
+postRouter.post(
+  '/api/comment',
+  userController.authenticate,
+  postController.createComment
+);
 postRouter.get(
   '/api/likedPosts',
   userController.authenticate, 
