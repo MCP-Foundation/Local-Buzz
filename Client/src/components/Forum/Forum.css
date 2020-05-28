@@ -15,8 +15,8 @@
   text-align: center;
 }
 
-/* POST COMPONENT */
-/* .PostComponent {
+/* POST COMPONENT  */
+.PostComponent {
   display: flex;
   flex-direction: row;
   width: 700px;
@@ -99,4 +99,4 @@ span.time {
 }
 .likes {
   margin-right: 30px;
-} */
+}

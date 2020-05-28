@@ -26,7 +26,10 @@ function UserPost({
           <p>
             <span className="name">{name}</span>
           </p>
-          <p className="username">@{username}</p>
+          <p className="username">
+            @
+            {username}
+          </p>
         </div>
 
         {/* Post body and title */}
@@ -37,14 +40,20 @@ function UserPost({
         {/* Category Tags  Time Created and Location */}
         <div className="postFilter">
           <p>
-            <span className="tag">{tag}</span> ·{' '}
+            <span className="tag">{tag}</span>
+            {' '}
+            ·
+            {' '}
             <span className="catagory">{category}</span>
           </p>
         </div>
 
         <div className="postCreatedInfo">
           <p>
-            <span className="time">{date}</span> ·{' '}
+            <span className="time">{date}</span>
+            {' '}
+            ·
+            {' '}
             <span className="location">{location}</span>
           </p>
         </div>
@@ -53,11 +62,15 @@ function UserPost({
         <div className="postInteractionInfo">
           <p>
             <span className="likes">
-              {likes} <Favorite color="#ff58bc" />
+              {likes}
+              {' '}
+              <Favorite color="#ff58bc" />
             </span>
 
             <span className="comments">
-              {comments} <Chat color="#57e021" />
+              {comments}
+              {' '}
+              <Chat color="#57e021" />
             </span>
           </p>
         </div>

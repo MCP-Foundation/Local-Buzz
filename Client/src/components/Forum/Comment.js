@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Favorite } from 'grommet-icons';
 
-function Comment({ userID, comment, date, likes }) {
+function Comment({
+  userID, comment, date, likes,
+}) {
   const [user, setUser] = useState([]);
   const [userData, setUserData] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
@@ -39,7 +41,10 @@ function Comment({ userID, comment, date, likes }) {
         <div className="commentUserInfo">
           <p>
             <span className="name">{userData.name}</span>
-            <span className="username">@{userData.username}</span>
+            <span className="username">
+              @
+              {userData.username}
+            </span>
           </p>
         </div>
         <div className="commentUserInfo">
@@ -47,7 +52,9 @@ function Comment({ userID, comment, date, likes }) {
         </div>
         <div className="commentInteraction">
           <span className="likes">
-            {likes} <Favorite color="#ff58bc" />
+            {likes}
+            {' '}
+            <Favorite color="#ff58bc" />
           </span>
         </div>
         <div className="postCreatedInfo">

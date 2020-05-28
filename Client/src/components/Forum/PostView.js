@@ -90,7 +90,7 @@ function PostView() {
           category={postData.category}
           location={postData.location}
           likes={postData.likes}
-          comments={postData.comments}
+          comments={comments.length}
           date={postData.date_created}
         />
         <Form
@@ -122,9 +122,10 @@ function PostView() {
           </Form.Group>
         </Form>
         <section className="postCommentsSection">
+          <div />
           <div className="mainCommentDiv">
-            {(comments.length &&
-              comments.map((comment) => (
+            {(comments.length
+              && comments.map((comment) => (
                 <Comment
                   userID={comment.user_id}
                   comment={comment.comment}
@@ -133,21 +134,22 @@ function PostView() {
                 />
               ))) || <p>There aren't any comments yet :(</p>}
           </div>
+          <div />
         </section>
       </Grommet>
     </section>
 
-    // 	 <>
-    //     {isLoading ? (
-    //       <p> {error || '...Loading'}</p>
-    //     ) : (
-    //   <section>
-    //   {post && post.map((data)=>{
+  // 	 <>
+  //     {isLoading ? (
+  //       <p> {error || '...Loading'}</p>
+  //     ) : (
+  //   <section>
+  //   {post && post.map((data)=>{
 
-    //   })}
-    //   </section>
-    // )}
-    //  </>
+  //   })}
+  //   </section>
+  // )}
+  //  </>
   );
 }
 
