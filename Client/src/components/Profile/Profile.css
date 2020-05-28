@@ -1,19 +1,21 @@
 .accountUserInfo {
-  max-width: 100vh;
   background-color: #f1f3f5;
   text-align: center;
   display: flex;
   justify-content: center;
+  margin: auto;
   flex-direction: column;
 }
 
+.location {
+  font-size: 20px;
+}
 .accountName {
   font-size: 45px;
   margin: 0;
 }
 .accountUsername {
-  font-size: 30px;
-  margin-top: 1%;
+  font-size: 25px;
 }
 .userPostsTitle {
   font-size: 30px;

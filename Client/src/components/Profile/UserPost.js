@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Timeline, Row, Col } from 'antd';
-
 import Post from '../Forum/Post';
-
-import Introduction from './Introduction';
 
 import './Profile.css';
 
@@ -41,32 +37,24 @@ function UserPosts() {
         {isLoading ? (
           <p> {error || '...Loading'}</p>
         ) : (
-          <Row justify="center">
-            <Col span={8}></Col>
-            <Col span={8}>
-              <section className="ProfilePostsComponent">
-                <Timeline mode="left">
-                  {allPosts &&
-                    allPosts.map((post) => (
-                      <Post
-                        userId={post.user_id}
-                        title={post.title}
-                        category={post.category}
-                        tag={post.tag}
-                        postBody={post.post_body}
-                        date={post.date_created}
-                        location={post.location}
-                        likes={post.likes}
-                        setIsLoading={setIsLoading}
-                        setError={setError}
-                      />
-                    ))}
-                </Timeline>
-              </section>
-            </Col>
-
-            <Col className="flexit" span={8}></Col>
-          </Row>
+          <section className="ProfilePostsComponent">
+            {allPosts &&
+              allPosts.map((post) => (
+                <Post
+                  postId={post.post_id}
+                  userId={post.user_id}
+                  title={post.title}
+                  category={post.category}
+                  tag={post.tag}
+                  postBody={post.post_body}
+                  date={post.date_created}
+                  location={post.location}
+                  likes={post.likes}
+                  setIsLoading={setIsLoading}
+                  setError={setError}
+                />
+              ))}
+          </section>
         )}
       </>
     </section>

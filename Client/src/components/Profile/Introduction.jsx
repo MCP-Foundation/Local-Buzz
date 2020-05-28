@@ -35,7 +35,7 @@ function Introduction() {
       <section className="accountUserLocation">
         <p className="location">
           <Location size="large" />
-          Lives in {loggedInUser.location}
+          {loggedInUser.address}
         </p>
       </section>
     </section>
