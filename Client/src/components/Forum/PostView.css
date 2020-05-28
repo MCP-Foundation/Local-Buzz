@@ -1,12 +1,17 @@
-.commentForm{
-	margin-top: 5%;
+.commentForm {
+  margin-top: 5%;
 }
 
-.commentInput{
-	width: 50%;
-	margin-left:20%;
-	margin-right:20%;
+.commentInput {
+  width: 50%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
-.post{
-	margin-top:10%;
+.post {
+  margin-top: 10%;
+}
+
+.mainCommentDiv {
+  display: flex;
+  flex-direction: column-reverse;
 }

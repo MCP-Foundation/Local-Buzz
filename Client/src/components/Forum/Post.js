@@ -33,10 +33,6 @@ function Post({
   const [isLiked, setIsLiked] = useState(false);
   const [comments, setComments] = useState([]);
 
-  const viewPostRedirect = () => {
-    window.location.href = `/viewPost/${postDataContext.postId}/${postDataContext.userId}`;
-  };
-
   useEffect(() => {
     document.cookie
       ? fetch('/api/userObj')
@@ -47,6 +43,10 @@ function Post({
           .then((json) => setUser(json))
       : setUser(null);
   }, [setUser]);
+
+  const viewPostRedirect = () => {
+    window.location.href = `/viewPost/${postDataContext.postId}/${postDataContext.userId}`;
+  };
 
   const likePost = async () => {
     const postLike = {
@@ -90,8 +90,8 @@ function Post({
       const req = await fetch(`/api/likes/${postId}`);
       const res = await req.json();
       setLikes(res);
-      for (let i = 0; i < likes.length; i + 1) {
-        if (likes[i].user_id === userId) {
+      for (let i = 0; i < likes.length; i++) {
+        if (likes[i].user_id === user.user_id) {
           return setIsLiked(true);
         }
       }

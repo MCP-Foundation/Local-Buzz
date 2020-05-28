@@ -5,9 +5,9 @@ import { Button } from 'grommet';
 function ForumHeader({ show, handleClose }) {
   return (
     <section className="ForumHeaderComponent">
-      <h3 className="forumHeader">
-        Checkout different tags and topics people are talking about
-      </h3>
+      <p className="forumHeader">
+        Checkout different tags and topics people are talking about!
+      </p>
 
       <div>
         <Modal show={show} onHide={handleClose}>

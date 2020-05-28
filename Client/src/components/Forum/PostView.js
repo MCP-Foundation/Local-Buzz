@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Grommet } from 'grommet';
-import { Favorite, Chat } from 'grommet-icons';
-
+import Comment from './Comment';
+import UserPost from './UserPost';
 import './PostView.css';
 
 const theme = {
@@ -59,14 +59,14 @@ function PostView() {
     }
     getAllComments();
     setCommentLoading(false);
-  }, []);
+  }, [setComments]);
 
   useEffect(() => {
     function getAllUserData() {
       fetch(`/api/user/${userID}`)
         .then((res) => res.json())
         .then((data) => {
-          setUserData(data[0]);
+          setUserData(data);
         })
         .catch(() => {
           const err = 'Sorry there was an error, please try again';
@@ -77,75 +77,22 @@ function PostView() {
     setIsLoading(false);
   }, []);
 
-
   return (
     <section>
       <Grommet theme={theme} full>
-        <section className="PostComponent">
-          <div className="userAvatarDiv">
-            <img
-              className="userAvatar"
-              alt="user avatar"
-              src={userData.avatar}
-            />
-          </div>
-          <div className="postBodyDiv">
-            {/* UserInfo */}
-            <div className="postUserInfo">
-              <p>
-                <span className="name">{userData.name}</span>
-              </p>
-              <p className="username">
-                @
-                {userData.username}
-              </p>
-            </div>
-
-            {/* Post body and title */}
-            <div className="mainPostDiv">
-              <p className="postTitle">{postData.title}</p>
-              <p className="postBody">{postData.post_body}</p>
-            </div>
-            {/* Category Tags  Time Created and Location */}
-            <div className="postFilter">
-              <p>
-                <span className="tag">{postData.tag}</span>
-                {' '}
-                ·
-                {' '}
-                <span className="catagory">{postData.category}</span>
-              </p>
-            </div>
-
-            <div className="postCreatedInfo">
-              <p>
-                <span className="time">{}</span>
-                {' '}
-                ·
-                {' '}
-                <span className="location">{postData.location}</span>
-              </p>
-            </div>
-            {/* Likes and Comments */}
-
-            <div className="postInteractionInfo">
-              <p>
-                <span className="likes">
-                  {}
-                  {' '}
-                  <Favorite color="#ff58bc" />
-                </span>
-
-                <span className="comments">
-                  {1}
-                  {' '}
-                  <Chat color="#57e021" />
-                </span>
-              </p>
-            </div>
-          </div>
-        </section>
-        );
+        <UserPost
+          avatar={userData.avatar}
+          name={userData.name}
+          username={userData.username}
+          title={postData.title}
+          postBody={postData.post_body}
+          tag={postData.tag}
+          category={postData.category}
+          location={postData.location}
+          likes={postData.likes}
+          comments={postData.comments}
+          date={postData.date_created}
+        />
         <Form
           id="postForm"
           className="commentForm"
@@ -174,23 +121,33 @@ function PostView() {
             </Button>
           </Form.Group>
         </Form>
-        <div>
-          <p />
-        </div>
+        <section className="postCommentsSection">
+          <div className="mainCommentDiv">
+            {(comments.length &&
+              comments.map((comment) => (
+                <Comment
+                  userID={comment.user_id}
+                  comment={comment.comment}
+                  date={comment.date_created}
+                  likes={comment.likes}
+                />
+              ))) || <p>There aren't any comments yet :(</p>}
+          </div>
+        </section>
       </Grommet>
     </section>
 
-  // 	 <>
-  //     {isLoading ? (
-  //       <p> {error || '...Loading'}</p>
-  //     ) : (
-  //   <section>
-  //   {post && post.map((data)=>{
+    // 	 <>
+    //     {isLoading ? (
+    //       <p> {error || '...Loading'}</p>
+    //     ) : (
+    //   <section>
+    //   {post && post.map((data)=>{
 
-  //   })}
-  //   </section>
-  // )}
-  //  </>
+    //   })}
+    //   </section>
+    // )}
+    //  </>
   );
 }
 

@@ -5,6 +5,8 @@ import './Forum.css';
 import Navigation from '../Navigation/Navigation';
 import ForumHeader from './ForumHeader';
 import ForumPosts from './ForumPosts';
+import Banner from '../HomePage/Banner';
+
 const theme = {
   global: {
     colors: {
@@ -30,12 +32,13 @@ class Forum extends Component {
     return (
       <section className="ForumComponent">
         <Grommet theme={theme} full>
-          <Button
-            primary
-            gap="medium"
-            onClick={this.handleShow}
-            label="Start a conversation"
-          />
+          <section>
+            <Banner
+              forumPageRedirect={this.forumPageRedirect}
+              show={this.handleShow}
+            />
+          </section>
+
           <ForumHeader show={this.state.show} handleClose={this.handleClose} />
           <ForumPosts getAllPostsData={this.getAllPostsData} />
         </Grommet>
