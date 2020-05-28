@@ -72,7 +72,7 @@ function Post({
           </p>
         </div>
         {/* Likes and Comments */}
-
+        <hr></hr>
         <div className="postInteractionInfo">
           <p>
             <span className="likes">

@@ -39,7 +39,7 @@ class Forum extends Component {
             label="Start a conversation"
           />
           <ForumHeader show={this.state.show} handleClose={this.handleClose} />
-          <SearchTags />
+
           <ForumPosts getAllPostsData={this.getAllPostsData} />
         </Grommet>
       </section>

@@ -15,7 +15,10 @@
 .ForumPostsComponent {
   display: flex;
   flex-direction: column-reverse;
+  padding: 2rem;
+  background-color: #f1f3f5;
 }
+
 .postFormSubmit {
   align-items: center;
   text-align: center;
