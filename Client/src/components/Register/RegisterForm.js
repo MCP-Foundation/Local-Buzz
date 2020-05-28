@@ -65,7 +65,6 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
   const changeTopType = (e) => {
     setTopType(e.target.value);
   };
-
   const changeAccessoriesType = (e) => {
     setAccessoriesType(e.target.value);
   };
@@ -178,8 +177,12 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 <option value="LongHairFrida">Long Hair Frida</option>
                 <option value="LongHairFro">Long Hair Fro</option>
                 <option value="LongHairFroBand">Long Hair Fro with Band</option>
-                <option value="LongHairNotTooLong">Long Hair NotTooLong</option>
-                <option value="LongHairMiaWallace">Long Hair MiaWallace</option>
+                <option value="LongHairNotTooLong">
+                  Long Hair Not TooLong
+                </option>
+                <option value="LongHairMiaWallace">
+                  Long Hair Mia Wallace
+                </option>
                 <option value="LongHairStraight">Long Hair Straight</option>
                 <option value="ShortHairDreads01">
                   Super Short Hair Dreads01
@@ -187,16 +190,26 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 <option value="ShortHairDreads02">Short Hair Dreads</option>
                 <option value="ShortHairFrizzle">Short Hair Frizzle</option>
                 <option value="ShortHairShaggyMullet">
-                  ShortHairShaggyMullet
+                  Short Hair Shaggy Mullet
                 </option>
-                <option value="ShortHairShortCurly">ShortHairShortCurly</option>
-                <option value="ShortHairShortFlat">ShortHairShortFlat</option>
-                <option value="ShortHairShortRound">ShortHairShortRound</option>
-                <option value="ShortHairShortWaved">ShortHairShortWaved</option>
-                <option value="ShortHairSides">ShortHairSides</option>
-                <option value="ShortHairTheCaesar">ShortHairTheCaesar</option>
+                <option value="ShortHairShortCurly">
+                  Short Hair Short Curly
+                </option>
+                <option value="ShortHairShortFlat">
+                  Short Hair Short Flat
+                </option>
+                <option value="ShortHairShortRound">
+                  Short Hair Short Round
+                </option>
+                <option value="ShortHairShortWaved">
+                  Short Hair Short Waved
+                </option>
+                <option value="ShortHairSides">Short Hair Sides</option>
+                <option value="ShortHairTheCaesar">
+                  Short Hair The Caesar
+                </option>
                 <option value="ShortHairTheCaesarSidePart">
-                  ShortHairTheCaesarSidePart
+                  Short Hair The Caesar Side Part
                 </option>
               </Form.Control>
             </Form.Group>
@@ -216,11 +229,11 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 <option value="Gray01">Gray01</option>
                 <option value="Gray02">Gray02</option>
                 <option value="Heather">Heather</option>
-                <option value="PastelBlue">PastelBlue</option>
-                <option value="PastelGreen">PastelGreen</option>
-                <option value="PastelOrange">PastelOrange</option>
-                <option value="PastelRed">PastelRed</option>
-                <option value="PastelYellow">PastelYellow</option>
+                <option value="PastelBlue">Pastel Blue</option>
+                <option value="PastelGreen">Pastel Green</option>
+                <option value="PastelOrange">Pastel Orange</option>
+                <option value="PastelRed">Pastel Red</option>
+                <option value="PastelYellow">Pastel Yellow</option>
                 <option value="Pink">Pink</option>
                 <option value="Red">Red</option>
                 <option value="White">White</option>
@@ -237,13 +250,13 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 <option value="Auburn">Auburn</option>
                 <option value="Black">Black</option>
                 <option value="Blonde">Blonde</option>
-                <option value="BlondeGolden">BlondeGolden</option>
+                <option value="BlondeGolden">Blonde Golden</option>
                 <option value="Brown">Brown</option>
-                <option value="BrownDark">BrownDark</option>
-                <option value="PastelPink">PastelPink</option>
+                <option value="BrownDark">Brown Dark</option>
+                <option value="PastelPink">Pastel Pink</option>
                 <option value="Platinum">Platinum</option>
                 <option value="Red">Red</option>
-                <option value="SilverGray">SilverGray</option>
+                <option value="SilverGray">Silver Gray</option>
               </Form.Control>
             </Form.Group>
 
@@ -256,8 +269,8 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
               >
                 <option value="Blank">Blank</option>
                 <option value="Kurt">Kurt</option>
-                <option value="Prescription01">Prescription01</option>
-                <option value="Prescription02">Prescription02</option>
+                <option value="Prescription01">Prescription 01</option>
+                <option value="Prescription02">Prescription 02</option>
                 <option value="Round">Round</option>
                 <option value="Sunglasses">Sunglasses</option>
                 <option value="Wayfarers">Wayfarers</option>
@@ -272,11 +285,11 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 onChange={changeFacialHairType}
               >
                 <option value="Blank">Blank</option>
-                <option value="BeardMedium">BeardMedium</option>
-                <option value="BeardLight">BeardLight</option>
-                <option value="BeardMagestic">BeardMagestic</option>
-                <option value="MoustacheFancy">MoustacheFancy</option>
-                <option value="MoustacheMagnum">MoustacheMagnum</option>
+                <option value="BeardMedium">Beard Medium</option>
+                <option value="BeardLight">Beard Light</option>
+                <option value="BeardMagestic">Beard Magestic</option>
+                <option value="MoustacheFancy">Moustache Fancy</option>
+                <option value="MoustacheMagnum">Moustache Magnum</option>
               </Form.Control>
             </Form.Group>
 
@@ -290,9 +303,9 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 <option value="Auburn">Auburn</option>
                 <option value="Black">Black</option>
                 <option value="Blonde">Blonde</option>
-                <option value="BlondeGolden">BlondeGolden</option>
+                <option value="BlondeGolden">Blonde Golden</option>
                 <option value="Brown">Brown</option>
-                <option value="BrownDark">BrownDark</option>
+                <option value="BrownDark">Brown Dark</option>
                 <option value="Platinum">Platinum</option>
                 <option value="Red">Red</option>
               </Form.Control>
@@ -307,13 +320,13 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
               >
                 <option value="BlazerShirt">Navy BlazerShirt</option>
                 <option value="BlazerSweater">Navy BlazerSweater</option>
-                <option value="CollarSweater">CollarSweater</option>
-                <option value="GraphicShirt">GraphicShirt</option>
+                <option value="CollarSweater">Collar Sweater</option>
+                <option value="GraphicShirt">Graphic Shirt</option>
                 <option value="Hoodie">Hoodie</option>
                 <option value="Overall">Overall</option>
-                <option value="ShirtCrewNeck">ShirtCrewNeck</option>
-                <option value="ShirtScoopNeck">ShirtScoopNeck</option>
-                <option value="ShirtVNeck">ShirtVNeck</option>
+                <option value="ShirtCrewNeck">Shirt Crew Neck</option>
+                <option value="ShirtScoopNeck">Shirt Scoop Neck</option>
+                <option value="ShirtVNeck">Shirt V Neck</option>
               </Form.Control>
             </Form.Group>
 
@@ -333,7 +346,7 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 <option value="PastelGreen">Pastel Green</option>
                 <option value="PastelOrange">Pastel Orange</option>
                 <option value="PastelRed">Pastel Pink</option>
-                <option value="PastelYellow">PastelYellow</option>
+                <option value="PastelYellow">Pastel Yellow</option>
                 <option value="Pink">Hot Pink</option>
                 <option value="Red">Red</option>
               </Form.Control>

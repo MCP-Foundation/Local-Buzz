@@ -56,8 +56,6 @@ function AvatarForm({ show, handleClose }) {
 
   const avatarImage = `https://avataaars.io/?avatarStyle=Circle&topType=${topType}&accessoriesType=${accessoriesType}&hatColor=${hatColor}&hairColor=${hairColor}&facialHairType=${facialHairType}&facialHairColor=${facialHairColor}&clotheType=${clothesType}&clotheColor=${clothesColor}&eyeType=${eyeType}&eyebrowType=${eyeBrowType}&mouthType=${mouthType}&skinColor=${skinColor}`;
 
-  console.log(avatarImage);
-  console.log(topType);
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
