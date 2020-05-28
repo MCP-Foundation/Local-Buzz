@@ -1,14 +1,16 @@
+const path = require('path');
 const Post = require('../models/Posts');
 const User = require('../models/Users.js');
-const path = require('path');
 
 const createPost = async (req, res) => {
   try {
     const userID = req.user.user_id;
     const date_created = new Date();
-    const { title, postBody, tag, category, address } = req.body;
+    const {
+      title, postBody, tag, category, address,
+    } = req.body;
     Post.create(userID, title, category, tag, postBody, date_created, address);
-    res.redirect('/');
+    res.redirect('/forum');
   } catch (err) {
     res.status(500).json({
       error:
@@ -35,24 +37,26 @@ const getUsersPosts = async (req, res) => {
 const getAllByUser = async (req, res) => {
   const userID = req.user.user_id;
   const data = await Post.getAllByUser(userID);
-  res.send(data)
+  res.send(data);
 };
 
 const getAllPosts = async (req, res) => {
   const data = await Post.getAll();
-  console.log(data);
-  res.send(data)
+  res.send(data);
 };
-const getByID = async (req,res) =>{
-  const postID = req.params.id;
+const getByID = async (req, res) => {
+  const { postID } = req.params;
+  console.log(req.params);
   const data = await Post.getByID(postID);
-  res.send(await data)
-}
+  res.send(await data);
+};
 
 const updatePosts = async (req, res) => {
   const postID = req.params.id;
   const userID = req.user_id;
-  const { title, post_body, tag, location, category } = req.body;
+  const {
+    title, post_body, tag, location, category,
+  } = req.body;
   try {
     await Post.updatePosts(
       userID,
@@ -61,9 +65,9 @@ const updatePosts = async (req, res) => {
       post_body,
       tag,
       location,
-      category
+      category,
     );
-    return res.redirect('/');
+    return res.redirect('/forum');
   } catch (err) {
     return res
       .status(500)
@@ -72,7 +76,7 @@ const updatePosts = async (req, res) => {
 };
 const addLike = async (req, res) => {
   const postID = req.params.id;
-  Post.addLike(postID)
+  Post.addLike(postID);
 };
 
 const deletePosts = (req, res) => {
@@ -80,47 +84,43 @@ const deletePosts = (req, res) => {
   const userID = req.user_id;
   Post.deletePosts(userID, postID)
     .then(() => res.redirect('/'))
-    .catch(() =>
-      res
-        .status(500)
-        .json({ error: 'Internal Server Error: Post could not be deleted.' })
-    );
+    .catch(() => res
+      .status(500)
+      .json({ error: 'Internal Server Error: Post could not be deleted.' }));
 };
-const createComment = async (req,res) =>{
+const createComment = async (req, res) => {
   const userID = req.user.user_id;
-  const author = req.user.username
+  const author = req.user.username;
   const date_created = new Date();
   const { comment } = req.body;
-  const body = comment[0]
-  const postID = comment[1]
-  Post.createComment(userID, author, postID, body, date_created)
-  res.redirect(`/viewPost/${postID}`)
-}
-const getComments = async (req,res) =>{
+  const body = comment[0];
+  const postID = comment[1];
+  Post.createComment(userID, author, postID, body, date_created);
+  res.redirect(`/viewPost/${postID}`);
+};
+const getComments = async (req, res) => {
   const postID = req.params.id;
-  console.log(req.params)
   const data = await Post.getComments(postID);
-  res.send(data)
-}
-const updateComment = async (req,res) =>{
+  res.send(data);
+};
+const updateComment = async (req, res) => {
   const commentID = req.params.id;
   const userID = req.user.user_id;
-  const {comment} = req.body;
-  Post.updateComment(userID, commentID, comment)
-}
+  const { comment } = req.body;
+  Post.updateComment(userID, commentID, comment);
+};
 
-const deleteComment = async (req,res) =>{
+const deleteComment = async (req, res) => {
   const postID = req.params.id;
   const userID = req.user.user_id;
   Post.deleteComment(userID, postID)
-    .then(()=> res.redirect(`/viewPost/${postID}`))
-    .catch(()=>{
+    .then(() => res.redirect(`/viewPost/${postID}`))
+    .catch(() => {
       res
-        .status((500))
-        .json({error:'Internal Server Error: Comment could not be deleted'})
-    })
-}
-
+        .status(500)
+        .json({ error: 'Internal Server Error: Comment could not be deleted' });
+    });
+};
 
 module.exports = {
   createPost,
@@ -134,5 +134,5 @@ module.exports = {
   updatePosts,
   updateComment,
   deletePosts,
-  deleteComment
+  deleteComment,
 };

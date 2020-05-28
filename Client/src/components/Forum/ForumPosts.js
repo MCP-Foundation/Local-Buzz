@@ -23,28 +23,35 @@ function ForumPosts() {
     getAllPostsData();
     setIsLoading(false);
   }, []);
+
+  console.log(allPosts);
   return (
     <>
       {isLoading ? (
-        <p> {error || '...Loading'}</p>
+        <p>
+          {' '}
+          {error || '...Loading'}
+        </p>
       ) : (
         <section className="ForumPostComponent">
-              <section className="ForumPostsComponent">
-                  {allPosts &&
-                    allPosts.map((post) => (
-                      <Post
-                        postId={post.post_id}
-                        userId={post.user_id}
-                        title={post.title}
-                        category={post.category}
-                        tag={post.tag}
-                        postBody={post.post_body}
-                        date={post.date_created}
-                        location={post.location}
-                        likes={post.likes}
-                      />
-                    ))}
-              </section>
+          <section className="ForumPostsComponent">
+            {allPosts
+              && allPosts.map((post) => (
+                <Post
+                  postId={post.post_id}
+                  userId={post.user_id}
+                  title={post.title}
+                  category={post.category}
+                  tag={post.tag}
+                  postBody={post.post_body}
+                  date={post.date_created}
+                  location={post.location}
+                  likes={post.likes}
+                  setIsLoading={setIsLoading}
+                  setError={setError}
+                />
+              ))}
+          </section>
         </section>
       )}
     </>

@@ -315,4 +315,4 @@ function AvatarForm({ show, handleClose }) {
   );
 }
 
-export default AvatarForm;
+export default { AvatarForm };

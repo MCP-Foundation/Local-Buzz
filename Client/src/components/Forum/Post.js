@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+// import { ProfileContext } from '../../contexts/profileContext'
 import { Favorite, Chat } from 'grommet-icons';
 import './Posts.css';
 
@@ -11,7 +12,7 @@ function Post({
   postBody,
   date,
   location,
-  likes,
+  setError,
 }) {
   const d = new Date(date.replace(' ', 'T'));
   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
@@ -20,54 +21,128 @@ function Post({
   const newDate = `${mo} ${da}, ${ye}`;
   const postDataContext = {
     postId,
+    userId,
     postBody,
   };
 
-  const simplebody = postDataContext.postBody.substring(0, 150)
+  const simplebody = postDataContext.postBody.substring(0, 150);
 
-  const viewPostRedirect = (postId) => {
-    window.location.href = `/viewPost/${postDataContext.postId}`;
+  const [user, setUser] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [isLiked, setIsLiked] = useState(false);
+  const [comments, setComments] = useState([]);
+
+  const viewPostRedirect = () => {
+    window.location.href = `/viewPost/${postDataContext.postId}/${postDataContext.userId}`;
   };
 
+  useEffect(() => {
+    document.cookie
+      ? fetch('/api/userObj')
+          .then((res) => {
+            if (res.status === 200) return res.json();
+            return null;
+          })
+          .then((json) => setUser(json))
+      : setUser(null);
+  }, [setUser]);
+
+  const likePost = async () => {
+    const postLike = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    if (isLiked === true) {
+      const req = await fetch(
+        `/api/unlike/${postId}/${user.user_id}`,
+        postLike
+      );
+      setLikes(req);
+      setIsLiked(false);
+    } else {
+      const req = await fetch(`/api/like/${postId}/${user.user_id}`, postLike);
+      setLikes(req);
+      setIsLiked(true);
+    }
+  };
+
+  useEffect(() => {
+    function getAllUserData() {
+      fetch(`/api/user/${userId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setUserData(data);
+        })
+        .catch(() => {
+          const err = 'Sorry there was an error, please try again';
+          setError(err);
+        });
+    }
+
+    getAllUserData();
+  }, []);
+
+  useEffect(() => {
+    const getLikes = async () => {
+      const req = await fetch(`/api/likes/${postId}`);
+      const res = await req.json();
+      setLikes(res);
+      for (let i = 0; i < likes.length; i + 1) {
+        if (likes[i].user_id === userId) {
+          return setIsLiked(true);
+        }
+      }
+    };
+    getLikes();
+  }, [isLiked]);
+
+  useEffect(() => {
+    function getAllComments() {
+      fetch(`/api/comments/${postId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setComments(data.length);
+        });
+    }
+    getAllComments();
+  }, []);
+
   return (
-    <section className="PostComponent" onClick={viewPostRedirect}>
+    <section className="PostComponent">
       <div className="userAvatarDiv">
-        <img
-          className="userAvatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png"
-        />
+        <img className="userAvatar" alt="user avatar" src={userData.avatar} />
       </div>
       <div className="postBodyDiv">
         {/* UserInfo */}
         <div className="postUserInfo">
           <p>
-            <span className="name">Name</span>
+            <span className="name">{userData.name}</span>
           </p>
-          <p className="username">@username</p>
+          <p className="username">@{userData.username}</p>
         </div>
 
         {/* Post body and title */}
-        <div className="mainPostDiv">
+        <div className="mainPostDiv" role="post" onClick={viewPostRedirect}>
           <p className="postTitle">{title}</p>
-          <p className="postBody">{simplebody}...</p>
+          <p className="postBody">
+            {simplebody}
+            ...
+          </p>
         </div>
         {/* Category Tags  Time Created and Location */}
         <div className="postFilter">
           <p>
-            <span className="tag">{tag}</span>
-            {' '}
-            ·
-            {' '}
+            <span className="tag">{tag}</span> ·{' '}
             <span className="catagory">{category}</span>
           </p>
         </div>
 
         <div className="postCreatedInfo">
           <p>
-            <span className="time">{newDate}</span>
-            {' '}
-            ·
-            {' '}
+            <span className="time">{newDate}</span> ·{' '}
             <span className="location">{location}</span>
           </p>
         </div>
@@ -75,16 +150,12 @@ function Post({
         <hr></hr>
         <div className="postInteractionInfo">
           <p>
-            <span className="likes">
-              {likes}
-              {' '}
-              <Favorite color="#ff58bc" />
+            <span className="likes" onClick={() => likePost()}>
+              {likes.length} <Favorite color="#ff58bc" />
             </span>
 
             <span className="comments">
-              {1}
-              {' '}
-              <Chat color="#57e021" />
+              {comments} <Chat color="#57e021" />
             </span>
           </p>
         </div>

@@ -16,7 +16,7 @@ function UserPosts() {
   useEffect(() => {
     function getAllUserPostsData() {
       setIsLoading(true);
-      fetch(`/api/user-posts`)
+      fetch('/api/user-posts')
         .then((res) => res.json())
         .then((data) => {
           setAllPosts(data);
@@ -33,36 +33,36 @@ function UserPosts() {
   console.log(allPosts);
 
   return (
-    <section className='UserPostComponent'>
-      <section className='userPostsTitle'>
-        <p>Your Stories</p>
-      </section>
+    <section className="UserPostComponent">
       <>
+        <section className="userPostsTitle">
+          <p>Your Stories</p>
+        </section>
         {isLoading ? (
           <p> {error || '...Loading'}</p>
         ) : (
-            <Row justify="center">
-              <Col span={8}></Col>
-              <Col span={8}>
-                 <section className="ProfilePostsComponent">
-                   <Timeline mode="left">
-                    {allPosts &&
-                      allPosts.map((post) => (
-                        <Post
-                          title={post.title}
-                          category={post.category}
-                          tag={post.tag}
-                          postBody={post.post_body}
-                          date={post.date_created}
-                        />
-                      ))}
-                  </Timeline>
-                </section> 
-              </Col>
+          <Row justify="center">
+            <Col span={8}></Col>
+            <Col span={8}>
+              <section className="ProfilePostsComponent">
+                <Timeline mode="left">
+                  {allPosts &&
+                    allPosts.map((post) => (
+                      <Post
+                        title={post.title}
+                        category={post.category}
+                        tag={post.tag}
+                        postBody={post.post_body}
+                        date={post.date_created}
+                      />
+                    ))}
+                </Timeline>
+              </section>
+            </Col>
 
-              <Col className='flexit' span={8}></Col>
-            </Row>
-          )}
+            <Col className="flexit" span={8}></Col>
+          </Row>
+        )}
       </>
     </section>
   );

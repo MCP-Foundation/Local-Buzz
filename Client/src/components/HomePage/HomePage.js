@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Grommet } from 'grommet';
-import { Row, Col } from 'antd';
+import { Grommet, Main } from 'grommet';
 
 import '../HomePage/HomePage.css';
 import Navigation from '../Navigation/Navigation';
@@ -39,32 +38,28 @@ class HomePage extends Component {
     return (
       <Grommet theme={theme} full>
         <section className="HomePage">
-          <Row justify="center">
-            <Col span={8}></Col>
-            <Col span={8}>
-              <Banner forumPageRedirect={this.forumPageRedirect} />
-            </Col>
-            <Col span={8}></Col>
-          </Row>
-          <Row justify="center">
-            <Col span={12}>
-              <About />
-            </Col>
-            <Col span={12}>
-              <Tag
-                tagName={this.state.tagName1}
-                tagDescription={this.state.tagDescription1}
-              />
-              <Tag
-                tagName={this.state.tagName2}
-                tagDescription={this.state.tagDescription2}
-              />
-              <Tag
-                tagName={this.state.tagName3}
-                tagDescription={this.state.tagDescription3}
-              />
-            </Col>
-          </Row>
+          <section>
+            <Banner forumPageRedirect={this.forumPageRedirect} />
+          </section>
+
+          <section className="HomePageAbout">
+            <About />
+          </section>
+
+          <section className="HomePageTags">
+            <Tag
+              tagName={this.state.tagName1}
+              tagDescription={this.state.tagDescription1}
+            />
+            <Tag
+              tagName={this.state.tagName2}
+              tagDescription={this.state.tagDescription2}
+            />
+            <Tag
+              tagName={this.state.tagName3}
+              tagDescription={this.state.tagDescription3}
+            />
+          </section>
         </section>
       </Grommet>
     );

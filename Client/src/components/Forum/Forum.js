@@ -4,7 +4,6 @@ import { Button } from 'grommet';
 import './Forum.css';
 import Navigation from '../Navigation/Navigation';
 import ForumHeader from './ForumHeader';
-import SearchTags from './SearchTags';
 import ForumPosts from './ForumPosts';
 const theme = {
   global: {
@@ -31,7 +30,6 @@ class Forum extends Component {
     return (
       <section className="ForumComponent">
         <Grommet theme={theme} full>
-
           <Button
             primary
             gap="medium"
@@ -39,7 +37,6 @@ class Forum extends Component {
             label="Start a conversation"
           />
           <ForumHeader show={this.state.show} handleClose={this.handleClose} />
-
           <ForumPosts getAllPostsData={this.getAllPostsData} />
         </Grommet>
       </section>

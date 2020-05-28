@@ -1,17 +1,19 @@
 .ForumComponent {
-  margin-top: 10%;
+  margin-top: 5%;
   align-items: center;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 10px;
   height: 90vh;
 }
 
+<<<<<<< HEAD
 .ForumPostComponent {
   /* margin-top: 40px; */
 }
 
+=======
+>>>>>>> ce0f207527ef2b91046f4e46886afd077168ec6c
 .ForumPostsComponent {
   display: flex;
   flex-direction: column-reverse;

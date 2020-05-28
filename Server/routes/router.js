@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const userController = require('../controllers/Users');
 const postController = require('../controllers/Posts');
+const likesController = require('../controllers/likes');
 const bodyParser = require('body-parser');
 
 const router = express.Router();
@@ -16,13 +17,17 @@ router.use(cookieParser());
 
 // /**  GET'S **/
 router.get('/api/forum', postController.getAllPosts);
-router.get('/api/viewPost/:id', postController.getByID);
 router.get('/api/comments/:id', postController.getComments);
 router.get('/api/user/:id', userController.getUserById);
+router.get('/api/userObj',userController.authenticate, userController.getUser);
 
-router.get('/api/user-posts',userController.authenticate, postController.getAllByUser);
-
-router.get('/api/userObj', userController.authenticate, userController.getUser);
+router.get(
+  '/api/user-posts',
+  userController.authenticate,
+  postController.getAllByUser
+);
+router.get('/api/viewPost/:postID/:userID', postController.getByID);
+router.get('/api/likes/:id', likesController.AllLikesForPost);
 
 // /** POST'S **/
 router.post('/api/register', userController.register);
@@ -32,6 +37,8 @@ router.post(
   userController.authenticate,
   postController.createPost
 );
+router.post('/api/like/:post_id/:user_id', likesController.AddALike);
+router.post('/api/unlike/:post_id/:user_id', likesController.DeleteALike);
 router.post('/api/logout', userController.logout);
 router.post(
   '/api/comment',
@@ -42,8 +49,11 @@ router.post(
 // /** PUT'S **/
 // router.put('/api/users/:userId', /* userController.update */);
 router.put('/api/posts/:postId', postController.updatePosts);
-router.put('/api/updateUser/',userController.authenticate, userController.update)
-router.put('/api/like/:postId', postController.addLike);
+router.put(
+  '/api/updateUser/',
+  userController.authenticate,
+  userController.update
+);
 
 // /** DELETE'S **/
 // router.delete('/api/users/:userId', /* userController.delete */);
