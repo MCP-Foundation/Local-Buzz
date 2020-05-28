@@ -21,6 +21,7 @@ function Post({
   const newDate = `${mo} ${da}, ${ye}`;
   const postDataContext = {
     postId,
+    userId,
     postBody,
   };
 
@@ -30,7 +31,13 @@ function Post({
   const [userData, setUserData] = useState([]);
   const [likes, setLikes] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
+  const [comments, setComments] = useState([]);
 
+  const viewPostRedirect = () => {
+    window.location.href = `/viewPost/${postDataContext.postId}/${postDataContext.userId}`;
+  };
+
+  const likePost = async (postID, userID) => {
   useEffect(() => {
     document.cookie
       ? fetch('/api/userObj')
@@ -54,6 +61,7 @@ function Post({
       },
     };
     if (isLiked === true) {
+
       const req = await fetch(`/api/unlike/${postId}/${user.user_id}`, postLike);
       setLikes(req);
       setIsLiked(false);
@@ -85,8 +93,8 @@ function Post({
       const req = await fetch(`/api/likes/${postId}`);
       const res = await req.json();
       setLikes(res);
-      for (let i = 0; i < likes.length; i++) {
-        if (likes[i].user_id === user.user_id) {
+      for (let i = 0; i < likes.length; i + 1) {
+        if (likes[i].user_id === userId) {
           return setIsLiked(true);
         }
       }
@@ -94,10 +102,21 @@ function Post({
     getLikes();
   }, [isLiked]);
 
+  useEffect(() => {
+    function getAllComments() {
+      fetch(`/api/comments/${postId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setComments(data.length);
+        });
+    }
+    getAllComments();
+  }, []);
+
   return (
     <section className="PostComponent">
       <div className="userAvatarDiv">
-        <img className="userAvatar" src={userData.avatar} />
+        <img className="userAvatar" alt="user avatar" src={userData.avatar} />
       </div>
       <div className="postBodyDiv">
         {/* UserInfo */}
@@ -105,11 +124,14 @@ function Post({
           <p>
             <span className="name">{userData.name}</span>
           </p>
-          <p className="username">@{userData.username}</p>
+          <p className="username">
+            @
+            {userData.username}
+          </p>
         </div>
 
         {/* Post body and title */}
-        <div className="mainPostDiv" onClick={viewPostRedirect}>
+        <div className="mainPostDiv" role="post" onClick={viewPostRedirect}>
           <p className="postTitle">{title}</p>
           <p className="postBody">
             {simplebody}
@@ -119,14 +141,20 @@ function Post({
         {/* Category Tags  Time Created and Location */}
         <div className="postFilter">
           <p>
-            <span className="tag">{tag}</span> ·{' '}
+            <span className="tag">{tag}</span>
+            {' '}
+            ·
+            {' '}
             <span className="catagory">{category}</span>
           </p>
         </div>
 
         <div className="postCreatedInfo">
           <p>
-            <span className="time">{newDate}</span> ·{' '}
+            <span className="time">{newDate}</span>
+            {' '}
+            ·
+            {' '}
             <span className="location">{location}</span>
           </p>
         </div>
@@ -139,7 +167,9 @@ function Post({
             </span>
 
             <span className="comments">
-              {1} <Chat color="#57e021" />
+              {comments}
+              {' '}
+              <Chat color="#57e021" />
             </span>
           </p>
         </div>

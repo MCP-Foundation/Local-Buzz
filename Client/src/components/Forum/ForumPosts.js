@@ -23,6 +23,8 @@ function ForumPosts() {
     getAllPostsData();
     setIsLoading(false);
   }, []);
+
+  console.log(allPosts);
   return (
     <>
       {isLoading ? (
