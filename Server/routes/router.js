@@ -6,57 +6,15 @@ const postController = require('../controllers/Posts');
 const likesController = require('../controllers/likes');
 const bodyParser = require('body-parser');
 
-const router = express.Router();
-router.use(cookieParser());
+const likesRouter = express.Router();
+likesRouter.use(cookieParser());
 
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(cookieParser());
+likesRouter.use(bodyParser.json());
+likesRouter.use(bodyParser.urlencoded({ extended: true }));
+likesRouter.use(cookieParser());
 
-// Remember to compartmentalize file structure.
+likesRouter.get('/api/likes/:id', likesController.getLikesByPostId);
+likesRouter.post('/api/like/:post_id/:user_id', likesController.addLike);
+likesRouter.post('/api/unlike/:post_id/:user_id', likesController.removeLike);
 
-// /**  GET'S **/
-router.get('/api/forum', postController.getAllPosts);
-router.get('/api/comments/:id', postController.getComments);
-router.get('/api/user/:id', userController.getUserById);
-router.get('/api/userObj', userController.authenticate, userController.getUser);
-
-router.get(
-  '/api/user-posts',
-  userController.authenticate,
-  postController.getAllByUser
-);
-router.get('/api/viewPost/:postID/:userID', postController.getByID);
-router.get('/api/likes/:id', likesController.getLikesByPostId);
-
-// /** POST'S **/
-router.post('/api/register', userController.register);
-router.post('/api/login', userController.login);
-router.post(
-  '/api/posts',
-  userController.authenticate,
-  postController.createPost
-);
-router.post('/api/like/:post_id/:user_id', likesController.addLike);
-router.post('/api/unlike/:post_id/:user_id', likesController.removeLike);
-router.post('/api/logout', userController.logout);
-router.post(
-  '/api/comment',
-  userController.authenticate,
-  postController.createComment
-);
-
-// /** PUT'S **/
-// router.put('/api/users/:userId', /* userController.update */);
-router.put('/api/posts/:postId', postController.updatePosts);
-router.put(
-  '/api/updateUser/',
-  userController.authenticate,
-  userController.update
-);
-
-// /** DELETE'S **/
-// router.delete('/api/users/:userId', /* userController.delete */);
-router.delete('/api/posts/:postId', postController.deletePosts);
-
-module.exports = router;
+module.exports = likesRouter;
