@@ -21,6 +21,7 @@ const theme = {
 const params = window.location.pathname.split('/');
 const postID = params[2];
 const userID = params[3];
+
 function PostView() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -75,6 +76,7 @@ function PostView() {
     getAllUserData();
     setIsLoading(false);
   }, []);
+
 
   return (
     <section>

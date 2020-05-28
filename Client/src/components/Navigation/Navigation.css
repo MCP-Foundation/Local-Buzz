@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
+.navigation {
+  background-color: aquamarine;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-.sidebar {
-  max-width: 240px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
+
+/* 
+.signup {
+  background-color: aquamarine;
+  border-radius: 25px;
+  padding: 0px 20px;
+  min-width: 30px;
+} */
+
+
