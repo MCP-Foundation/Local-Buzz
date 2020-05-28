@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Main } from 'grommet';
 import './HomePage.css';
 
-function Banner({ show }) {
+function Banner({}) {
   return (
     <section className="BannerComponent">
       <header>
@@ -13,7 +13,7 @@ function Banner({ show }) {
             climate!
           </p>
         </Main>
-        <Button label="Start A Conversation" size="large" onClick={show} />
+        <Button label="Start A Conversation" size="large" />
       </header>
     </section>
   );
