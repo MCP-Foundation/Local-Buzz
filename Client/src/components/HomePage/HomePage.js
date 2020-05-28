@@ -38,6 +38,7 @@ class HomePage extends Component {
     return (
       <Grommet theme={theme} full>
         <section className="HomePage">
+          <Banner forumPageRedirect={this.forumPageRedirect} />
           <section className="HomePageAbout">
             <About />
           </section>

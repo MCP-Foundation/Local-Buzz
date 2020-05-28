@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 // import { ProfileContext } from '../../contexts/profileContext'
 import { Favorite, Chat } from 'grommet-icons';
+import LikePostButton from '../LikeButton/LikePostButton';
 import './Posts.css';
 
 function Post({
@@ -36,11 +37,11 @@ function Post({
   useEffect(() => {
     document.cookie
       ? fetch('/api/userObj')
-          .then((res) => {
-            if (res.status === 200) return res.json();
-            return null;
-          })
-          .then((json) => setUser(json))
+        .then((res) => {
+          if (res.status === 200) return res.json();
+          return null;
+        })
+        .then((json) => setUser(json))
       : setUser(null);
   }, [setUser]);
 
@@ -58,7 +59,7 @@ function Post({
     if (isLiked === true) {
       const req = await fetch(
         `/api/unlike/${postId}/${user.user_id}`,
-        postLike
+        postLike,
       );
       setLikes(req);
       setIsLiked(false);
@@ -121,7 +122,10 @@ function Post({
           <p>
             <span className="name">{userData.name}</span>
           </p>
-          <p className="username">@{userData.username}</p>
+          <p className="username">
+            @
+            {userData.username}
+          </p>
         </div>
 
         {/* Post body and title */}
@@ -135,14 +139,20 @@ function Post({
         {/* Category Tags  Time Created and Location */}
         <div className="postFilter">
           <p>
-            <span className="tag">{tag}</span> ·{' '}
+            <span className="tag">{tag}</span>
+            {' '}
+            ·
+            {' '}
             <span className="catagory">{category}</span>
           </p>
         </div>
 
         <div className="postCreatedInfo">
           <p>
-            <span className="time">{newDate}</span> ·{' '}
+            <span className="time">{newDate}</span>
+            {' '}
+            ·
+            {' '}
             <span className="location">{location}</span>
           </p>
         </div>
@@ -150,12 +160,12 @@ function Post({
 
         <div className="postInteractionInfo">
           <p>
-            <span className="likes" onClick={() => likePost()}>
-              {likes.length} <Favorite color="#ff58bc" />
-            </span>
+            <LikePostButton user={user} postId={postId} />
 
-            <span className="comments">
-              {comments} <Chat color="#57e021" />
+            <span className="comments" onClick={viewPostRedirect}>
+              {comments}
+              {' '}
+              <Chat color="#57e021" />
             </span>
           </p>
         </div>

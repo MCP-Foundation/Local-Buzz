@@ -1,5 +1,6 @@
 .commentForm {
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-left: 10%;
 }
 
 .commentInput {
@@ -11,7 +12,11 @@
   margin-top: 10%;
 }
 
-.mainCommentDiv {
+.CommentComponent {
+  margin-left: 25%;
+  padding-right: 5%;
+  border-bottom: 0.3px solid #bebebe;
+  width: 700px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row;
 }

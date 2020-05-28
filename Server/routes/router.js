@@ -19,7 +19,7 @@ router.use(cookieParser());
 router.get('/api/forum', postController.getAllPosts);
 router.get('/api/comments/:id', postController.getComments);
 router.get('/api/user/:id', userController.getUserById);
-router.get('/api/userObj',userController.authenticate, userController.getUser);
+router.get('/api/userObj', userController.authenticate, userController.getUser);
 
 router.get(
   '/api/user-posts',
@@ -27,7 +27,7 @@ router.get(
   postController.getAllByUser
 );
 router.get('/api/viewPost/:postID/:userID', postController.getByID);
-router.get('/api/likes/:id', likesController.AllLikesForPost);
+router.get('/api/likes/:id', likesController.getLikesByPostId);
 
 // /** POST'S **/
 router.post('/api/register', userController.register);
@@ -37,8 +37,8 @@ router.post(
   userController.authenticate,
   postController.createPost
 );
-router.post('/api/like/:post_id/:user_id', likesController.AddALike);
-router.post('/api/unlike/:post_id/:user_id', likesController.DeleteALike);
+router.post('/api/like/:post_id/:user_id', likesController.addLike);
+router.post('/api/unlike/:post_id/:user_id', likesController.removeLike);
 router.post('/api/logout', userController.logout);
 router.post(
   '/api/comment',
