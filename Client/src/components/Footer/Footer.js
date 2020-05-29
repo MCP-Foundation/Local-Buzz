@@ -31,7 +31,7 @@ const Media = () => (
 
 function Banner({}) {
   return (
-    <section>
+    <section className="footer">
       <Footer background="#36b4b4" pad="small">
         <Box align="center" direction="row" gap="xsmall">
           <img className="footerLogo" src={logo}></img>
