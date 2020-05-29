@@ -1,10 +1,10 @@
-import React, { useState, useEffect,useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Post from './Post';
-import { TagContext } from '../../contexts/tagContext'
+import { TagContext } from '../../contexts/tagContext';
 
 function ForumPosts() {
-  const [tag, setTag ] = useContext(TagContext)
-  const [newPosts,setNewPosts] = useState(false)
+  const [tag, setTag] = useContext(TagContext);
+  const [newPosts, setNewPosts] = useState(false);
   const [filteredPosts, setFilteredPosts] = useState(null);
   const [allPosts, setAllPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,31 +27,27 @@ function ForumPosts() {
     getAllPostsData();
     setIsLoading(false);
   }, []);
-  useEffect(()=>{
-    function filter(){
-      if(tag !== []){
-        const newPosts = allPosts.filter((post) => post.tag === tag)
-        setFilteredPosts(newPosts)
-      }
-  }
-  filter()
-  },[tag])
 
+  useEffect(() => {
+    function filter() {
+      if (tag.length) {
+        const newPosts = allPosts.filter((post) => post.tag === tag);
+        setFilteredPosts(newPosts);
+      }
+    }
+    filter();
+  }, [tag]);
 
   return (
-   <>
+    <>
       {isLoading ? (
-        <p>
-          {' '}
-          {error || '...Loading'}
-        </p>
+        <p> {error || '...Loading'}</p>
       ) : (
         <section className="ForumPostComponent">
           <section className="ForumPostsComponent">
-            {
-            filteredPosts ?
-                filteredPosts
-                && filteredPosts.map((post) => (
+            {filteredPosts
+              ? filteredPosts &&
+                filteredPosts.map((post) => (
                   <Post
                     postId={post.post_id}
                     userId={post.user_id}
@@ -65,9 +61,9 @@ function ForumPosts() {
                     setIsLoading={setIsLoading}
                     setError={setError}
                   />
-                )) : 
-                allPosts
-                && allPosts.map((post) => (
+                ))
+              : allPosts &&
+                allPosts.map((post) => (
                   <Post
                     postId={post.post_id}
                     userId={post.user_id}
