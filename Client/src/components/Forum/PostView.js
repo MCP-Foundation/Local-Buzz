@@ -79,64 +79,62 @@ function PostView() {
 
   return (
     <section>
-      <Grommet theme={theme} full>
-        <UserPost
-          avatar={userData.avatar}
-          name={userData.name}
-          username={userData.username}
-          title={postData.title}
-          postBody={postData.post_body}
-          tag={postData.tag}
-          category={postData.category}
-          location={postData.location}
-          likes={postData.likes}
-          comments={comments.length}
-          date={postData.date_created}
-        />
-        <Form
-          id="postForm"
-          className="commentForm"
-          action="/api/comment"
-          method="post"
-        >
-          <Form.Group controlId="commentForm">
-            <Form.Label className="commentInput">Post a Comment!</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows="4"
-              name="comment"
-              type="textarea"
-              placeholder="Thoughts?"
-              className="commentInput"
-            />
-            <Form.Control
-              name="comment"
-              type="hidden"
-              value={postID}
-              placeholder="Thoughts?"
-              className="commentInput"
-            />
-            <Button className="commentInput" variant="primary" type="submit">
-              Comment
-            </Button>
-          </Form.Group>
-        </Form>
-        <section className="postCommentsSection">
-          <div />
-          <div className="mainCommentDiv">
-            {(comments.length &&
-              comments.map((comment) => (
-                <Comment
-                  userID={comment.user_id}
-                  comment={comment.comment}
-                  date={comment.date_created}
-                  likes={comment.likes}
-                />
-              ))) || <p>There aren't any comments yet :(</p>}
-          </div>
-          <div />
-        </section>
-      </Grommet>
+      <UserPost
+        avatar={userData.avatar}
+        name={userData.name}
+        username={userData.username}
+        title={postData.title}
+        postBody={postData.post_body}
+        tag={postData.tag}
+        category={postData.category}
+        location={postData.location}
+        likes={postData.likes}
+        comments={comments.length}
+        date={postData.date_created}
+      />
+      <Form
+        id="postForm"
+        className="commentForm"
+        action="/api/comment"
+        method="post"
+      >
+        <Form.Group controlId="commentForm">
+          <Form.Label className="commentInput">Post a Comment!</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows="4"
+            name="comment"
+            type="textarea"
+            placeholder="Thoughts?"
+            className="commentInput"
+          />
+          <Form.Control
+            name="comment"
+            type="hidden"
+            value={postID}
+            placeholder="Thoughts?"
+            className="commentInput"
+          />
+          <Button className="commentInput" variant="primary" type="submit">
+            Comment
+          </Button>
+        </Form.Group>
+      </Form>
+      <section className="postCommentsSection">
+        <div />
+        <div className="mainCommentDiv">
+          {(comments.length
+            && comments.map((comment) => (
+              <Comment
+                userID={comment.user_id}
+                comment={comment.comment}
+                date={comment.date_created}
+                likes={comment.likes}
+              />
+            ))) || <p>There aren't any comments yet :(</p>}
+        </div>
+        <div />
+      </section>
     </section>
   );
 }
