@@ -100,8 +100,9 @@ const createComment = async (req, res) => {
   const { comment } = req.body;
   const body = comment[0];
   const postID = comment[1];
+  const postUserId =comment[2];
   Post.createComment(userID, author, postID, body, date_created);
-  res.redirect(`/viewPost/${postID}`);
+  res.redirect(`/viewPost/${postID}/${postUserId}`);
 };
 const getComments = async (req, res) => {
   const postID = req.params.id;
