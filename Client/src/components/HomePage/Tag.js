@@ -1,13 +1,18 @@
 import React from 'react';
 import { Button, Paragraph } from 'grommet';
 
-
-function Tag({ tagName, tagDescription }) {
+function Tag({ tagName, tagDescription, tagIcon }) {
   return (
-    <section>
-      <Button primary label={`#${tagName}`} />
+    <section className="tagComponent">
+      <div>
+        <img className="tagIcon" src={tagIcon} />
+      </div>
+      <div>
+        {' '}
+        <Button primary label={`#${tagName}`} />
+      </div>
 
-      <section className="TagComponent">
+      <section className="TagDescription">
         <Paragraph size="large">{tagDescription}</Paragraph>
       </section>
     </section>

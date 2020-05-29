@@ -3,6 +3,7 @@
   text-align: center;
   background-image: url('https://www.ccsalespro.com/wp-content/uploads/2019/05/Accion-graphics_Small-business-illustration.png');
   background-repeat: no-repeat;
+  background-color: #eff;
   background-position: center bottom;
 }
 
@@ -10,14 +11,28 @@
   margin-top: 20px;
   margin-bottom: 0;
 }
+.bannerLogo {
+  height: 100px;
+  width: 400px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .HomePage {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+
 .HomePageAbout {
   display: flex;
   justify-content: center;
+  margin: 4% auto 2% auto;
+  width: 800px;
 }
 .homepageArticle {
   text-align: center;
@@ -26,13 +41,25 @@
 .HomePageTags {
   display: flex;
   text-align: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .TagComponent {
+  margin: 5% auto 3% auto;
+}
+.tagButton {
+  margin: 5% auto 2% auto;
+}
+
+.TagDescription {
   text-align: center;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 3%;
+}
+
+.tagIcon {
+  height: 200px;
+  margin: 2% auto 2% auto;
 }

@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
 .navigation {
-  background-color: aquamarine;
+  background-color: #36b4b4;
 }
-.hide{
-  margin-bottom: 0;
+.nav-link {
+  color: white !important;
+  font-size: 20px;
+  margin-top: 2.5%;
+}
+.StyledBox-sc-13pk1d4-0:nth-child(0) {
+  padding: 0 !important;
+  margin-right: 2%;
+}
+.StyledBox-sc-13pk1d4-0:nth-child(1) {
+  font-size: 18px;
+}
+.buzz {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 3%;
+}
+.ourStory {
+  margin-top: 3%;
 }
 
 * {
@@ -20,5 +37,3 @@
   padding: 0px 20px;
   min-width: 30px;
 } */
-
-

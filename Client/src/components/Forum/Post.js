@@ -81,46 +81,47 @@ function Post({
       </div>
       <div className="postBodyDiv">
         {/* UserInfo */}
-        <div className="postUserInfo">
-          <p>
-            <span className="name">{userData.name}</span>
-          </p>
-          <p className="username">
-            @
-            {userData.username}
-          </p>
-        </div>
+        <div onClick={viewPostRedirect}>
+          <div className="postUserInfo">
+            <p>
+              <span className="name">{userData.name}</span>
+            </p>
+            <p className="username">
+              @
+              {userData.username}
+            </p>
+          </div>
 
-        {/* Post body and title */}
-        <div className="mainPostDiv" role="post" onClick={viewPostRedirect}>
-          <p className="postTitle">{title}</p>
-          <p className="postBody">
-            {simplebody}
-            ...
-          </p>
-        </div>
-        {/* Category Tags  Time Created and Location */}
-        <div className="postFilter">
-          <p>
-            <span className="tag">{tag}</span>
-            {' '}
-            ·
-            {' '}
-            <span className="catagory">{category}</span>
-          </p>
-        </div>
+          {/* Post body and title */}
+          <div className="mainPostDiv" role="post">
+            <p className="postTitle">{title}</p>
+            <p className="postBody">
+              {simplebody}
+              ...
+            </p>
+          </div>
+          {/* Category Tags  Time Created and Location */}
+          <div className="postFilter">
+            <p>
+              <span className="tag">{tag}</span>
+              {' '}
+              ·
+              {' '}
+              <span className="catagory">{category}</span>
+            </p>
+          </div>
 
-        <div className="postCreatedInfo">
-          <p>
-            <span className="time">{newDate}</span>
-            {' '}
-            ·
-            {' '}
-            <span className="location">{location}</span>
-          </p>
+          <div className="postCreatedInfo">
+            <p>
+              <span className="time">{newDate}</span>
+              {' '}
+              ·
+              {' '}
+              <span className="location">{location}</span>
+            </p>
+          </div>
         </div>
         {/* Likes and Comments */}
-
         <div className="postInteractionInfo">
           <p>
             <LikePostButton user={user} postId={postId} />

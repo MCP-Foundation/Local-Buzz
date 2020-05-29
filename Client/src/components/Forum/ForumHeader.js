@@ -20,6 +20,7 @@ const [tag, setTag ] = useContext(TagContext)
         <button onClick={() => setTag("#Random")} class="btn color-7 btn-btn" href="">Random</button>
       </section>
 
+
       <div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>Start A Conversation!</Modal.Header>
