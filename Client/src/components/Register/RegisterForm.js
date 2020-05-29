@@ -143,7 +143,6 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
 
         {/* Modal for avatar customization */}
         <Button
-          fullWidth
           variant="contained"
           color="primary"
           onClick={handleShow}

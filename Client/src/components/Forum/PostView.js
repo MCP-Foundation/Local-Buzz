@@ -47,7 +47,6 @@ function PostView() {
     getPostData();
     setPostLoading(false);
   }, []);
-
   useEffect(() => {
     function getAllComments() {
       setCommentLoading(true);

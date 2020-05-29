@@ -100,3 +100,41 @@ span.time {
 .likes {
   margin-right: 30px;
 }
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #ddd;
+    color: #ddd;
+    text-decoration: none;
+    margin: 0px 10px 10px 0;
+    transition: all .6s;
+    min-width: 100px;
+    text-align: center
+}
+.btn:hover {
+    background: #ddd;
+    color: #fff;
+}
+.btn.btn-btn{
+    border-radius: 40px;
+}
+.btn.color-1 {border-color: #16A085;color: #16A085;}
+.btn.color-1:hover {background: #16A085;color: #fff;}
+.btn.color-2 {border-color: #27AE60;color: #27AE60;}
+.btn.color-2:hover {background: #27AE60;color: #fff;}
+.btn.color-3 {border-color: #2980B9;color: #2980B9;}
+.btn.color-3:hover {background: #2980B9;color: #fff;}
+.btn.color-4 {border-color: #8E44AD;color: #8E44AD;}
+.btn.color-4:hover {background: #8E44AD;color: #fff;}
+.btn.color-5 {border-color: #2C3E50;color: #2C3E50;}
+.btn.color-5:hover {background: #2C3E50;color: #fff;}
+.btn.color-6 {border-color: #F39C12;color: #F39C12;}
+.btn.color-6:hover {background: #F39C12;color: #fff;}
+.btn.color-7 {border-color: #D35400;color: #D35400;}
+.btn.color-7:hover {background: #D35400;color: #fff;}
+.btn.color-8 {border-color: #C0392B;color: #C0392B;}
+.btn.color-8:hover {background: #C0392B;color: #fff;}
+.btn.color-9 {border-color: #BDC3C7;color: #BDC3C7;}
+.btn.color-9:hover {background: #BDC3C7;color: #fff;}
+.btn.color-10 {border-color: #7F8C8D;color: #7F8C8D;}
+.btn.color-10:hover {background: #7F8C8D;color: #fff;}

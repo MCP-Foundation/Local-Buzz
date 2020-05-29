@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-// import { ProfileContext } from '../../contexts/profileContext'
 import { Favorite, Chat } from 'grommet-icons';
 import LikePostButton from '../LikeButton/LikePostButton';
 import './Posts.css';
