@@ -4,6 +4,7 @@ import { TagContext } from '../../contexts/tagContext'
 
 function ForumPosts() {
   const [tag, setTag ] = useContext(TagContext)
+  const [newPosts,setNewPosts] = useState(false)
   const [filteredPosts, setFilteredPosts] = useState(null);
   const [allPosts, setAllPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,9 +29,10 @@ function ForumPosts() {
   }, []);
   useEffect(()=>{
     function filter(){
-    console.log(allPosts)
-    console.log(allPosts.filter((post) => post.tag === "#GasMeUp"))
-  
+      if(tag !== []){
+        const newPosts = allPosts.filter((post) => post.tag === tag)
+        setFilteredPosts(newPosts)
+      }
   }
   filter()
   },[tag])

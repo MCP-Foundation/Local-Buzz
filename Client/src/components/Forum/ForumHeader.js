@@ -11,13 +11,13 @@ const [tag, setTag ] = useContext(TagContext)
         Checkout different tags and topics people are talking about!
       </p>
       <section className="ForumTags">
-        <button onClick={() => setTag('CovidResponse')} class="btn color-1 btn-btn" href="">CovidResponse</button>
-        <button onClick={() => setTag('StartABusiness')}  class="btn color-2 btn-btn" href="">StartABusiness</button>
-        <button onClick={() => setTag('HelpOurEmployees')} class="btn color-3 btn-btn" href="">HelpOurEmployees</button>
-        <button onClick={() => setTag('Finance')} class="btn color-4 btn-btn" href="">Finance</button>
-        <button onClick={() => setTag('Management')} class="btn color-5 btn-btn" href="">Management</button>
-        <button onClick={() => setTag('GasMeUp')} class="btn color-6 btn-btn" href="">GasMeUp</button>
-        <button onClick={() => setTag('Random')} class="btn color-7 btn-btn" href="">Random</button>
+        <button onClick={() => setTag("#CovidResponse")} class="btn color-1 btn-btn" href="">CovidResponse</button>
+        <button onClick={() => setTag("#StartABusiness")}  class="btn color-2 btn-btn" href="">StartABusiness</button>
+        <button onClick={() => setTag("#HelpOurEmployees")} class="btn color-3 btn-btn" href="">HelpOurEmployees</button>
+        <button onClick={() => setTag("#Finance")} class="btn color-4 btn-btn" href="">Finance</button>
+        <button onClick={() => setTag("#Management")} class="btn color-5 btn-btn" href="">Management</button>
+        <button onClick={() => setTag("#GasMeUp")} class="btn color-6 btn-btn" href="">GasMeUp</button>
+        <button onClick={() => setTag("#Random")} class="btn color-7 btn-btn" href="">Random</button>
       </section>
 
       <div>
