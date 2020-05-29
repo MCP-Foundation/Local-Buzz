@@ -1,5 +1,7 @@
+@import url('https://fonts.google.com/specimen/Montserrat?category=Sans+Serif&selection.family=Montserrat:wght@500');
 html, * {
 	outline: none;
 	box-sizing: border-box;
 	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
 }

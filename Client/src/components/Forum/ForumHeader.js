@@ -9,6 +9,13 @@ function ForumHeader({ show, handleClose }) {
     <section className="ForumHeaderComponent">
       <section className="ForumTags">
         <button
+          onClick={() => window.location.reload()}
+          class="btn color-1 btn-btn"
+          href=""
+        >
+          #AllPosts
+        </button>
+        <button
           onClick={() => setTag('#CovidResponse')}
           class="btn color-1 btn-btn"
           href=""

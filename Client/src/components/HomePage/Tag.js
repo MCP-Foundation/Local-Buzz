@@ -12,13 +12,21 @@ function Tag({ tagName, tagDescription, tagIcon }) {
         <img className="tagIcon" src={tagIcon}></img>
       </div>
       <div className="tagButton">
+      
+      {document.cookie ?         
         <Link to="/forum" replace>
           <Button
             primary
             label={`#${tagName}`}
-            onClick={() => setTag(`#${tagName}`)}
           />
-        </Link>
+        </Link>:
+        <Link to="/login" replace>
+          <Button
+            primary
+            label={`#${tagName}`}
+          />
+        </Link>}
+
       </div>
 
       <section className="TagDescription">
