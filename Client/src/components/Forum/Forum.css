@@ -12,15 +12,12 @@
   flex-direction: column-reverse;
 }
 .postFormSubmit {
-  align-items: center;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .forumHeader {
   margin: 0 auto 3% auto;
   font-size: 20px;
-}
-.mainPostDiv:hover {
-  background-color: #f1f0f0;
 }
 
 /* POST COMPONENT  */
@@ -47,10 +44,12 @@
   margin-right: 10px;
   padding-top: 10px;
 }
-.postBody {
+a.postBody {
   font-size: 20px;
-  color: #595959;
-  margin-right: 20px;
+  color: #014;
+}
+.postBody:hover {
+  background-color: #cdf;
 }
 .mainPostDiv {
   text-align: start;
@@ -58,7 +57,7 @@
 }
 .postFilter {
   text-align: start;
-  margin: 0;
+  margin: 20px;
 }
 
 .postUserInfo {
@@ -84,18 +83,18 @@ span.time {
 
 .tag {
   font-size: 20px;
-  margin: 10 10 10 0;
+  margin-top: 15px;
 }
 .category {
-  font-size: 20px;
-  margin: 10px;
+  font-size: 30px;
+  margin-top: 15px;
 }
 .time {
   font-size: 15px;
   margin: 10px;
 }
 .location {
-  font-size: 15px;
+  font-size: 10px;
   margin: 10px;
 }
 .userAvatar {
