@@ -19,9 +19,14 @@ function Navigation() {
   return (
     <section className="NavbarComponent">
       <Navbar className="navigation" collapseOnSelect expand="lg">
+      {document.cookie ?        
         <Navbar.Brand href="/forum">
           <NavLogo />
-        </Navbar.Brand>
+        </Navbar.Brand> :
+        <Navbar.Brand href="/login">
+          <NavLogo />
+        </Navbar.Brand>}
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
