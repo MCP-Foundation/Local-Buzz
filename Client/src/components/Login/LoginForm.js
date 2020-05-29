@@ -1,5 +1,4 @@
-import React, { useContext }  from 'react';
-import UserContext from '../../contexts/userContext'
+import React, { useContext } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,16 +12,21 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import UserContext from '../../contexts/userContext';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mcp-foundation.github.io/Small-Stories/">
+      <Link
+        color="inherit"
+        href="https://mcp-foundation.github.io/Small-Stories/"
+      >
         Small Stories
-      </Link>{' '}
+      </Link>
+      {' '}
       {new Date().getFullYear()}
-      {'.'}
+      .
     </Typography>
   );
 }
@@ -47,24 +51,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function LoginForm({ loginUser }) {
-  const user = useContext( UserContext )
+  const user = useContext(UserContext);
   const classes = useStyles();
 
   const handleSubmit = (e) => {
     // e.preventDefault();
-    fetch('/api/login', { method: 'POST', body: JSON.stringify({
-      email: e.target.elements.email.value,
-      password: e.target.elements.password.value
-    }) })
-    .then(res => {
+    fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: e.target.elements.email.value,
+        password: e.target.elements.password.value,
+      }),
+    }).then((res) => {
       if (res.status === 200) {
         user.setIsLoggedIn(true);
       }
-    })
-
-  }
+    });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -77,57 +81,64 @@ export default function LoginForm({ loginUser }) {
           Sign in
         </Typography>
         <section className="LoginFormComponent">
-        <form className={classes.form} noValidate onSubmit={handleSubmit} id="loginForm" action="/api/login" method="post">
-          <TextField
-            // htmlFor="email"
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            // htmlFor="password"
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
+          <form
+            className={classes.form}
+            noValidate
+            onSubmit={handleSubmit}
+            id="loginForm"
+            action="/api/login"
+            method="post"
           >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
+            <TextField
+              // htmlFor="email"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              // htmlFor="password"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="/register" variant="body2">
+                  Don't have an account? Sign Up Now!
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link href="/register" variant="body2">
-                {"Don't have an account? Sign Up Now!"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
+          </form>
         </section>
       </div>
       <Box mt={8}>
