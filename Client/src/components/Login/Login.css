@@ -1,3 +1,12 @@
 .LoginComponent {
   margin-top: 30px;
 }
+.registerFormButton {
+  display: flex;
+  justify-content: center;
+}
+
+.copywrite {
+  position: absolute;
+  bottom: 0;
+}
