@@ -5,3 +5,9 @@
 .anchor {
   color: white;
 }
+.footer {
+  margin: 0;
+  clear: both;
+  width: 100%;
+  position: relative;
+}

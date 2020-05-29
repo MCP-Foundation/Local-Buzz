@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
+import { Button } from 'grommet';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -17,16 +17,11 @@ import UserContext from '../../contexts/userContext';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link
-        color="inherit"
-        href="https://mcp-foundation.github.io/Small-Stories/"
-      >
-        Small Stories
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
+      {'© MCP Foundation '}
+      <Link color="inherit" href="/">
+        Local Buzz
+      </Link>{' '}
+      {new Date().getFullYear()}.
     </Typography>
   );
 }
@@ -117,21 +112,16 @@ export default function LoginForm({ loginUser }) {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
+            <div className="registerFormButton">
+              <Button
+                className="avatarFormSubmit"
+                primary
+                type="submit"
+                label="Log In"
+                className={classes.submit}
+              />
+            </div>
+            <Grid container justify="center">
               <Grid item>
                 <Link href="/register" variant="body2">
                   Don't have an account? Sign Up Now!
@@ -141,9 +131,11 @@ export default function LoginForm({ loginUser }) {
           </form>
         </section>
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
+      <Grid container justify="center">
+        <Box mt={8} className="copywrite">
+          <Copyright />
+        </Box>
+      </Grid>
     </Container>
   );
 }

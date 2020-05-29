@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
+
+import { Button } from 'grommet';
+import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
 import { Form, Modal } from 'react-bootstrap';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Small Stories
+      {'© MCP Foundation '}
+      <Link color="inherit" href="/">
+        Local Buzz
       </Link>{' '}
       {new Date().getFullYear()}.
     </Typography>
@@ -137,18 +136,18 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography className="formTitle" component="h1" variant="h5">
           Sign up
         </Typography>
 
         {/* Modal for avatar customization */}
+
         <Button
-          variant="contained"
-          color="primary"
+          primary
+          type="submit"
+          label="Create an avatar!"
           onClick={handleShow}
-        >
-          Create an avatar!
-        </Button>
+        />
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>Design your avatar!</Modal.Header>
@@ -412,15 +411,15 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
                 <option value="Black">Black</option>
               </Form.Control>
             </Form.Group>
-
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={handleClose}
-            >
-              Yep, that's me!
-            </Button>
+            <div className="registerFormButton">
+              <Button
+                className="avatarFormSubmit"
+                primary
+                type="submit"
+                onClick={handleClose}
+                label="Yep, that's me!"
+              />
+            </div>
           </Modal.Body>
         </Modal>
 
@@ -485,25 +484,29 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
               />
             </Grid>
             <Grid item xs={12}>
-              <select id="address" name="address">
-                <option value="Bronx">Bronx</option>
-                <option value="Brooklyn">Brooklyn</option>
-                <option value="Manhattan">Manhattan</option>
-                <option value="Queens">Queens</option>
-                <option value="Staten Island">Staten Island</option>
-              </select>
+              <Form.Group controlId="skinColorForm">
+                <Form.Label>City</Form.Label>
+                <Form.Control as="select" id="address" name="address">
+                  <option value="Bronx">Bronx</option>
+                  <option value="Brooklyn">Brooklyn</option>
+                  <option value="Manhattan">Manhattan</option>
+                  <option value="Queens">Queens</option>
+                  <option value="Staten Island">Staten Island</option>
+                  <option value="Outside of NYC">Outside of NYC</option>
+                </Form.Control>
+              </Form.Group>
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
+          <div className="registerFormButton">
+            <Button
+              className="avatarFormSubmit"
+              primary
+              type="submit"
+              label="Sign Up"
+              className={classes.submit}
+            />
+          </div>
+          <Grid container justify="center">
             <Grid item>
               <Link href="/login" variant="body2">
                 Already have an account? Sign in
@@ -512,9 +515,11 @@ export default function RegisterForm({ show, handleClose, handleShow }) {
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
+      <Grid container justify="center">
+        <Box mt={8} className="copywrite">
+          <Copyright />
+        </Box>
+      </Grid>
     </Container>
   );
 }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Button } from 'grommet';
 import './Forum.css';
-import Navigation from '../Navigation/Navigation';
 import ForumHeader from './ForumHeader';
 import ForumPosts from './ForumPosts';
-import Banner from '../HomePage/Banner';
+import Footer from '../Footer/Footer';
 
 class Forum extends Component {
   state = {
@@ -15,6 +14,7 @@ class Forum extends Component {
   postFormRedirect = () => {
     window.location.href = '/post';
   };
+
   render() {
     return (
       <section className="ForumComponent">
@@ -29,6 +29,7 @@ class Forum extends Component {
         />
         <ForumHeader show={this.state.show} handleClose={this.handleClose} />
         <ForumPosts getAllPostsData={this.getAllPostsData} />
+        <Footer />
       </section>
     );
   }
