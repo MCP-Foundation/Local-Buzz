@@ -21,6 +21,10 @@
   font-size: 30px;
   text-align: center;
 }
+.userPostsTitle {
+  font-size: 20px;
+  margin: 2% auto 3% auto;
+}
 
 /* @media screen and (min-width: 300px) {
   .ProfileComponent {
