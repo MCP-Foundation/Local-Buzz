@@ -36,11 +36,11 @@ function Post({
   useEffect(() => {
     document.cookie
       ? fetch('/api/userObj')
-        .then((res) => {
-          if (res.status === 200) return res.json();
-          return null;
-        })
-        .then((json) => setUser(json))
+          .then((res) => {
+            if (res.status === 200) return res.json();
+            return null;
+          })
+          .then((json) => setUser(json))
       : setUser(null);
   }, [setUser]);
 
@@ -79,59 +79,52 @@ function Post({
       <div className="userAvatarDiv">
         <img className="userAvatar" alt="user avatar" src={userData.avatar} />
       </div>
-      <div className="postBodyDiv">
-        {/* UserInfo */}
-        <div onClick={viewPostRedirect}>
-          <div className="postUserInfo">
-            <p>
-              <span className="name">{userData.name}</span>
-            </p>
-            <p className="username">
-              @
-              {userData.username}
-            </p>
-          </div>
+      {/* UserInfo */}
+      <div>
+        <div className="postUserInfo">
+          <p>
+            <span className="name">{userData.name}</span>
+          </p>
+          <p className="username">@{userData.username}</p>
+        </div>
 
-          {/* Post body and title */}
-          <div className="mainPostDiv" role="post">
-            <p className="postTitle">{title}</p>
-            <p className="postBody">
-              {simplebody}
-              ...
-            </p>
-          </div>
+        {/* Post body and title */}
+        <div className="mainPostDiv" role="post">
+          <p className="postTitle">{title}</p>
+
+          <a
+            className="postBody"
+            onClick={viewPostRedirect}
+            src={`/viewPost/${postDataContext.postId}/${postDataContext.userId}`}
+          >
+            {' '}
+            {simplebody}...
+          </a>
           {/* Category Tags  Time Created and Location */}
           <div className="postFilter">
             <p>
-              <span className="tag">{tag}</span>
-              {' '}
-              ·
-              {' '}
+              <span className="tag">{tag}</span> ·{' '}
               <span className="catagory">{category}</span>
             </p>
           </div>
 
           <div className="postCreatedInfo">
             <p>
-              <span className="time">{newDate}</span>
-              {' '}
-              ·
-              {' '}
+              <span className="time">{newDate}</span> ·{' '}
               <span className="location">{location}</span>
             </p>
           </div>
-        </div>
-        {/* Likes and Comments */}
-        <div className="postInteractionInfo">
-          <p>
-            <LikePostButton user={user} postId={postId} />
 
-            <span className="comments" onClick={viewPostRedirect}>
-              {comments}
-              {' '}
-              <Chat color="#57e021" />
-            </span>
-          </p>
+          {/* Likes and Comments */}
+          <div className="postInteractionInfo">
+            <p>
+              <LikePostButton user={user} postId={postId} />
+
+              <span className="comments" onClick={viewPostRedirect}>
+                {comments} <Chat color="#57e021" />
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -159,12 +159,9 @@ function ForumHeader({ show, handleClose }) {
                 </Form.Control>
               </Form.Group>
 
-              <Button
-                className="psotFormSubmit"
-                primary
-                type="submit"
-                label="Post"
-              />
+              <div className="postFormSubmit">
+                <Button primary type="submit" label="Post" />
+              </div>
             </Form>
           </Modal.Body>
         </Modal>

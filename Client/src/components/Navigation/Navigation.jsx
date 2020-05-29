@@ -1,10 +1,9 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavDropdown, ButtonGroup } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import '../Navigation/Navigation.css';
 import NavLogo from '../Logo/Logo';
-import { Grommet, Box, Menu } from 'grommet';
+import { Menu } from 'grommet';
 import { Power, User, UserAdmin } from 'grommet-icons';
 
 function Navigation() {
