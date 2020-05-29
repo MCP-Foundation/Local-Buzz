@@ -3,6 +3,7 @@ import { Button } from 'grommet';
 import './Forum.css';
 import ForumHeader from './ForumHeader';
 import ForumPosts from './ForumPosts';
+import Footer from '../Footer/Footer';
 
 class Forum extends Component {
   state = {
@@ -28,6 +29,7 @@ class Forum extends Component {
         />
         <ForumHeader show={this.state.show} handleClose={this.handleClose} />
         <ForumPosts getAllPostsData={this.getAllPostsData} />
+        <Footer />
       </section>
     );
   }

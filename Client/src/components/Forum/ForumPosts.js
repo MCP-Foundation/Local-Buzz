@@ -37,6 +37,8 @@ function ForumPosts() {
     }
     filter();
   }, [tag]);
+  console.log(tag);
+  console.log(filteredPosts);
 
   return (
     <>
