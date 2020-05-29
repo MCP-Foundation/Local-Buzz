@@ -23,6 +23,13 @@
 .ourStory {
   margin-top: 3%;
 }
+.hide{
+  margin-bottom:0;
+}
+.userDropdown{
+  margin-right:2%;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

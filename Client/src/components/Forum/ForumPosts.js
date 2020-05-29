@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import Post from './Post';
+import { TagContext } from '../../contexts/tagContext'
 
 function ForumPosts() {
-  const [allPosts, setAllPosts] = useState(null);
+  const [tag, setTag ] = useContext(TagContext)
+  const [newPosts,setNewPosts] = useState(false)
+  const [filteredPosts, setFilteredPosts] = useState(null);
+  const [allPosts, setAllPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -23,10 +27,19 @@ function ForumPosts() {
     getAllPostsData();
     setIsLoading(false);
   }, []);
+  useEffect(()=>{
+    function filter(){
+      if(tag !== []){
+        const newPosts = allPosts.filter((post) => post.tag === tag)
+        setFilteredPosts(newPosts)
+      }
+  }
+  filter()
+  },[tag])
 
-  console.log(allPosts);
+
   return (
-    <>
+   <>
       {isLoading ? (
         <p>
           {' '}
@@ -35,22 +48,40 @@ function ForumPosts() {
       ) : (
         <section className="ForumPostComponent">
           <section className="ForumPostsComponent">
-            {allPosts
-              && allPosts.map((post) => (
-                <Post
-                  postId={post.post_id}
-                  userId={post.user_id}
-                  title={post.title}
-                  category={post.category}
-                  tag={post.tag}
-                  postBody={post.post_body}
-                  date={post.date_created}
-                  location={post.location}
-                  likes={post.likes}
-                  setIsLoading={setIsLoading}
-                  setError={setError}
-                />
-              ))}
+            {
+            filteredPosts ?
+                filteredPosts
+                && filteredPosts.map((post) => (
+                  <Post
+                    postId={post.post_id}
+                    userId={post.user_id}
+                    title={post.title}
+                    category={post.category}
+                    tag={post.tag}
+                    postBody={post.post_body}
+                    date={post.date_created}
+                    location={post.location}
+                    likes={post.likes}
+                    setIsLoading={setIsLoading}
+                    setError={setError}
+                  />
+                )) : 
+                allPosts
+                && allPosts.map((post) => (
+                  <Post
+                    postId={post.post_id}
+                    userId={post.user_id}
+                    title={post.title}
+                    category={post.category}
+                    tag={post.tag}
+                    postBody={post.post_body}
+                    date={post.date_created}
+                    location={post.location}
+                    likes={post.likes}
+                    setIsLoading={setIsLoading}
+                    setError={setError}
+                  />
+                ))}
           </section>
         </section>
       )}

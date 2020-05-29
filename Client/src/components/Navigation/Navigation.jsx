@@ -34,7 +34,7 @@ function Navigation() {
                 Buzz
               </Nav.Link>
             ) : (
-              <p></p>
+              <p className="hide"></p>
             )}
             {document.cookie ? (
               <Menu
@@ -66,7 +66,7 @@ function Navigation() {
               </Nav.Link>
             )}
             {document.cookie ? (
-              <p></p>
+              <p className="hide"></p>
             ) : (
               <Nav.Link
                 className="nav-item signup"

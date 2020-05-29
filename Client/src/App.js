@@ -5,6 +5,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import UserProvider from './contexts/userContext.js';
+import { TagProvider }  from "./contexts/tagContext";
 
 import HomePage from './components/HomePage/HomePage';
 import Forum from './components/Forum/Forum';
@@ -18,6 +19,7 @@ import PostView from './components/Forum/PostView';
 function App() {
   return (
     <Router>
+      <TagProvider>
       <UserProvider>
         <section className="App">
           <Navigation />
@@ -43,12 +45,13 @@ function App() {
             <Route path="/post">
               <PostForm />
             </Route>
-            <Route path="/viewPost/:id">
+            <Route path="/viewPost/:id/:user_id">
               <PostView/>
             </Route>
           </Switch>
         </section>
       </UserProvider>
+      </TagProvider>
     </Router>
   );
 }
