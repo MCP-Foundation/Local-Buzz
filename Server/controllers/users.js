@@ -36,11 +36,11 @@ const login = async (req, res) => {
   try {
     const user = await User.getByEmail(email);
     if (!user) {
-      return res.status(401).send('User not found.');
+      return res.status(401).redirect('/login');
     }
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
-      return res.send('Incorrect Password.');
+      return res.status(404).redirect('/login');
     }
     const payload = {
       email,
@@ -62,7 +62,7 @@ const login = async (req, res) => {
 const authenticate = async (req, res, next) => {
   if (!req.cookies.userToken) {
     // res.status(401);
-    return res.send('please log in');
+    return res.status(401).redirect('/login');
   }
   try {
     const payload = await jwt.verify(req.cookies.userToken, 'secret');
