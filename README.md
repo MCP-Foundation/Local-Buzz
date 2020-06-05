@@ -33,6 +33,9 @@
 - Node 0.10.x
 - Redis 2.6.x
 - Postgresql 9.1.x
+- PG 8.1.0.x
+- Express 4.17.1.x
+- Knex.js 0.21.x
 
 ## Development
 
