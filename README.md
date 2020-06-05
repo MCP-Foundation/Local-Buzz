@@ -38,16 +38,21 @@
 ## Development
 
 ### Installing Dependencies
+From within the `Server` directory:
+```sh
+npm install
+```
 
-From within the client directory:
+From within the `client` directory:
 
 ```sh
-<COMMANDS_HERE>
+npm install
+npm start
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECTS_TAB).
+View the project roadmap [here](https://github.com/MCP-Foundation/Local-Buzz/projects).
 
 ## Contributing
 
