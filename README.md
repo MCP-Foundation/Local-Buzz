@@ -1,16 +1,14 @@
 # LocalBuzz
 
-#### A project to put the needs of small businesses first
+#### A project to put the needs of small businesses first.
 
 - LocalBuzz is a small business forum for small business owners and employees to share advice and stories to empower eachother.
 
 ## Team
 
-
 - **Product Owner**: Mark Griffith
 - **Scrum Master**: Carmen Salas
-
-- **Development Team Members**: Carmen Salas, Peter Rose
+- **Development Team Members**: Peter Rose, Carmen Salas
 
 ## Table of Contents
 
