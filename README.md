@@ -23,8 +23,8 @@
 ## Usage
 
 > `npm i` - To install dependencies
-> `npm start` - To run the app
-> `npm index.js` - To run the server
+> `npm start` - To run the App
+> `npm index.js` - To run the Server
 
 ## Requirements
 
