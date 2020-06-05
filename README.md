@@ -1,8 +1,8 @@
-# Small-Stories
+# LocalBuzz
 
 #### A project to put the needs of small businesses first
 
-- Small Stories is a small business forum for small business owners and employees to share advice and stories to empower eachother.
+- LocalBuzz is a small business forum for small business owners and employees to share advice and stories to empower eachother.
 
 ## Team
 
