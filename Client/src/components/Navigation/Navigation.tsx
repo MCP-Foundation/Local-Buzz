@@ -7,7 +7,7 @@ import { Menu } from 'grommet';
 import { Power, User, UserAdmin } from 'grommet-icons';
 
 function Navigation() {
-  function deleteCookie(name) {
+  function deleteCookie(name: string) {
     document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     window.location.replace('/');
   }
@@ -18,13 +18,15 @@ function Navigation() {
   return (
     <section className="NavbarComponent">
       <Navbar className="navigation" collapseOnSelect expand="lg">
-      {document.cookie ?        
-        <Navbar.Brand href="/forum">
-          <NavLogo />
-        </Navbar.Brand> :
-        <Navbar.Brand href="/login">
-          <NavLogo />
-        </Navbar.Brand>}
+        {document.cookie ? (
+          <Navbar.Brand href="/forum">
+            <NavLogo />
+          </Navbar.Brand>
+        ) : (
+          <Navbar.Brand href="/login">
+            <NavLogo />
+          </Navbar.Brand>
+        )}
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -65,18 +67,14 @@ function Navigation() {
                 ]}
               />
             ) : (
-              <Nav.Link className="nav-item" className="Login" href="/login">
+              <Nav.Link className="nav-item" href="/login">
                 Login
               </Nav.Link>
             )}
             {document.cookie ? (
               <p className="hide"></p>
             ) : (
-              <Nav.Link
-                className="nav-item signup"
-                className="signUp"
-                href="/register"
-              >
+              <Nav.Link className="nav-item" href="/register">
                 Sign Up
               </Nav.Link>
             )}

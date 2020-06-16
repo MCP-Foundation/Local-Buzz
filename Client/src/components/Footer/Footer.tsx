@@ -1,7 +1,7 @@
 import React from 'react';
 import { Github, Twitter, Instagram } from 'grommet-icons';
 
-import { Anchor, Box, Footer, grommet, Grommet, Main, Text } from 'grommet';
+import { Anchor, Box, Footer, Text } from 'grommet';
 
 import './Footer.css';
 import logo from '../Logo/localbuzzWhite.png';
@@ -12,7 +12,7 @@ const Media = () => (
       className="anchor"
       a11yTitle="Keep up with us on Instagram"
       href="https://www.instagram.com/marcylabschool/?hl=en"
-      icon={<Twitter color="white" />}
+      icon={<Instagram color="white" />}
     />
     <Anchor
       className="anchor"

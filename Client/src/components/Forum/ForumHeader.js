@@ -10,57 +10,49 @@ function ForumHeader({ show, handleClose }) {
       <section className="ForumTags">
         <button
           onClick={() => window.location.reload()}
-          class="btn color-1 btn-btn"
-          href=""
+          className="btn color-1 btn-btn"
         >
           #AllPosts
         </button>
         <button
           onClick={() => setTag('#CovidResponse')}
-          class="btn color-1 btn-btn"
-          href=""
+          className="btn color-1 btn-btn"
         >
           #CovidResponse
         </button>
         <button
           onClick={() => setTag('#StartABusiness')}
-          class="btn color-2 btn-btn"
-          href=""
+          className="btn color-2 btn-btn"
         >
           #StartABusiness
         </button>
         <button
           onClick={() => setTag('#HelpOurEmployees')}
-          class="btn color-3 btn-btn"
-          href=""
+          className="btn color-3 btn-btn"
         >
           #HelpOurEmployees
         </button>
         <button
           onClick={() => setTag('#Finance')}
-          class="btn color-4 btn-btn"
-          href=""
+          className="btn color-4 btn-btn"
         >
           #Finance
         </button>
         <button
           onClick={() => setTag('#Management')}
-          class="btn color-5 btn-btn"
-          href=""
+          className="btn color-5 btn-btn"
         >
           #Management
         </button>
         <button
           onClick={() => setTag('#GasMeUp')}
-          class="btn color-6 btn-btn"
-          href=""
+          className="btn color-6 btn-btn"
         >
           #GasMeUp
         </button>
         <button
           onClick={() => setTag('#Random')}
-          class="btn color-7 btn-btn"
-          href=""
+          className="btn color-7 btn-btn"
         >
           #Random
         </button>

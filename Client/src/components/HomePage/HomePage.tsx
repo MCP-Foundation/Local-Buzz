@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import '../HomePage/HomePage.css';
-import Banner from '../HomePage/Banner';
-import About from '../HomePage/About';
-import Tag from '../HomePage/Tag';
+import Banner from './Banner';
+import About from './About';
+import Tag from './Tag';
 import Footer from '../Footer/Footer';
 
 class HomePage extends Component {
@@ -18,13 +18,11 @@ class HomePage extends Component {
     tagDescription3:
       'A tag to help the employees of non-essential businesses during the COVID-19 pandemic.',
   };
-  forumPageRedirect = () => {
-    window.location.href = '/forum';
-  };
+
   render() {
     return (
       <section className="HomePage">
-        <Banner forumPageRedirect={this.forumPageRedirect} />
+        <Banner />
         <section className="aboutSection">
           <section className="HomePageAbout">
             <About />
