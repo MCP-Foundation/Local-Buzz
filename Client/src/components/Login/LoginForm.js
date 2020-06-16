@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginForm({ loginUser }) {
+export default function LoginForm() {
   const user = useContext(UserContext);
   const classes = useStyles();
 

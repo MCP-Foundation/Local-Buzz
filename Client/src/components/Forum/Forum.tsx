@@ -28,7 +28,7 @@ class Forum extends Component {
           label="Start a conversation"
         />
         <ForumHeader show={this.state.show} handleClose={this.handleClose} />
-        <ForumPosts getAllPostsData={this.getAllPostsData} />
+        <ForumPosts />
         <Footer />
       </section>
     );
